@@ -94,15 +94,16 @@ class subscription(Resource):
     def get(self):
         try:
             db = get_db()
-            cursor = db.execute('SELECT subscriptionName, destinationGroupName, sensorName, subscriptionInterval FROM subscription ORDER BY subscriptionName desc')
+            cursor = db.execute(
+                'SELECT subscriptionName, destinationGroupName, sensorName, subscriptionInterval FROM subscription ORDER BY subscriptionName DESC')
             data = cursor.fetchall()
-	
+
             subscription_list = []
-            for subsciption in data:
+            for subscription in data:
                 i = {
-                    'subscriptionName': subsciption[0],
-                    'destinationGroupName': subsciption[1],
-                    'sensorName': subsciption[2],
+                    'subscriptionName': subscription[0],
+                    'destinationGroupName': subscription[1],
+                    'sensorName': subscription[2],
                     'subscriptionInterval': subscription[3]
                 }
                 subscription_list.append(i)
@@ -154,16 +155,17 @@ class destinationGroup(Resource):
     def get(self):
         try:
             db = get_db()
-            cursor = db.execute('SELECT subscriptionName, destinationGroupName, sensorName, subscriptionInterval FROM subscription ORDER BY subscriptionName desc')
+            cursor = db.execute('SELECT destinationGroupName, destinationGroupAddress, destinationGroupPort, destinationGroupEncoding, destinationGroupProtocol FROM destinationGroup ORDER BY destinationGroupName desc')
             data = cursor.fetchall()
 	
             destinationGroup_list = []
             for destinationGroup in data:
                 i = {
-                    'subscriptionName': destinationGroup[0],
-                    'destinationGroupName': destinationGroup[1],
-                    'sensorName': destinationGroup[2],
-                    'subscriptionInterval': destinationGroup[3]
+                    'destinationGroupName': destinationGroup[0],
+                    'destinationGroupAddress': destinationGroup[1],
+                    'destinationGroupPort': destinationGroup[2],
+                    'destinationGroupEncoding': destinationGroup[3],
+                    'destinationGroupProtocol': destinationGroup[4]
                 }
                 destinationGroup_list.append(i)
 	
@@ -219,5 +221,5 @@ api.add_resource(destinationGroup, '/destinationGroup')
 api.add_resource(sensor, '/sensor')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5002, debug=True)
+    app.run(host='0.0.0.0', port=5002, debug=True, threaded=True)
 

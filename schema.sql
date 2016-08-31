@@ -61,7 +61,7 @@ create table policy (
     policyDescription text not null,
     policyComment text,
     policyIdentifier text not null,
-    policyPeriod text not null,
+    policyPeriod double not null,
     PRIMARY KEY(policyName)
 );
 

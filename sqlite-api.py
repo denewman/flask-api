@@ -343,7 +343,7 @@ class policy(Resource):
             parser.add_argument('policyDescription', type=str, help='')
             parser.add_argument('policyComment', type=str, help='')
             parser.add_argument('policyIdentifier', type=str, help='')
-            parser.add_argument('policyPeriod', type=str, help='')
+            parser.add_argument('policyPeriod', type=float, help='')
             args = parser.parse_args()
 
             _policyName = args['policyName']

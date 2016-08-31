@@ -21,4 +21,10 @@ ___
     - **parameters:** destinationGroupName (string), destinationGroupAddress (string), destinationGroupPort (string), destinationGroupEncoding (string), destinationGroupProtocol (string)
 - http://localhost:5002/sensor
     - **parameters:** sensorName (string)
+- http://localhost:5002/policyGroup
+    - **parameters:** policyGroupName (string), collectorName (string), policyName (string)
+- http://localhost:5002/collector
+    - **parameters:** collectorName (string), collectorAddress (string), collectorEncoding (string), collectorPort (string), collectorProtocol (string)
+- http://localhost:5002/policy
+    - **parameters:** policyName (string), policyDescription (string), policyComment (string), policyIdentifier (string), policyPeriod (integer)
     

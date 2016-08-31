@@ -393,7 +393,7 @@ class policy(Resource):
                 }
                 policy_list.append(i)
 
-            return {'Status Code': '200', 'collector': policy_list}
+            return {'Status Code': '200', 'policy': policy_list}
 
         except Exception as e:
             return {'error': str(e)}

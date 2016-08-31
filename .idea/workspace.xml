@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a9e0e7a-01a7-4246-b05a-2fc5ceca6dda" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flask.db" afterPath="$PROJECT_DIR$/flask.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/schema.sql" afterPath="$PROJECT_DIR$/schema.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sqlite-api.py" afterPath="$PROJECT_DIR$/sqlite-api.py" />
     </list>
     <ignored path="flask-api.iws" />
@@ -31,22 +29,22 @@
       <file leaf-file-name="sqlite-api.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sqlite-api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="405" column="34" selection-start-line="405" selection-start-column="34" selection-end-line="405" selection-end-column="34" />
+            <state relative-caret-position="500">
+              <caret line="395" column="49" selection-start-line="395" selection-start-column="49" selection-end-line="395" selection-end-column="49" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <marker date="1472623048000" expanded="true" signature="2476:2595" ph="INSERT INTO subscription... " />
-                <marker date="1472623048000" expanded="true" signature="3260:3388" ph="SELECT subsc... subscription" />
-                <marker date="1472623048000" expanded="true" signature="4945:5118" ph="INSERT INTO destinationGroup... " />
-                <marker date="1472623048000" expanded="true" signature="5960:6143" ph="SELECT subsc... subscription" />
-                <marker date="1472623048000" expanded="true" signature="7225:7267" ph="INSERT INTO sensor... " />
-                <marker date="1472623048000" expanded="true" signature="7712:7761" ph="SELECT senso... sensor" />
-                <marker date="1472623048000" expanded="true" signature="8832:8917" ph="INSERT INTO subscription... " />
-                <marker date="1472623048000" expanded="true" signature="9570:9666" ph="SELECT subsc... subscription" />
-                <marker date="1472623048000" expanded="true" signature="11050:11181" ph="INSERT INTO destinationGroup... " />
-                <marker date="1472623048000" expanded="true" signature="12064:12198" ph="SELECT desti... destinationGroup" />
-                <marker date="1472623048000" expanded="true" signature="13652:13772" ph="INSERT INTO collector... " />
-                <marker date="1472623048000" expanded="true" signature="14628:14748" ph="SELECT colle... collector" />
+                <marker date="1472632607000" expanded="true" signature="2476:2595" ph="INSERT INTO subscription... " />
+                <marker date="1472632607000" expanded="true" signature="3260:3388" ph="SELECT subsc... subscription" />
+                <marker date="1472632607000" expanded="true" signature="4945:5118" ph="INSERT INTO destinationGroup... " />
+                <marker date="1472632607000" expanded="true" signature="5960:6143" ph="SELECT subsc... subscription" />
+                <marker date="1472632607000" expanded="true" signature="7225:7267" ph="INSERT INTO sensor... " />
+                <marker date="1472632607000" expanded="true" signature="7712:7761" ph="SELECT senso... sensor" />
+                <marker date="1472632607000" expanded="true" signature="8832:8917" ph="INSERT INTO subscription... " />
+                <marker date="1472632607000" expanded="true" signature="9570:9666" ph="SELECT subsc... subscription" />
+                <marker date="1472632607000" expanded="true" signature="11050:11181" ph="INSERT INTO destinationGroup... " />
+                <marker date="1472632607000" expanded="true" signature="12064:12198" ph="SELECT desti... destinationGroup" />
+                <marker date="1472632607000" expanded="true" signature="13652:13772" ph="INSERT INTO collector... " />
+                <marker date="1472632607000" expanded="true" signature="14628:14748" ph="SELECT colle... collector" />
               </folding>
             </state>
           </provider>
@@ -83,9 +81,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="34" />
-    <option name="y" value="334" />
+    <option name="y" value="274" />
     <option name="width" value="1212" />
-    <option name="height" value="400" />
+    <option name="height" value="460" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -383,7 +381,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="34" y="334" width="1212" height="400" extended-state="0" />
+    <frame x="34" y="274" width="1212" height="460" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13118812" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -392,7 +390,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5377644" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45524296" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -432,22 +430,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sqlite-api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="405" column="34" selection-start-line="405" selection-start-column="34" selection-end-line="405" selection-end-column="34" />
+        <state relative-caret-position="500">
+          <caret line="395" column="49" selection-start-line="395" selection-start-column="49" selection-end-line="395" selection-end-column="49" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <marker date="1472623048000" expanded="true" signature="2476:2595" ph="INSERT INTO subscription... " />
-            <marker date="1472623048000" expanded="true" signature="3260:3388" ph="SELECT subsc... subscription" />
-            <marker date="1472623048000" expanded="true" signature="4945:5118" ph="INSERT INTO destinationGroup... " />
-            <marker date="1472623048000" expanded="true" signature="5960:6143" ph="SELECT subsc... subscription" />
-            <marker date="1472623048000" expanded="true" signature="7225:7267" ph="INSERT INTO sensor... " />
-            <marker date="1472623048000" expanded="true" signature="7712:7761" ph="SELECT senso... sensor" />
-            <marker date="1472623048000" expanded="true" signature="8832:8917" ph="INSERT INTO subscription... " />
-            <marker date="1472623048000" expanded="true" signature="9570:9666" ph="SELECT subsc... subscription" />
-            <marker date="1472623048000" expanded="true" signature="11050:11181" ph="INSERT INTO destinationGroup... " />
-            <marker date="1472623048000" expanded="true" signature="12064:12198" ph="SELECT desti... destinationGroup" />
-            <marker date="1472623048000" expanded="true" signature="13652:13772" ph="INSERT INTO collector... " />
-            <marker date="1472623048000" expanded="true" signature="14628:14748" ph="SELECT colle... collector" />
+            <marker date="1472632607000" expanded="true" signature="2476:2595" ph="INSERT INTO subscription... " />
+            <marker date="1472632607000" expanded="true" signature="3260:3388" ph="SELECT subsc... subscription" />
+            <marker date="1472632607000" expanded="true" signature="4945:5118" ph="INSERT INTO destinationGroup... " />
+            <marker date="1472632607000" expanded="true" signature="5960:6143" ph="SELECT subsc... subscription" />
+            <marker date="1472632607000" expanded="true" signature="7225:7267" ph="INSERT INTO sensor... " />
+            <marker date="1472632607000" expanded="true" signature="7712:7761" ph="SELECT senso... sensor" />
+            <marker date="1472632607000" expanded="true" signature="8832:8917" ph="INSERT INTO subscription... " />
+            <marker date="1472632607000" expanded="true" signature="9570:9666" ph="SELECT subsc... subscription" />
+            <marker date="1472632607000" expanded="true" signature="11050:11181" ph="INSERT INTO destinationGroup... " />
+            <marker date="1472632607000" expanded="true" signature="12064:12198" ph="SELECT desti... destinationGroup" />
+            <marker date="1472632607000" expanded="true" signature="13652:13772" ph="INSERT INTO collector... " />
+            <marker date="1472632607000" expanded="true" signature="14628:14748" ph="SELECT colle... collector" />
           </folding>
         </state>
       </provider>

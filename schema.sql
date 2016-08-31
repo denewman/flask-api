@@ -49,18 +49,20 @@ create table linkSensorPath (
     PRIMARY KEY(sensorName, sensorPathName)
 );
 
-create table policy (
-    policyName text not null,
-    PRIMARY KEY(policyName)
-);
-
 create table policyGroup (
     policyGroupName text not null,
-    policyGroupDescription text not null,
-    policyGroupComment text,
-    policyGroupIdentifier text not null,
-    policyGroupPeriod text not null,
+    collectorName text not null,
+    policyName text not null,
     PRIMARY KEY(policyGroupName)
+);
+
+create table policy (
+    policyName text not null,
+    policyDescription text not null,
+    policyComment text,
+    policyIdentifier text not null,
+    policyPeriod text not null,
+    PRIMARY KEY(policyName)
 );
 
 create table policyPath (
@@ -74,7 +76,7 @@ create table linkPolicyPath (
     policyPathName text not null,
     PRIMARY KEY(policyName, policyPathName),
     FOREIGN KEY(policyName) REFERENCES policy(policyName),
-    FOREIGN KEY(policyPathName) REFERENCES policyPah(policyPathName)
+    FOREIGN KEY(policyPathName) REFERENCES policyPath(policyPathName)
 );
 
 create table collector (

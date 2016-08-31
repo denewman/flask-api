@@ -216,9 +216,194 @@ class sensor(Resource):
         except Exception as e:
             return {'error': str(e)}
 
+
+class policyGroup(Resource):
+    def post(self):
+        try:
+            # Parse the arguments
+            parser = reqparse.RequestParser()
+            parser.add_argument('policyGroupName', type=str, help='Policy Group name to create policy')
+            parser.add_argument('collectorName', type=str, help='collector name to create policy')
+            parser.add_argument('policyName', type=str, help='policy name to create policy')
+            args = parser.parse_args()
+
+            _policyGroupName = args['policyGroupName']
+            _collectorName = args['collectorName']
+            _policyName = args['policyName']
+
+            db = get_db()
+            cursor = db.execute(
+                'INSERT INTO policyGroup (policyGroupName, collectorName, policyName) values (?, ?, ?)',
+                [_policyGroupName, _collectorName, _policyName])
+            data = cursor.fetchall()
+
+            if len(data) is 0:
+                db.commit()
+                return {'policyGroup': {'policyGroupName': _policyGroupName,
+                                         'collectorName': _collectorName,
+                                         'policyName': _policyName}}
+            else:
+                return {'Status Code': '1000', 'Message': str(data[0])}
+
+        except Exception as e:
+            return {'error': str(e)}
+
+    def get(self):
+        try:
+            db = get_db()
+            cursor = db.execute(
+                'SELECT policyGroupName, collectorName, policyName FROM policyGroup ORDER BY policyGroupName DESC')
+            data = cursor.fetchall()
+
+            policyGroup_list = []
+            for policyGroup in data:
+                i = {
+                    'policyGroupName': policyGroup[0],
+                    'collectorName': policyGroup[1],
+                    'policyName': policyGroup[2]
+                }
+                policyGroup_list.append(i)
+
+            return {'Status Code': '200', 'policyGroup': policyGroup_list}
+
+        except Exception as e:
+            return {'error': str(e)}
+
+
+class collector(Resource):
+    def post(self):
+        try:
+            # Parse the arguments
+            parser = reqparse.RequestParser()
+            parser.add_argument('collectorName', type=str, help='')
+            parser.add_argument('collectorAddress', type=str, help='')
+            parser.add_argument('collectorEncoding', type=str, help='')
+            parser.add_argument('collectorPort', type=str, help='')
+            parser.add_argument('collectorProtocol', type=str, help='')
+            args = parser.parse_args()
+
+            _collectorName = args['collectorName']
+            _collectorAddress = args['collectorAddress']
+            _collectorEncoding = args['collectorEncoding']
+            _collectorPort = args['collectorPort']
+            _collectorProtocol = args['collectorProtocol']
+
+            db = get_db()
+            cursor = db.execute(
+                'INSERT INTO collector (collectorName, collectorAddress, collectorEncoding, collectorPort, collectorProtocol) values (?, ?, ?, ?, ?)',
+                [_collectorName, _collectorAddress, _collectorEncoding, _collectorPort,
+                 _collectorProtocol])
+            data = cursor.fetchall()
+
+            if len(data) is 0:
+                db.commit()
+                return {
+                    'collector': {
+                        'collectorName': _collectorName,
+                        'collectorAddress': _collectorAddress,
+                        'collectorEncoding': _collectorEncoding,
+                        'collectorPort': _collectorPort,
+                        'collectorProtocol': _collectorProtocol
+                    }}
+            else:
+                return {'Status Code': '1000', 'Message': str(data[0])}
+
+        except Exception as e:
+            return {'error': str(e)}
+
+    def get(self):
+        try:
+            db = get_db()
+            cursor = db.execute(
+                'SELECT collectorName, collectorAddress, collectorEncoding, collectorPort, collectorProtocol FROM collector ORDER BY collectorName desc')
+            data = cursor.fetchall()
+
+            collector_list = []
+            for collector in data:
+                i = {
+                    'collectorName': collector[0],
+                    'collectorAddress': collector[1],
+                    'collectorEncoding': collector[2],
+                    'collectorPort': collector[3],
+                    'collectorProtocol': collector[4]
+                }
+                collector_list.append(i)
+
+            return {'Status Code': '200', 'collector': collector_list}
+
+        except Exception as e:
+            return {'error': str(e)}
+
+class policy(Resource):
+    def post(self):
+        try:
+            # Parse the arguments
+            parser = reqparse.RequestParser()
+            parser.add_argument('policyName', type=str, help='')
+            parser.add_argument('policyDescription', type=str, help='')
+            parser.add_argument('policyComment', type=str, help='')
+            parser.add_argument('policyIdentifier', type=str, help='')
+            parser.add_argument('policyPeriod', type=str, help='')
+            args = parser.parse_args()
+
+            _policyName = args['policyName']
+            _policyDescription = args['policyDescription']
+            _policyComment = args['policyComment']
+            _policyIdentifier = args['policyIdentifier']
+            _policyPeriod = args['policyPeriod']
+
+            db = get_db()
+            cursor = db.execute(
+                'INSERT INTO policy (policyName, policyDescription, policyComment, policyIdentifier, policyPeriod) values (?, ?, ?, ?, ?)',
+                [_policyName, _policyDescription, _policyComment, _policyIdentifier,
+                 _policyPeriod])
+            data = cursor.fetchall()
+
+            if len(data) is 0:
+                db.commit()
+                return {
+                    'policy': {
+                        'policyName': _policyName,
+                        'policyDescription': _policyDescription,
+                        'policyComment': _policyComment,
+                        'policyIdentifier': _policyIdentifier,
+                        'policyPeriod': _policyPeriod
+                    }}
+            else:
+                return {'Status Code': '1000', 'Message': str(data[0])}
+
+        except Exception as e:
+            return {'error': str(e)}
+
+    def get(self):
+        try:
+            db = get_db()
+            cursor = db.execute(
+                'SELECT policyName, policyDescription, policyComment, policyIdentifier, policyPeriod FROM policy ORDER BY policyName desc')
+            data = cursor.fetchall()
+
+            policy_list = []
+            for policy in data:
+                i = {
+                    'policyName': policy[0],
+                    'policyDescription': policy[1],
+                    'policyComment': policy[2],
+                    'policyIdentifier': policy[3],
+                    'policyPeriod': policy[4]
+                }
+                policy_list.append(i)
+
+            return {'Status Code': '200', 'collector': policy_list}
+
+        except Exception as e:
+            return {'error': str(e)}
+
 api.add_resource(subscription, '/subscription')
 api.add_resource(destinationGroup, '/destinationGroup')
 api.add_resource(sensor, '/sensor')
+api.add_resource(policyGroup, '/policyGroup')
+api.add_resource(collector, '/collector')
+api.add_resource(policy, '/policy')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5002, debug=True, threaded=True)

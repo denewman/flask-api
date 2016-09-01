@@ -4,7 +4,7 @@ from flask_restful.utils import cors
 import sqlite3
 import os
 
-#from models import *
+# from models import *
 
 app = Flask(__name__)
 api = Api(app)
@@ -40,6 +40,7 @@ def init_db():
         db.cursor().executescript(f.read())
     db.commit()
 
+
 @app.cli.command('initdb')
 def initdb_command():
     """Initializes the database."""
@@ -56,11 +57,12 @@ def close_db(error):
 
 @app.after_request
 def after_request(response):
-  response.headers.add('Access-Control-Allow-Origin', '*')
-  response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-  response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
-  return response
-  
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
+    return response
+
+
 class subscription(Resource):
     def post(self):
         try:
@@ -78,13 +80,16 @@ class subscription(Resource):
             _subscriptionInterval = args['subscriptionInterval']
 
             db = get_db()
-            cursor = db.execute('INSERT INTO subscription (subscriptionName, destinationGroupName, sensorName, subscriptionInterval) values (?, ?, ?, ?)',
+            cursor = db.execute(
+                'INSERT INTO subscription (subscriptionName, destinationGroupName, sensorName, subscriptionInterval) VALUES (?, ?, ?, ?)',
                 [_subscriptionName, _destinationGroupName, _sensorName, _subscriptionInterval])
             data = cursor.fetchall()
 
             if len(data) is 0:
                 db.commit()
-                return {'subscription': {'subscriptionName': _subscriptionName,'destinationGroupName': _destinationGroupName, 'sensorName': _sensorName, 'subscriptionInterval': _subscriptionInterval}}
+                return {'subscription': {'subscriptionName': _subscriptionName,
+                                         'destinationGroupName': _destinationGroupName, 'sensorName': _sensorName,
+                                         'subscriptionInterval': _subscriptionInterval}}
             else:
                 return {'Status Code': '1000', 'Message': str(data[0])}
 
@@ -107,11 +112,12 @@ class subscription(Resource):
                     'subscriptionInterval': subscription[3]
                 }
                 subscription_list.append(i)
-	
+
             return {'Status Code': '200', 'subscription': subscription_list}
-	
+
         except Exception as e:
             return {'error': str(e)}
+
 
 class destinationGroup(Resource):
     def post(self):
@@ -132,20 +138,22 @@ class destinationGroup(Resource):
             _destinationGroupProtocol = args['destinationGroupProtocol']
 
             db = get_db()
-            cursor = db.execute('INSERT INTO destinationGroup (destinationGroupName, destinationGroupAddress, destinationGroupPort, destinationGroupEncoding, destinationGroupProtocol) values (?, ?, ?, ?, ?)',
-                [_destinationGroupName, _destinationGroupAddress, _destinationGroupPort, _destinationGroupEncoding, _destinationGroupProtocol])
+            cursor = db.execute(
+                'INSERT INTO destinationGroup (destinationGroupName, destinationGroupAddress, destinationGroupPort, destinationGroupEncoding, destinationGroupProtocol) VALUES (?, ?, ?, ?, ?)',
+                [_destinationGroupName, _destinationGroupAddress, _destinationGroupPort, _destinationGroupEncoding,
+                 _destinationGroupProtocol])
             data = cursor.fetchall()
 
             if len(data) is 0:
                 db.commit()
                 return {
-					'destinationGroup': {
-						'destinationGroupName': _destinationGroupName,
-						'destinationGroupAddress': _destinationGroupAddress,
-						'destinationGroupPort': _destinationGroupPort,
-						'destinationGroupEncoding': _destinationGroupEncoding,
-						'destinationGroupProtocol': _destinationGroupProtocol
-						}}
+                    'destinationGroup': {
+                        'destinationGroupName': _destinationGroupName,
+                        'destinationGroupAddress': _destinationGroupAddress,
+                        'destinationGroupPort': _destinationGroupPort,
+                        'destinationGroupEncoding': _destinationGroupEncoding,
+                        'destinationGroupProtocol': _destinationGroupProtocol
+                    }}
             else:
                 return {'Status Code': '1000', 'Message': str(data[0])}
 
@@ -155,9 +163,10 @@ class destinationGroup(Resource):
     def get(self):
         try:
             db = get_db()
-            cursor = db.execute('SELECT destinationGroupName, destinationGroupAddress, destinationGroupPort, destinationGroupEncoding, destinationGroupProtocol FROM destinationGroup ORDER BY destinationGroupName desc')
+            cursor = db.execute(
+                'SELECT destinationGroupName, destinationGroupAddress, destinationGroupPort, destinationGroupEncoding, destinationGroupProtocol FROM destinationGroup ORDER BY destinationGroupName DESC')
             data = cursor.fetchall()
-	
+
             destinationGroup_list = []
             for destinationGroup in data:
                 i = {
@@ -168,30 +177,40 @@ class destinationGroup(Resource):
                     'destinationGroupProtocol': destinationGroup[4]
                 }
                 destinationGroup_list.append(i)
-	
+
             return {'Status Code': '200', 'destinationGroup': destinationGroup_list}
-	
+
         except Exception as e:
             return {'error': str(e)}
-    
+
+
 class sensor(Resource):
     def post(self):
         try:
             # Parse the arguments
             parser = reqparse.RequestParser()
             parser.add_argument('sensorName', type=str, help='Sensor Name and primary key')
+            parser.add_argument('sensorPaths', action='append')
             args = parser.parse_args()
 
             _sensorName = args['sensorName']
+            _sensorPaths = args['sensorPaths']
 
             db = get_db()
-            cursor = db.execute('INSERT INTO sensor (sensorName) values (?)',
-                [_sensorName])
+            cursor = db.execute('INSERT INTO sensor (sensorName) VALUES (?)',
+                                [_sensorName])
             data = cursor.fetchall()
+
+            for sensorPath in _sensorPaths:
+                cursor1 = db.execute('INSERT INTO linkSensorPath (sensorName, sensorPathName) VALUES (?, ?)',
+                                     [_sensorName, sensorPath])
+                data1 = cursor1.fetchall()
+                if len(data1) is 0:
+                    db.commit()
 
             if len(data) is 0:
                 db.commit()
-                return {'sensor': {'sensorName': _sensorName}}
+                return {'sensor': {'sensorName': _sensorName, 'sensorPaths': _sensorPaths}}
             else:
                 return {'Status Code': '1000', 'Message': str(data[0])}
 
@@ -203,16 +222,25 @@ class sensor(Resource):
             db = get_db()
             cursor = db.execute('SELECT sensorName FROM sensor ORDER BY sensorName')
             data = cursor.fetchall()
-	
+
             sensor_list = []
             for sensor in data:
+                cursor1 = db.execute('SELECT sensorPathName FROM linkSensorPath WHERE sensorName=?', (sensor[0],))
+                data1 = cursor1.fetchall()
+
+                path_list = []
+                for path in data1:
+                    j = path[0]
+                    path_list.append(j)
+
                 i = {
                     'sensorName': sensor[0],
+                    'sensorPath': path_list
                 }
                 sensor_list.append(i)
-	
+
             return {'Status Code': '200', 'sensor': sensor_list}
-	
+
         except Exception as e:
             return {'error': str(e)}
 
@@ -233,15 +261,15 @@ class policyGroup(Resource):
 
             db = get_db()
             cursor = db.execute(
-                'INSERT INTO policyGroup (policyGroupName, collectorName, policyName) values (?, ?, ?)',
+                'INSERT INTO policyGroup (policyGroupName, collectorName, policyName) VALUES (?, ?, ?)',
                 [_policyGroupName, _collectorName, _policyName])
             data = cursor.fetchall()
 
             if len(data) is 0:
                 db.commit()
                 return {'policyGroup': {'policyGroupName': _policyGroupName,
-                                         'collectorName': _collectorName,
-                                         'policyName': _policyName}}
+                                        'collectorName': _collectorName,
+                                        'policyName': _policyName}}
             else:
                 return {'Status Code': '1000', 'Message': str(data[0])}
 
@@ -290,7 +318,7 @@ class collector(Resource):
 
             db = get_db()
             cursor = db.execute(
-                'INSERT INTO collector (collectorName, collectorAddress, collectorEncoding, collectorPort, collectorProtocol) values (?, ?, ?, ?, ?)',
+                'INSERT INTO collector (collectorName, collectorAddress, collectorEncoding, collectorPort, collectorProtocol) VALUES (?, ?, ?, ?, ?)',
                 [_collectorName, _collectorAddress, _collectorEncoding, _collectorPort,
                  _collectorProtocol])
             data = cursor.fetchall()
@@ -315,7 +343,7 @@ class collector(Resource):
         try:
             db = get_db()
             cursor = db.execute(
-                'SELECT collectorName, collectorAddress, collectorEncoding, collectorPort, collectorProtocol FROM collector ORDER BY collectorName desc')
+                'SELECT collectorName, collectorAddress, collectorEncoding, collectorPort, collectorProtocol FROM collector ORDER BY collectorName DESC')
             data = cursor.fetchall()
 
             collector_list = []
@@ -333,6 +361,7 @@ class collector(Resource):
 
         except Exception as e:
             return {'error': str(e)}
+
 
 class policy(Resource):
     def post(self):
@@ -354,7 +383,7 @@ class policy(Resource):
 
             db = get_db()
             cursor = db.execute(
-                'INSERT INTO policy (policyName, policyDescription, policyComment, policyIdentifier, policyPeriod) values (?, ?, ?, ?, ?)',
+                'INSERT INTO policy (policyName, policyDescription, policyComment, policyIdentifier, policyPeriod) VALUES (?, ?, ?, ?, ?)',
                 [_policyName, _policyDescription, _policyComment, _policyIdentifier,
                  _policyPeriod])
             data = cursor.fetchall()
@@ -379,7 +408,7 @@ class policy(Resource):
         try:
             db = get_db()
             cursor = db.execute(
-                'SELECT policyName, policyDescription, policyComment, policyIdentifier, policyPeriod FROM policy ORDER BY policyName desc')
+                'SELECT policyName, policyDescription, policyComment, policyIdentifier, policyPeriod FROM policy ORDER BY policyName DESC')
             data = cursor.fetchall()
 
             policy_list = []
@@ -398,6 +427,7 @@ class policy(Resource):
         except Exception as e:
             return {'error': str(e)}
 
+
 api.add_resource(subscription, '/subscription')
 api.add_resource(destinationGroup, '/destinationGroup')
 api.add_resource(sensor, '/sensor')
@@ -407,4 +437,3 @@ api.add_resource(policy, '/policy')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5002, debug=True, threaded=True)
-

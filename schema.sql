@@ -46,7 +46,7 @@ create table sensorPath (
 create table linkSensorPath (
     sensorName text not null,
     sensorPathName text not null,
-    PRIMARY KEY(sensorName, sensorPathName)
+    CONSTRAINT sensorName_sensorPath PRIMARY KEY(sensorName, sensorPathName)
 );
 
 create table policyGroup (

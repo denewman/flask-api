@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1a9e0e7a-01a7-4246-b05a-2fc5ceca6dda" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flask.db" afterPath="$PROJECT_DIR$/flask.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/schema.sql" afterPath="$PROJECT_DIR$/schema.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sqlite-api.py" afterPath="$PROJECT_DIR$/sqlite-api.py" />
     </list>
     <ignored path="flask-api.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,26 +28,28 @@
     <favorites_list name="flask-api" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="sqlite-api.py" pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="sqlite-api.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sqlite-api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="336" column="23" selection-start-line="336" selection-start-column="23" selection-end-line="336" selection-end-column="23" />
+            <state relative-caret-position="108">
+              <caret line="227" column="113" selection-start-line="227" selection-start-column="113" selection-end-line="227" selection-end-column="113" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <marker date="1472633359000" expanded="true" signature="2476:2595" ph="INSERT INTO subscription... " />
-                <marker date="1472633359000" expanded="true" signature="3260:3388" ph="SELECT subsc... subscription" />
-                <marker date="1472633359000" expanded="true" signature="4945:5118" ph="INSERT INTO destinationGroup... " />
-                <marker date="1472633359000" expanded="true" signature="5960:6143" ph="SELECT subsc... subscription" />
-                <marker date="1472633359000" expanded="true" signature="7225:7267" ph="INSERT INTO sensor... " />
-                <marker date="1472633359000" expanded="true" signature="7712:7761" ph="SELECT senso... sensor" />
-                <marker date="1472633359000" expanded="true" signature="8832:8917" ph="INSERT INTO subscription... " />
-                <marker date="1472633359000" expanded="true" signature="9570:9666" ph="SELECT subsc... subscription" />
-                <marker date="1472633359000" expanded="true" signature="11050:11181" ph="INSERT INTO destinationGroup... " />
-                <marker date="1472633359000" expanded="true" signature="12064:12198" ph="SELECT desti... destinationGroup" />
-                <marker date="1472633359000" expanded="true" signature="13654:13774" ph="INSERT INTO collector... " />
-                <marker date="1472633359000" expanded="true" signature="14630:14750" ph="SELECT colle... collector" />
+                <marker date="1472729356000" expanded="true" signature="2502:2621" ph="INSERT INTO subscription... " />
+                <marker date="1472729356000" expanded="true" signature="3369:3497" ph="SELECT subsc... subscription" />
+                <marker date="1472729356000" expanded="true" signature="5070:5243" ph="INSERT INTO destinationGroup... " />
+                <marker date="1472729356000" expanded="true" signature="6238:6421" ph="SELECT subsc... subscription" />
+                <marker date="1472729356000" expanded="true" signature="7608:7650" ph="INSERT INTO sensor... " />
+                <marker date="1472729356000" expanded="true" signature="7820:7889" ph="INSERT INTO sensorPath... " />
+                <marker date="1472729356000" expanded="true" signature="8470:8519" ph="SELECT senso... sensor" />
+                <marker date="1472729356000" expanded="true" signature="8659:8719" ph="SELECT senso... linkSensorPath" />
+                <marker date="1472729356000" expanded="true" signature="9929:10014" ph="INSERT INTO subscription... " />
+                <marker date="1472729356000" expanded="true" signature="10665:10761" ph="SELECT subsc... subscription" />
+                <marker date="1472729356000" expanded="true" signature="12145:12276" ph="INSERT INTO destinationGroup... " />
+                <marker date="1472729356000" expanded="true" signature="13159:13293" ph="SELECT desti... destinationGroup" />
+                <marker date="1472729356000" expanded="true" signature="14750:14870" ph="INSERT INTO collector... " />
+                <marker date="1472729356000" expanded="true" signature="15726:15846" ph="SELECT colle... collector" />
               </folding>
             </state>
           </provider>
@@ -54,18 +58,8 @@
       <file leaf-file-name="schema.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/schema.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
-              <caret line="63" column="33" selection-start-line="63" selection-start-column="33" selection-end-line="63" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="91" selection-start-line="24" selection-start-column="91" selection-end-line="24" selection-end-column="91" />
+            <state relative-caret-position="210">
+              <caret line="48" column="76" selection-start-line="48" selection-start-column="76" selection-end-line="48" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -79,9 +73,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/schema.sql" />
         <option value="$PROJECT_DIR$/sqlite-api.py" />
-        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -93,7 +87,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="16" />
-    <option name="y" value="331" />
+    <option name="y" value="289" />
     <option name="width" value="1212" />
     <option name="height" value="460" />
   </component>
@@ -147,7 +141,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../telemetry-portal-ui" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
@@ -235,6 +229,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -393,27 +393,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="16" y="331" width="1212" height="460" extended-state="0" />
+    <frame x="16" y="289" width="1212" height="460" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13118812" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45524296" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45524296" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -434,22 +434,24 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/sqlite-api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="4980">
           <caret line="336" column="23" selection-start-line="336" selection-start-column="23" selection-end-line="336" selection-end-column="23" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <marker date="1472633359000" expanded="true" signature="2476:2595" ph="INSERT INTO subscription... " />
-            <marker date="1472633359000" expanded="true" signature="3260:3388" ph="SELECT subsc... subscription" />
-            <marker date="1472633359000" expanded="true" signature="4945:5118" ph="INSERT INTO destinationGroup... " />
-            <marker date="1472633359000" expanded="true" signature="5960:6143" ph="SELECT subsc... subscription" />
-            <marker date="1472633359000" expanded="true" signature="7225:7267" ph="INSERT INTO sensor... " />
-            <marker date="1472633359000" expanded="true" signature="7712:7761" ph="SELECT senso... sensor" />
-            <marker date="1472633359000" expanded="true" signature="8832:8917" ph="INSERT INTO subscription... " />
-            <marker date="1472633359000" expanded="true" signature="9570:9666" ph="SELECT subsc... subscription" />
-            <marker date="1472633359000" expanded="true" signature="11050:11181" ph="INSERT INTO destinationGroup... " />
-            <marker date="1472633359000" expanded="true" signature="12064:12198" ph="SELECT desti... destinationGroup" />
-            <marker date="1472633359000" expanded="true" signature="13654:13774" ph="INSERT INTO collector... " />
-            <marker date="1472633359000" expanded="true" signature="14630:14750" ph="SELECT colle... collector" />
+            <marker date="1472729356000" expanded="true" signature="2502:2621" ph="INSERT INTO subscription... " />
+            <marker date="1472729356000" expanded="true" signature="3369:3497" ph="SELECT subsc... subscription" />
+            <marker date="1472729356000" expanded="true" signature="5070:5243" ph="INSERT INTO destinationGroup... " />
+            <marker date="1472729356000" expanded="true" signature="6238:6421" ph="SELECT subsc... subscription" />
+            <marker date="1472729356000" expanded="true" signature="7608:7650" ph="INSERT INTO sensor... " />
+            <marker date="1472729356000" expanded="true" signature="7820:7889" ph="INSERT INTO sensorPath... " />
+            <marker date="1472729356000" expanded="true" signature="8470:8519" ph="SELECT senso... sensor" />
+            <marker date="1472729356000" expanded="true" signature="8659:8719" ph="SELECT senso... linkSensorPath" />
+            <marker date="1472729356000" expanded="true" signature="9929:10014" ph="INSERT INTO subscription... " />
+            <marker date="1472729356000" expanded="true" signature="10665:10761" ph="SELECT subsc... subscription" />
+            <marker date="1472729356000" expanded="true" signature="12145:12276" ph="INSERT INTO destinationGroup... " />
+            <marker date="1472729356000" expanded="true" signature="13159:13293" ph="SELECT desti... destinationGroup" />
+            <marker date="1472729356000" expanded="true" signature="14750:14870" ph="INSERT INTO collector... " />
+            <marker date="1472729356000" expanded="true" signature="15726:15846" ph="SELECT colle... collector" />
           </folding>
         </state>
       </provider>
@@ -464,9 +466,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="91" selection-start-line="24" selection-start-column="91" selection-end-line="24" selection-end-column="91" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schema.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="48" column="76" selection-start-line="48" selection-start-column="76" selection-end-line="48" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sqlite-api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="227" column="113" selection-start-line="227" selection-start-column="113" selection-end-line="227" selection-end-column="113" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <marker date="1472729356000" expanded="true" signature="2502:2621" ph="INSERT INTO subscription... " />
+            <marker date="1472729356000" expanded="true" signature="3369:3497" ph="SELECT subsc... subscription" />
+            <marker date="1472729356000" expanded="true" signature="5070:5243" ph="INSERT INTO destinationGroup... " />
+            <marker date="1472729356000" expanded="true" signature="6238:6421" ph="SELECT subsc... subscription" />
+            <marker date="1472729356000" expanded="true" signature="7608:7650" ph="INSERT INTO sensor... " />
+            <marker date="1472729356000" expanded="true" signature="7820:7889" ph="INSERT INTO sensorPath... " />
+            <marker date="1472729356000" expanded="true" signature="8470:8519" ph="SELECT senso... sensor" />
+            <marker date="1472729356000" expanded="true" signature="8659:8719" ph="SELECT senso... linkSensorPath" />
+            <marker date="1472729356000" expanded="true" signature="9929:10014" ph="INSERT INTO subscription... " />
+            <marker date="1472729356000" expanded="true" signature="10665:10761" ph="SELECT subsc... subscription" />
+            <marker date="1472729356000" expanded="true" signature="12145:12276" ph="INSERT INTO destinationGroup... " />
+            <marker date="1472729356000" expanded="true" signature="13159:13293" ph="SELECT desti... destinationGroup" />
+            <marker date="1472729356000" expanded="true" signature="14750:14870" ph="INSERT INTO collector... " />
+            <marker date="1472729356000" expanded="true" signature="15726:15846" ph="SELECT colle... collector" />
+          </folding>
         </state>
       </provider>
     </entry>

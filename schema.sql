@@ -46,7 +46,8 @@ create table sensorPath (
 create table linkSensorPath (
     sensorName text not null,
     sensorPathName text not null,
-    CONSTRAINT sensorName_sensorPath PRIMARY KEY(sensorName, sensorPathName)
+    CONSTRAINT sensorName_sensorPath PRIMARY KEY(sensorName, sensorPathName),
+    FOREIGN KEY(sensorName) REFERENCES sensor(sensorName)
 );
 
 create table policyGroup (
@@ -74,9 +75,8 @@ create table policyPath (
 create table linkPolicyPath (
     policyName text not null,
     policyPathName text not null,
-    PRIMARY KEY(policyName, policyPathName),
-    FOREIGN KEY(policyName) REFERENCES policy(policyName),
-    FOREIGN KEY(policyPathName) REFERENCES policyPath(policyPathName)
+    CONSTRAINT policyName_policyPathName PRIMARY KEY(policyName, policyPathName),
+    FOREIGN KEY(policyName) REFERENCES policy(policyName)
 );
 
 create table collector (
@@ -95,17 +95,17 @@ create table router (
 );
 
 create table linkPolicyRouter (
-    policyName text not null,
+    policyGroupName text not null,
     routerName text not null,
-    PRIMARY KEY(policyName, routerName),
-    FOREIGN KEY(policyName) REFERENCES policy(policyName),
+    CONSTRAINT policyName_routerName PRIMARY KEY(policyGroupName, routerName),
+    FOREIGN KEY(policyGroupName) REFERENCES policyGroup(policyGroupName),
     FOREIGN KEY(routerName) REFERENCES router(routerName)
 );
 
 create table linkSubscriptionRouter (
     subscriptionName text not null,
     routerName text not null,
-    PRIMARY KEY(subscriptionName, routerName),
+    CONSTRAINT subscriptionName_routerName PRIMARY KEY(subscriptionName, routerName),
     FOREIGN KEY(subscriptionName) REFERENCES subscription(subscriptionName),
     FOREIGN KEY(routerName) REFERENCES router(routerName)
 );

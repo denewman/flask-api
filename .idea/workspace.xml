@@ -32,24 +32,43 @@
       <file leaf-file-name="sqlite-api.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sqlite-api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="227" column="113" selection-start-line="227" selection-start-column="113" selection-end-line="227" selection-end-column="113" />
+            <state relative-caret-position="153">
+              <caret line="648" column="54" selection-start-line="648" selection-start-column="54" selection-end-line="648" selection-end-column="54" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <marker date="1472729356000" expanded="true" signature="2502:2621" ph="INSERT INTO subscription... " />
-                <marker date="1472729356000" expanded="true" signature="3369:3497" ph="SELECT subsc... subscription" />
-                <marker date="1472729356000" expanded="true" signature="5070:5243" ph="INSERT INTO destinationGroup... " />
-                <marker date="1472729356000" expanded="true" signature="6238:6421" ph="SELECT subsc... subscription" />
-                <marker date="1472729356000" expanded="true" signature="7608:7650" ph="INSERT INTO sensor... " />
-                <marker date="1472729356000" expanded="true" signature="7820:7889" ph="INSERT INTO sensorPath... " />
-                <marker date="1472729356000" expanded="true" signature="8470:8519" ph="SELECT senso... sensor" />
-                <marker date="1472729356000" expanded="true" signature="8659:8719" ph="SELECT senso... linkSensorPath" />
-                <marker date="1472729356000" expanded="true" signature="9929:10014" ph="INSERT INTO subscription... " />
-                <marker date="1472729356000" expanded="true" signature="10665:10761" ph="SELECT subsc... subscription" />
-                <marker date="1472729356000" expanded="true" signature="12145:12276" ph="INSERT INTO destinationGroup... " />
-                <marker date="1472729356000" expanded="true" signature="13159:13293" ph="SELECT desti... destinationGroup" />
-                <marker date="1472729356000" expanded="true" signature="14750:14870" ph="INSERT INTO collector... " />
-                <marker date="1472729356000" expanded="true" signature="15726:15846" ph="SELECT colle... collector" />
+                <element signature="e#9328#11378#0" expanded="false" />
+                <element signature="e#11412#14008#0" expanded="false" />
+                <marker date="1473051936000" expanded="true" signature="2476:2498" ph="PRAGMA forei... " />
+                <marker date="1473051936000" expanded="true" signature="2551:2670" ph="INSERT INTO subscription... " />
+                <marker date="1473051936000" expanded="true" signature="3418:3546" ph="SELECT subsc... subscription" />
+                <marker date="1473051936000" expanded="true" signature="5119:5292" ph="INSERT INTO destinationGroup... " />
+                <marker date="1473051936000" expanded="true" signature="6287:6470" ph="SELECT subsc... subscription" />
+                <marker date="1473051936000" expanded="true" signature="7657:7699" ph="INSERT INTO sensor... " />
+                <marker date="1473051936000" expanded="true" signature="7869:7938" ph="INSERT INTO sensorPath... " />
+                <marker date="1473051936000" expanded="true" signature="8510:8532" ph="PRAGMA forei... " />
+                <marker date="1473051936000" expanded="true" signature="8568:8617" ph="SELECT senso... sensor" />
+                <marker date="1473051936000" expanded="true" signature="8757:8817" ph="SELECT senso... linkSensorPath" />
+                <marker date="1473051936000" expanded="true" signature="9975:9997" ph="PRAGMA forei... " />
+                <marker date="1473051936000" expanded="true" signature="10050:10135" ph="INSERT INTO subscription... " />
+                <marker date="1473051936000" expanded="true" signature="10786:10882" ph="SELECT subsc... subscription" />
+                <marker date="1473051936000" expanded="true" signature="12266:12397" ph="INSERT INTO destinationGroup... " />
+                <marker date="1473051936000" expanded="true" signature="13280:13414" ph="SELECT desti... destinationGroup" />
+                <marker date="1473051936000" expanded="true" signature="14955:14977" ph="PRAGMA forei... " />
+                <marker date="1473051936000" expanded="true" signature="15030:15150" ph="INSERT INTO policy... " />
+                <marker date="1473051936000" expanded="true" signature="15391:15460" ph="INSERT INTO linkSensorPath... " />
+                <marker date="1473051936000" expanded="true" signature="16389:16509" ph="SELECT polic... policy" />
+                <marker date="1473051936000" expanded="true" signature="16649:16709" ph="SELECT polic... linkPolicyPath" />
+                <marker date="1473051936000" expanded="true" signature="17868:17928" ph="INSERT INTO router... " />
+                <marker date="1473051936000" expanded="true" signature="18530:18599" ph="SELECT route... router" />
+                <marker date="1473051936000" expanded="true" signature="19480:19502" ph="PRAGMA forei... " />
+                <marker date="1473051936000" expanded="true" signature="19630:19709" ph="INSERT INTO router... " />
+                <marker date="1473051936000" expanded="true" signature="20393:20400" ph="SELECT route... linkSubscriptionRouter" />
+                <marker date="1473051936000" expanded="true" signature="20393:20470" ph="SELECT subsc... linkSubscriptionRouter" />
+                <marker date="1473051936000" expanded="true" signature="20805:20875" ph="SELECT route... linkSubscriptionRouter" />
+                <marker date="1473051936000" expanded="true" signature="21940:21962" ph="PRAGMA forei... " />
+                <marker date="1473051936000" expanded="true" signature="22090:22162" ph="INSERT INTO linkPolicyRouter... " />
+                <marker date="1473051936000" expanded="true" signature="22837:22906" ph="SELECT subsc... linkSubscriptionRouter" />
+                <marker date="1473051936000" expanded="true" signature="23229:23292" ph="SELECT route... linkSubscriptionRouter" />
               </folding>
             </state>
           </provider>
@@ -58,8 +77,8 @@
       <file leaf-file-name="schema.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/schema.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="48" column="76" selection-start-line="48" selection-start-column="76" selection-end-line="48" selection-end-column="76" />
+            <state relative-caret-position="54">
+              <caret line="97" column="15" selection-start-line="97" selection-start-column="15" selection-end-line="97" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -86,8 +105,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="16" />
-    <option name="y" value="289" />
+    <option name="x" value="29" />
+    <option name="y" value="29" />
     <option name="width" value="1212" />
     <option name="height" value="460" />
   </component>
@@ -393,7 +412,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="16" y="289" width="1212" height="460" extended-state="0" />
+    <frame x="29" y="29" width="1212" height="460" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13118812" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -438,20 +457,39 @@
           <caret line="336" column="23" selection-start-line="336" selection-start-column="23" selection-end-line="336" selection-end-column="23" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <marker date="1472729356000" expanded="true" signature="2502:2621" ph="INSERT INTO subscription... " />
-            <marker date="1472729356000" expanded="true" signature="3369:3497" ph="SELECT subsc... subscription" />
-            <marker date="1472729356000" expanded="true" signature="5070:5243" ph="INSERT INTO destinationGroup... " />
-            <marker date="1472729356000" expanded="true" signature="6238:6421" ph="SELECT subsc... subscription" />
-            <marker date="1472729356000" expanded="true" signature="7608:7650" ph="INSERT INTO sensor... " />
-            <marker date="1472729356000" expanded="true" signature="7820:7889" ph="INSERT INTO sensorPath... " />
-            <marker date="1472729356000" expanded="true" signature="8470:8519" ph="SELECT senso... sensor" />
-            <marker date="1472729356000" expanded="true" signature="8659:8719" ph="SELECT senso... linkSensorPath" />
-            <marker date="1472729356000" expanded="true" signature="9929:10014" ph="INSERT INTO subscription... " />
-            <marker date="1472729356000" expanded="true" signature="10665:10761" ph="SELECT subsc... subscription" />
-            <marker date="1472729356000" expanded="true" signature="12145:12276" ph="INSERT INTO destinationGroup... " />
-            <marker date="1472729356000" expanded="true" signature="13159:13293" ph="SELECT desti... destinationGroup" />
-            <marker date="1472729356000" expanded="true" signature="14750:14870" ph="INSERT INTO collector... " />
-            <marker date="1472729356000" expanded="true" signature="15726:15846" ph="SELECT colle... collector" />
+            <element signature="e#9328#11378#0" expanded="false" />
+            <element signature="e#11412#14008#0" expanded="false" />
+            <marker date="1473051936000" expanded="true" signature="2476:2498" ph="PRAGMA forei... " />
+            <marker date="1473051936000" expanded="true" signature="2551:2670" ph="INSERT INTO subscription... " />
+            <marker date="1473051936000" expanded="true" signature="3418:3546" ph="SELECT subsc... subscription" />
+            <marker date="1473051936000" expanded="true" signature="5119:5292" ph="INSERT INTO destinationGroup... " />
+            <marker date="1473051936000" expanded="true" signature="6287:6470" ph="SELECT subsc... subscription" />
+            <marker date="1473051936000" expanded="true" signature="7657:7699" ph="INSERT INTO sensor... " />
+            <marker date="1473051936000" expanded="true" signature="7869:7938" ph="INSERT INTO sensorPath... " />
+            <marker date="1473051936000" expanded="true" signature="8510:8532" ph="PRAGMA forei... " />
+            <marker date="1473051936000" expanded="true" signature="8568:8617" ph="SELECT senso... sensor" />
+            <marker date="1473051936000" expanded="true" signature="8757:8817" ph="SELECT senso... linkSensorPath" />
+            <marker date="1473051936000" expanded="true" signature="9975:9997" ph="PRAGMA forei... " />
+            <marker date="1473051936000" expanded="true" signature="10050:10135" ph="INSERT INTO subscription... " />
+            <marker date="1473051936000" expanded="true" signature="10786:10882" ph="SELECT subsc... subscription" />
+            <marker date="1473051936000" expanded="true" signature="12266:12397" ph="INSERT INTO destinationGroup... " />
+            <marker date="1473051936000" expanded="true" signature="13280:13414" ph="SELECT desti... destinationGroup" />
+            <marker date="1473051936000" expanded="true" signature="14955:14977" ph="PRAGMA forei... " />
+            <marker date="1473051936000" expanded="true" signature="15030:15150" ph="INSERT INTO policy... " />
+            <marker date="1473051936000" expanded="true" signature="15391:15460" ph="INSERT INTO linkSensorPath... " />
+            <marker date="1473051936000" expanded="true" signature="16389:16509" ph="SELECT polic... policy" />
+            <marker date="1473051936000" expanded="true" signature="16649:16709" ph="SELECT polic... linkPolicyPath" />
+            <marker date="1473051936000" expanded="true" signature="17868:17928" ph="INSERT INTO router... " />
+            <marker date="1473051936000" expanded="true" signature="18530:18599" ph="SELECT route... router" />
+            <marker date="1473051936000" expanded="true" signature="19480:19502" ph="PRAGMA forei... " />
+            <marker date="1473051936000" expanded="true" signature="19630:19709" ph="INSERT INTO router... " />
+            <marker date="1473051936000" expanded="true" signature="20393:20400" ph="SELECT route... linkSubscriptionRouter" />
+            <marker date="1473051936000" expanded="true" signature="20393:20470" ph="SELECT subsc... linkSubscriptionRouter" />
+            <marker date="1473051936000" expanded="true" signature="20805:20875" ph="SELECT route... linkSubscriptionRouter" />
+            <marker date="1473051936000" expanded="true" signature="21940:21962" ph="PRAGMA forei... " />
+            <marker date="1473051936000" expanded="true" signature="22090:22162" ph="INSERT INTO linkPolicyRouter... " />
+            <marker date="1473051936000" expanded="true" signature="22837:22906" ph="SELECT subsc... linkSubscriptionRouter" />
+            <marker date="1473051936000" expanded="true" signature="23229:23292" ph="SELECT route... linkSubscriptionRouter" />
           </folding>
         </state>
       </provider>
@@ -482,32 +520,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/schema.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="48" column="76" selection-start-line="48" selection-start-column="76" selection-end-line="48" selection-end-column="76" />
+        <state relative-caret-position="54">
+          <caret line="97" column="15" selection-start-line="97" selection-start-column="15" selection-end-line="97" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sqlite-api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="227" column="113" selection-start-line="227" selection-start-column="113" selection-end-line="227" selection-end-column="113" />
+        <state relative-caret-position="153">
+          <caret line="648" column="54" selection-start-line="648" selection-start-column="54" selection-end-line="648" selection-end-column="54" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <marker date="1472729356000" expanded="true" signature="2502:2621" ph="INSERT INTO subscription... " />
-            <marker date="1472729356000" expanded="true" signature="3369:3497" ph="SELECT subsc... subscription" />
-            <marker date="1472729356000" expanded="true" signature="5070:5243" ph="INSERT INTO destinationGroup... " />
-            <marker date="1472729356000" expanded="true" signature="6238:6421" ph="SELECT subsc... subscription" />
-            <marker date="1472729356000" expanded="true" signature="7608:7650" ph="INSERT INTO sensor... " />
-            <marker date="1472729356000" expanded="true" signature="7820:7889" ph="INSERT INTO sensorPath... " />
-            <marker date="1472729356000" expanded="true" signature="8470:8519" ph="SELECT senso... sensor" />
-            <marker date="1472729356000" expanded="true" signature="8659:8719" ph="SELECT senso... linkSensorPath" />
-            <marker date="1472729356000" expanded="true" signature="9929:10014" ph="INSERT INTO subscription... " />
-            <marker date="1472729356000" expanded="true" signature="10665:10761" ph="SELECT subsc... subscription" />
-            <marker date="1472729356000" expanded="true" signature="12145:12276" ph="INSERT INTO destinationGroup... " />
-            <marker date="1472729356000" expanded="true" signature="13159:13293" ph="SELECT desti... destinationGroup" />
-            <marker date="1472729356000" expanded="true" signature="14750:14870" ph="INSERT INTO collector... " />
-            <marker date="1472729356000" expanded="true" signature="15726:15846" ph="SELECT colle... collector" />
+            <element signature="e#9328#11378#0" expanded="false" />
+            <element signature="e#11412#14008#0" expanded="false" />
+            <marker date="1473051936000" expanded="true" signature="2476:2498" ph="PRAGMA forei... " />
+            <marker date="1473051936000" expanded="true" signature="2551:2670" ph="INSERT INTO subscription... " />
+            <marker date="1473051936000" expanded="true" signature="3418:3546" ph="SELECT subsc... subscription" />
+            <marker date="1473051936000" expanded="true" signature="5119:5292" ph="INSERT INTO destinationGroup... " />
+            <marker date="1473051936000" expanded="true" signature="6287:6470" ph="SELECT subsc... subscription" />
+            <marker date="1473051936000" expanded="true" signature="7657:7699" ph="INSERT INTO sensor... " />
+            <marker date="1473051936000" expanded="true" signature="7869:7938" ph="INSERT INTO sensorPath... " />
+            <marker date="1473051936000" expanded="true" signature="8510:8532" ph="PRAGMA forei... " />
+            <marker date="1473051936000" expanded="true" signature="8568:8617" ph="SELECT senso... sensor" />
+            <marker date="1473051936000" expanded="true" signature="8757:8817" ph="SELECT senso... linkSensorPath" />
+            <marker date="1473051936000" expanded="true" signature="9975:9997" ph="PRAGMA forei... " />
+            <marker date="1473051936000" expanded="true" signature="10050:10135" ph="INSERT INTO subscription... " />
+            <marker date="1473051936000" expanded="true" signature="10786:10882" ph="SELECT subsc... subscription" />
+            <marker date="1473051936000" expanded="true" signature="12266:12397" ph="INSERT INTO destinationGroup... " />
+            <marker date="1473051936000" expanded="true" signature="13280:13414" ph="SELECT desti... destinationGroup" />
+            <marker date="1473051936000" expanded="true" signature="14955:14977" ph="PRAGMA forei... " />
+            <marker date="1473051936000" expanded="true" signature="15030:15150" ph="INSERT INTO policy... " />
+            <marker date="1473051936000" expanded="true" signature="15391:15460" ph="INSERT INTO linkSensorPath... " />
+            <marker date="1473051936000" expanded="true" signature="16389:16509" ph="SELECT polic... policy" />
+            <marker date="1473051936000" expanded="true" signature="16649:16709" ph="SELECT polic... linkPolicyPath" />
+            <marker date="1473051936000" expanded="true" signature="17868:17928" ph="INSERT INTO router... " />
+            <marker date="1473051936000" expanded="true" signature="18530:18599" ph="SELECT route... router" />
+            <marker date="1473051936000" expanded="true" signature="19480:19502" ph="PRAGMA forei... " />
+            <marker date="1473051936000" expanded="true" signature="19630:19709" ph="INSERT INTO router... " />
+            <marker date="1473051936000" expanded="true" signature="20393:20400" ph="SELECT route... linkSubscriptionRouter" />
+            <marker date="1473051936000" expanded="true" signature="20393:20470" ph="SELECT subsc... linkSubscriptionRouter" />
+            <marker date="1473051936000" expanded="true" signature="20805:20875" ph="SELECT route... linkSubscriptionRouter" />
+            <marker date="1473051936000" expanded="true" signature="21940:21962" ph="PRAGMA forei... " />
+            <marker date="1473051936000" expanded="true" signature="22090:22162" ph="INSERT INTO linkPolicyRouter... " />
+            <marker date="1473051936000" expanded="true" signature="22837:22906" ph="SELECT subsc... linkSubscriptionRouter" />
+            <marker date="1473051936000" expanded="true" signature="23229:23292" ph="SELECT route... linkSubscriptionRouter" />
           </folding>
         </state>
       </provider>

@@ -80,6 +80,7 @@ class subscription(Resource):
             _subscriptionInterval = args['subscriptionInterval']
 
             db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
             cursor = db.execute(
                 'INSERT INTO subscription (subscriptionName, destinationGroupName, sensorName, subscriptionInterval) VALUES (?, ?, ?, ?)',
                 [_subscriptionName, _destinationGroupName, _sensorName, _subscriptionInterval])
@@ -220,6 +221,7 @@ class sensor(Resource):
     def get(self):
         try:
             db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
             cursor = db.execute('SELECT sensorName FROM sensor ORDER BY sensorName')
             data = cursor.fetchall()
 
@@ -230,8 +232,7 @@ class sensor(Resource):
 
                 path_list = []
                 for path in data1:
-                    j = path[0]
-                    path_list.append(j)
+                    path_list.append(path[0])
 
                 i = {
                     'sensorName': sensor[0],
@@ -260,6 +261,7 @@ class policyGroup(Resource):
             _policyName = args['policyName']
 
             db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
             cursor = db.execute(
                 'INSERT INTO policyGroup (policyGroupName, collectorName, policyName) VALUES (?, ?, ?)',
                 [_policyGroupName, _collectorName, _policyName])
@@ -362,7 +364,6 @@ class collector(Resource):
         except Exception as e:
             return {'error': str(e)}
 
-
 class policy(Resource):
     def post(self):
         try:
@@ -373,6 +374,7 @@ class policy(Resource):
             parser.add_argument('policyComment', type=str, help='')
             parser.add_argument('policyIdentifier', type=str, help='')
             parser.add_argument('policyPeriod', type=float, help='')
+            parser.add_argument('policyPaths', action='append')
             args = parser.parse_args()
 
             _policyName = args['policyName']
@@ -380,13 +382,22 @@ class policy(Resource):
             _policyComment = args['policyComment']
             _policyIdentifier = args['policyIdentifier']
             _policyPeriod = args['policyPeriod']
+            _policyPaths = args['policyPaths']
 
             db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
             cursor = db.execute(
                 'INSERT INTO policy (policyName, policyDescription, policyComment, policyIdentifier, policyPeriod) VALUES (?, ?, ?, ?, ?)',
                 [_policyName, _policyDescription, _policyComment, _policyIdentifier,
                  _policyPeriod])
             data = cursor.fetchall()
+
+            for policyPath in _policyPaths:
+                cursor1 = db.execute('INSERT INTO linkPolicyPath (policyName, policyPathName) VALUES (?, ?)',
+                                     [_policyName, policyPath])
+                data1 = cursor1.fetchall()
+                if len(data1) is 0:
+                    db.commit()
 
             if len(data) is 0:
                 db.commit()
@@ -396,7 +407,8 @@ class policy(Resource):
                         'policyDescription': _policyDescription,
                         'policyComment': _policyComment,
                         'policyIdentifier': _policyIdentifier,
-                        'policyPeriod': _policyPeriod
+                        'policyPeriod': _policyPeriod,
+                        'policyPaths': _policyPaths
                     }}
             else:
                 return {'Status Code': '1000', 'Message': str(data[0])}
@@ -413,12 +425,20 @@ class policy(Resource):
 
             policy_list = []
             for policy in data:
+                cursor1 = db.execute('SELECT policyPathName FROM linkPolicyPath WHERE policyName=?', (policy[0],))
+                data1 = cursor1.fetchall()
+
+                path_list = []
+                for path in data1:
+                    path_list.append(path[0])
+
                 i = {
                     'policyName': policy[0],
                     'policyDescription': policy[1],
                     'policyComment': policy[2],
                     'policyIdentifier': policy[3],
-                    'policyPeriod': policy[4]
+                    'policyPeriod': policy[4],
+                    'policyPath': path_list
                 }
                 policy_list.append(i)
 
@@ -427,6 +447,215 @@ class policy(Resource):
         except Exception as e:
             return {'error': str(e)}
 
+class router(Resource):
+    def post(self):
+        try:
+            # Parse the arguments
+            parser = reqparse.RequestParser()
+            parser.add_argument('routerName', type=str, help='')
+            parser.add_argument('routerAddress', type=str, help='')
+
+            args = parser.parse_args()
+
+            _routerName = args['routerName']
+            _routerAddress = args['routerAddress']
+
+            db = get_db()
+            cursor = db.execute(
+                'INSERT INTO router (routerName, routerAddress) VALUES (?, ?)',
+                [_routerName, _routerAddress])
+            data = cursor.fetchall()
+
+            if len(data) is 0:
+                db.commit()
+                return {
+                    'router': {
+                        'routerName': _routerName,
+                        'routerAddress': _routerAddress
+                    }}
+            else:
+                return {'Status Code': '1000', 'Message': str(data[0])}
+
+        except Exception as e:
+            return {'error': str(e)}
+
+    def get(self):
+        try:
+            db = get_db()
+            cursor = db.execute(
+                'SELECT routerName, routerAddress FROM router ORDER BY routerName DESC')
+            data = cursor.fetchall()
+
+            router_list = []
+            for router in data:
+                i = {
+                    'routerName': router[0],
+                    'routerAddress': router[1]
+                }
+                router_list.append(i)
+
+            return {'Status Code': '200', 'routers': router_list}
+
+        except Exception as e:
+            return {'error': str(e)}
+
+class subscriptionRouterLink(Resource):
+    def post(self):
+        try:
+            # Parse the arguments
+            parser = reqparse.RequestParser()
+            parser.add_argument('subscriptionName', type=str, help='')
+            parser.add_argument('routers', action='append')
+
+            args = parser.parse_args()
+
+            _routers = args['routers']
+            _subscriptionName = args['subscriptionName']
+
+            db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
+
+            router_list = []
+
+            for router in _routers:
+                cursor = db.execute(
+                    'INSERT INTO linkSubscriptionRouter (routerName, subscriptionName) VALUES (?, ?)',
+                        [router, _subscriptionName])
+                data = cursor.fetchall()
+
+                if len(data) is 0:
+                    db.commit()
+
+                    router_list.append(router)
+
+        except Exception as e:
+            return {'error': str(e)}
+
+        if len(router_list) > 0:
+
+            return {
+                'subscriptionRouterLink': {
+                'subscriptionName': _subscriptionName,
+                'routers': router_list
+            }}
+
+        else:
+            return {'Status Code': '1000', 'Message': str(data[0])}
+
+
+    def get(self):
+        try:
+            db = get_db()
+            cursor = db.execute(
+                'SELECT subscriptionName from linkSubscriptionRouter ORDER BY subscriptionName')
+            data = cursor.fetchall()
+
+            subscription_router_list = []
+
+            subscriptionName = ''
+
+            for subscription in data:
+                if subscriptionName != subscription[0]:
+                    subscriptionName = subscription[0]
+                    cursor1 = db.execute(
+                        'SELECT routerName from linkSubscriptionRouter WHERE subscriptionName=?', (subscription[0],)
+                    )
+                    data1 = cursor1.fetchall()
+
+                    router_list = []
+                    for router in data1:
+                        router_list.append(router[0])
+
+                    i = {
+                        'subscriptionName': subscription[0],
+                        'routers': router_list
+                    }
+
+                    subscription_router_list.append(i)
+
+            return {'Status Code': '200', 'subscriptionRouterLink': subscription_router_list}
+
+        except Exception as e:
+            return {'error': str(e)}
+
+class policyRouterLink(Resource):
+    def post(self):
+        try:
+            # Parse the arguments
+            parser = reqparse.RequestParser()
+            parser.add_argument('policyGroupName', type=str, help='')
+            parser.add_argument('routers', action='append')
+
+            args = parser.parse_args()
+
+            _routers = args['routers']
+            _policyGroupName = args['policyGroupName']
+
+            db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
+
+            router_list = []
+
+            for router in _routers:
+                cursor = db.execute(
+                    'INSERT INTO linkPolicyRouter (routerName, policyGroupName) VALUES (?, ?)',
+                        [router, _policyGroupName])
+                data = cursor.fetchall()
+
+                if len(data) is 0:
+                    db.commit()
+
+                    router_list.append(router)
+
+        except Exception as e:
+            return {'error': str(e)}
+
+        if len(router_list) > 0:
+
+            return {
+                'policyRouterLink': {
+                'policyGroupName': _policyGroupName,
+                'routers': router_list
+            }}
+
+        else:
+            return {'Status Code': '1000', 'Message': str(data[0])}
+
+
+    def get(self):
+        try:
+            db = get_db()
+            cursor = db.execute(
+                'SELECT policyGroupName from linkPolicyRouter ORDER BY policyGroupName')
+            data = cursor.fetchall()
+
+            policy_router_list = []
+
+            policyGroupName = ''
+
+            for policyGroup in data:
+                if policyGroupName != policyGroup[0]:
+                    policyGroupName = policyGroup[0]
+                    cursor1 = db.execute(
+                        'SELECT routerName from linkPolicyRouter WHERE policyGroupName=?', (policyGroup[0],)
+                    )
+                    data1 = cursor1.fetchall()
+
+                    router_list = []
+                    for router in data1:
+                        router_list.append(router[0])
+
+                    i = {
+                        'policyGroupName': policyGroup[0],
+                        'routers': router_list
+                    }
+
+                    policy_router_list.append(i)
+
+            return {'Status Code': '200', 'policyRouterLink': policy_router_list}
+
+        except Exception as e:
+            return {'error': str(e)}
 
 api.add_resource(subscription, '/subscription')
 api.add_resource(destinationGroup, '/destinationGroup')
@@ -434,6 +663,9 @@ api.add_resource(sensor, '/sensor')
 api.add_resource(policyGroup, '/policyGroup')
 api.add_resource(collector, '/collector')
 api.add_resource(policy, '/policy')
+api.add_resource(router, '/router')
+api.add_resource(subscriptionRouterLink, '/subscriptionRouterLink')
+api.add_resource(policyRouterLink, '/policyRouterLink')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5002, debug=True, threaded=True)

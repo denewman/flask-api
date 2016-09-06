@@ -95,16 +95,20 @@ create table router (
 );
 
 create table linkPolicyRouter (
+    linkId integer not null,
     policyGroupName text not null,
     routerName text not null,
+    status boolean not null,
     CONSTRAINT policyName_routerName PRIMARY KEY(policyGroupName, routerName),
     FOREIGN KEY(policyGroupName) REFERENCES policyGroup(policyGroupName),
     FOREIGN KEY(routerName) REFERENCES router(routerName)
 );
 
 create table linkSubscriptionRouter (
+    linkId integer not null,
     subscriptionName text not null,
     routerName text not null,
+    status boolean not null,
     CONSTRAINT subscriptionName_routerName PRIMARY KEY(subscriptionName, routerName),
     FOREIGN KEY(subscriptionName) REFERENCES subscription(subscriptionName),
     FOREIGN KEY(routerName) REFERENCES router(routerName)

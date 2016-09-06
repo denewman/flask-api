@@ -494,7 +494,7 @@ class router(Resource):
                 }
                 router_list.append(i)
 
-            return {'Status Code': '200', 'routers': router_list}
+            return {'Status Code': '200', 'router': router_list}
 
         except Exception as e:
             return {'error': str(e)}
@@ -506,21 +506,25 @@ class subscriptionRouterLink(Resource):
             parser = reqparse.RequestParser()
             parser.add_argument('subscriptionName', type=str, help='')
             parser.add_argument('routers', action='append')
+            parser.add_argument('status', type=bool, help='')
 
             args = parser.parse_args()
 
-            _routers = args['routers']
             _subscriptionName = args['subscriptionName']
+            _routers = args['routers']
+            _status = args['status']
 
             db = get_db()
             db.execute('PRAGMA foreign_keys=ON')
+
+            _linkId = db.execute('SELECT ifnull(max(linkId), 0) + 1 from linkSubscriptionRouter').fetchone()[0]
 
             router_list = []
 
             for router in _routers:
                 cursor = db.execute(
-                    'INSERT INTO linkSubscriptionRouter (routerName, subscriptionName) VALUES (?, ?)',
-                        [router, _subscriptionName])
+                    'INSERT INTO linkSubscriptionRouter (linkId, subscriptionName, routerName, status) VALUES (?, ?, ?, ?)',
+                        [_linkId, _subscriptionName, router, _status])
                 data = cursor.fetchall()
 
                 if len(data) is 0:
@@ -536,7 +540,8 @@ class subscriptionRouterLink(Resource):
             return {
                 'subscriptionRouterLink': {
                 'subscriptionName': _subscriptionName,
-                'routers': router_list
+                'routers': router_list,
+                'status': _status
             }}
 
         else:
@@ -547,18 +552,18 @@ class subscriptionRouterLink(Resource):
         try:
             db = get_db()
             cursor = db.execute(
-                'SELECT subscriptionName from linkSubscriptionRouter ORDER BY subscriptionName')
+                'SELECT linkId, subscriptionName, status from linkSubscriptionRouter ORDER BY linkId')
             data = cursor.fetchall()
 
             subscription_router_list = []
 
-            subscriptionName = ''
+            link_id = 0
 
             for subscription in data:
-                if subscriptionName != subscription[0]:
-                    subscriptionName = subscription[0]
+                if link_id != subscription[0]:
+                    link_id = subscription[0]
                     cursor1 = db.execute(
-                        'SELECT routerName from linkSubscriptionRouter WHERE subscriptionName=?', (subscription[0],)
+                        'SELECT routerName from linkSubscriptionRouter WHERE linkId=?', (subscription[0],)
                     )
                     data1 = cursor1.fetchall()
 
@@ -567,7 +572,8 @@ class subscriptionRouterLink(Resource):
                         router_list.append(router[0])
 
                     i = {
-                        'subscriptionName': subscription[0],
+                        'subscriptionName': subscription[1],
+                        'status': subscription[2],
                         'routers': router_list
                     }
 
@@ -585,21 +591,25 @@ class policyRouterLink(Resource):
             parser = reqparse.RequestParser()
             parser.add_argument('policyGroupName', type=str, help='')
             parser.add_argument('routers', action='append')
+            parser.add_argument('status', type=bool, help='')
 
             args = parser.parse_args()
 
-            _routers = args['routers']
             _policyGroupName = args['policyGroupName']
+            _routers = args['routers']
+            _status = args['status']
 
             db = get_db()
             db.execute('PRAGMA foreign_keys=ON')
+
+            _linkId = db.execute('SELECT ifnull(max(linkId), 0) + 1 from linkPolicyRouter').fetchone()[0]
 
             router_list = []
 
             for router in _routers:
                 cursor = db.execute(
-                    'INSERT INTO linkPolicyRouter (routerName, policyGroupName) VALUES (?, ?)',
-                        [router, _policyGroupName])
+                    'INSERT INTO linkPolicyRouter (linkId, policyGroupName, routerName, status) VALUES (?, ?, ?, ?)',
+                        [_linkId, _policyGroupName, router, _status])
                 data = cursor.fetchall()
 
                 if len(data) is 0:
@@ -615,7 +625,8 @@ class policyRouterLink(Resource):
             return {
                 'policyRouterLink': {
                 'policyGroupName': _policyGroupName,
-                'routers': router_list
+                'routers': router_list,
+                'status': _status
             }}
 
         else:
@@ -626,18 +637,18 @@ class policyRouterLink(Resource):
         try:
             db = get_db()
             cursor = db.execute(
-                'SELECT policyGroupName from linkPolicyRouter ORDER BY policyGroupName')
+                'SELECT linkId, policyGroupName, status from linkPolicyRouter ORDER BY linkId')
             data = cursor.fetchall()
 
             policy_router_list = []
 
-            policyGroupName = ''
+            link_id = 0
 
-            for policyGroup in data:
-                if policyGroupName != policyGroup[0]:
-                    policyGroupName = policyGroup[0]
+            for policy in data:
+                if link_id != policy[0]:
+                    link_id = policy[0]
                     cursor1 = db.execute(
-                        'SELECT routerName from linkPolicyRouter WHERE policyGroupName=?', (policyGroup[0],)
+                        'SELECT routerName from linkPolicyRouter WHERE linkId=?', (policy[0],)
                     )
                     data1 = cursor1.fetchall()
 
@@ -646,7 +657,8 @@ class policyRouterLink(Resource):
                         router_list.append(router[0])
 
                     i = {
-                        'policyGroupName': policyGroup[0],
+                        'policyGroupName': policy[1],
+                        'status': policy[2],
                         'routers': router_list
                     }
 

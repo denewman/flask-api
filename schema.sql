@@ -55,6 +55,8 @@ create table policyGroup (
     collectorName text not null,
     policyName text not null,
     PRIMARY KEY(policyGroupName)
+    FOREIGN KEY(collectorName) REFERENCES collector(collectorName)
+    FOREIGN KEY(policyName) REFERENCES policy(policyName)
 );
 
 create table policy (

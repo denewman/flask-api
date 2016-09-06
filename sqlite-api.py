@@ -119,6 +119,17 @@ class subscription(Resource):
         except Exception as e:
             return {'error': str(e)}
 
+    def delete(self):
+        try:
+            db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
+            db.execute('DELETE FROM subscription')
+            db.commit()
+            return {'Status Code': '200'}
+
+        except Exception as e:
+            return {'error': str(e)}
+
 
 class destinationGroup(Resource):
     def post(self):
@@ -184,6 +195,17 @@ class destinationGroup(Resource):
         except Exception as e:
             return {'error': str(e)}
 
+    def delete(self):
+        try:
+            db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
+            db.execute('DELETE FROM destinationGroup')
+            db.commit()
+            return {'Status Code': '200'}
+
+        except Exception as e:
+            return {'error': str(e)}
+
 
 class sensor(Resource):
     def post(self):
@@ -245,6 +267,18 @@ class sensor(Resource):
         except Exception as e:
             return {'error': str(e)}
 
+    def delete(self):
+        try:
+            db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
+            db.execute('DELETE FROM linkSensorPath')
+            db.execute('DELETE FROM sensor')
+            db.commit()
+            return {'Status Code': '200'}
+
+        except Exception as e:
+            return {'error': str(e)}
+
 
 class policyGroup(Resource):
     def post(self):
@@ -295,6 +329,17 @@ class policyGroup(Resource):
                 policyGroup_list.append(i)
 
             return {'Status Code': '200', 'policyGroup': policyGroup_list}
+
+        except Exception as e:
+            return {'error': str(e)}
+
+    def delete(self):
+        try:
+            db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
+            db.execute('DELETE FROM policyGroup')
+            db.commit()
+            return {'Status Code': '200'}
 
         except Exception as e:
             return {'error': str(e)}
@@ -360,6 +405,17 @@ class collector(Resource):
                 collector_list.append(i)
 
             return {'Status Code': '200', 'collector': collector_list}
+
+        except Exception as e:
+            return {'error': str(e)}
+
+    def delete(self):
+        try:
+            db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
+            db.execute('DELETE FROM collector')
+            db.commit()
+            return {'Status Code': '200'}
 
         except Exception as e:
             return {'error': str(e)}
@@ -447,6 +503,18 @@ class policy(Resource):
         except Exception as e:
             return {'error': str(e)}
 
+    def delete(self):
+        try:
+            db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
+            db.execute('DELETE FROM linkPolicyPath')
+            db.execute('DELETE FROM policy')
+            db.commit()
+            return {'Status Code': '200'}
+
+        except Exception as e:
+            return {'error': str(e)}
+
 class router(Resource):
     def post(self):
         try:
@@ -499,6 +567,17 @@ class router(Resource):
         except Exception as e:
             return {'error': str(e)}
 
+    def delete(self):
+        try:
+            db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
+            db.execute('DELETE FROM router')
+            db.commit()
+            return {'Status Code': '200'}
+
+        except Exception as e:
+            return {'error': str(e)}
+
 class subscriptionRouterLink(Resource):
     def post(self):
         try:
@@ -539,6 +618,7 @@ class subscriptionRouterLink(Resource):
 
             return {
                 'subscriptionRouterLink': {
+                'linkId': _linkId,
                 'subscriptionName': _subscriptionName,
                 'routers': router_list,
                 'status': _status
@@ -572,6 +652,7 @@ class subscriptionRouterLink(Resource):
                         router_list.append(router[0])
 
                     i = {
+                        'linkId:': subscription[0],
                         'subscriptionName': subscription[1],
                         'status': subscription[2],
                         'routers': router_list
@@ -583,6 +664,30 @@ class subscriptionRouterLink(Resource):
 
         except Exception as e:
             return {'error': str(e)}
+
+    def delete(self):
+        try:
+            db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
+            db.execute('DELETE FROM linkSubscriptionRouter')
+            db.commit()
+            return {'Status Code': '200'}
+
+        except Exception as e:
+            return {'error': str(e)}
+
+class singleSubscriptionRouterLink(Resource):
+    def delete(self, linkId):
+        try:
+            db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
+            db.execute('DELETE FROM linkSubscriptionRouter WHERE linkId=?', (linkId,))
+            db.commit()
+            return {'Status Code': '200'}
+
+        except Exception as e:
+            return {'error': str(e)}
+
 
 class policyRouterLink(Resource):
     def post(self):
@@ -624,6 +729,7 @@ class policyRouterLink(Resource):
 
             return {
                 'policyRouterLink': {
+                'linkId': _linkId,
                 'policyGroupName': _policyGroupName,
                 'routers': router_list,
                 'status': _status
@@ -657,6 +763,7 @@ class policyRouterLink(Resource):
                         router_list.append(router[0])
 
                     i = {
+                        'linkId': policy[0],
                         'policyGroupName': policy[1],
                         'status': policy[2],
                         'routers': router_list
@@ -669,6 +776,30 @@ class policyRouterLink(Resource):
         except Exception as e:
             return {'error': str(e)}
 
+    def delete(self):
+        try:
+            db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
+            db.execute('DELETE FROM linkPolicyRouter')
+            db.commit()
+            return {'Status Code': '200'}
+
+        except Exception as e:
+            return {'error': str(e)}
+
+class singlePolicyRouterLink(Resource):
+    def delete(self, linkId):
+        try:
+            db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
+            db.execute('DELETE FROM linkPolicyRouter WHERE linkId=?', (linkId,))
+            db.commit()
+            return {'Status Code': '200'}
+
+        except Exception as e:
+            return {'error': str(e)}
+
+
 api.add_resource(subscription, '/subscription')
 api.add_resource(destinationGroup, '/destinationGroup')
 api.add_resource(sensor, '/sensor')
@@ -678,6 +809,8 @@ api.add_resource(policy, '/policy')
 api.add_resource(router, '/router')
 api.add_resource(subscriptionRouterLink, '/subscriptionRouterLink')
 api.add_resource(policyRouterLink, '/policyRouterLink')
+api.add_resource(singleSubscriptionRouterLink, '/subscriptionRouterLink/<linkId>')
+api.add_resource(singlePolicyRouterLink, '/policyRouterLink/<linkId>')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5002, debug=True, threaded=True)

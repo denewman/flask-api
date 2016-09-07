@@ -130,6 +130,18 @@ class subscription(Resource):
         except Exception as e:
             return {'error': str(e)}
 
+class singleSubscription(Resource):
+    def delete(self, subscriptionName):
+        try:
+            db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
+            db.execute('DELETE FROM subscription WHERE subscriptionName=?', (subscriptionName,))
+            db.commit()
+            return {'Status Code': '200'}
+
+        except Exception as e:
+            return {'error': str(e)}
+
 
 class destinationGroup(Resource):
     def post(self):
@@ -206,6 +218,17 @@ class destinationGroup(Resource):
         except Exception as e:
             return {'error': str(e)}
 
+class singleDestinationGroup(Resource):
+    def delete(self, destinationGroupName):
+        try:
+            db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
+            db.execute('DELETE FROM destinationGroup WHERE destinationGroupName=?', (destinationGroupName,))
+            db.commit()
+            return {'Status Code': '200'}
+
+        except Exception as e:
+            return {'error': str(e)}
 
 class sensor(Resource):
     def post(self):
@@ -279,6 +302,19 @@ class sensor(Resource):
         except Exception as e:
             return {'error': str(e)}
 
+class singleSensor(Resource):
+    def delete(self, sensorName):
+        try:
+            db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
+            db.execute('DELETE FROM linkSensorPath WHERE sensorName=?', (sensorName,))
+            db.execute('DELETE FROM sensor WHERE sensorName=?', (sensorName,))
+            db.commit()
+            return {'Status Code': '200'}
+
+        except Exception as e:
+            return {'error': str(e)}
+
 
 class policyGroup(Resource):
     def post(self):
@@ -338,6 +374,18 @@ class policyGroup(Resource):
             db = get_db()
             db.execute('PRAGMA foreign_keys=ON')
             db.execute('DELETE FROM policyGroup')
+            db.commit()
+            return {'Status Code': '200'}
+
+        except Exception as e:
+            return {'error': str(e)}
+
+class singlePolicyGroup(Resource):
+    def delete(self, policyGroupName):
+        try:
+            db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
+            db.execute('DELETE FROM policyGroup WHERE policyGroupName=?', (policyGroupName,))
             db.commit()
             return {'Status Code': '200'}
 
@@ -414,6 +462,18 @@ class collector(Resource):
             db = get_db()
             db.execute('PRAGMA foreign_keys=ON')
             db.execute('DELETE FROM collector')
+            db.commit()
+            return {'Status Code': '200'}
+
+        except Exception as e:
+            return {'error': str(e)}
+
+class singleCollector(Resource):
+    def delete(self, collectorName):
+        try:
+            db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
+            db.execute('DELETE FROM collector WHERE collectorName=?', (collectorName,))
             db.commit()
             return {'Status Code': '200'}
 
@@ -515,6 +575,19 @@ class policy(Resource):
         except Exception as e:
             return {'error': str(e)}
 
+class singlePolicy(Resource):
+    def delete(self, policyName):
+        try:
+            db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
+            db.execute('DELETE FROM linkPolicyPath WHERE policyName=?', (policyName,))
+            db.execute('DELETE FROM policy WHERE policyName=?', (policyName,))
+            db.commit()
+            return {'Status Code': '200'}
+
+        except Exception as e:
+            return {'error': str(e)}
+
 class router(Resource):
     def post(self):
         try:
@@ -578,6 +651,18 @@ class router(Resource):
         except Exception as e:
             return {'error': str(e)}
 
+class singleRouter(Resource):
+    def delete(self, routerName):
+        try:
+            db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
+            db.execute('DELETE FROM router WHERE routerName=?', (routerName,))
+            db.commit()
+            return {'Status Code': '200'}
+
+        except Exception as e:
+            return {'error': str(e)}
+
 class subscriptionRouterLink(Resource):
     def post(self):
         try:
@@ -618,10 +703,10 @@ class subscriptionRouterLink(Resource):
 
             return {
                 'subscriptionRouterLink': {
-                'linkId': _linkId,
-                'subscriptionName': _subscriptionName,
-                'routers': router_list,
-                'status': _status
+                    'linkId': _linkId,
+                    'subscriptionName': _subscriptionName,
+                    'routers': router_list,
+                    'status': _status
             }}
 
         else:
@@ -652,7 +737,7 @@ class subscriptionRouterLink(Resource):
                         router_list.append(router[0])
 
                     i = {
-                        'linkId:': subscription[0],
+                        'linkId': subscription[0],
                         'subscriptionName': subscription[1],
                         'status': subscription[2],
                         'routers': router_list
@@ -729,10 +814,10 @@ class policyRouterLink(Resource):
 
             return {
                 'policyRouterLink': {
-                'linkId': _linkId,
-                'policyGroupName': _policyGroupName,
-                'routers': router_list,
-                'status': _status
+                    'linkId': _linkId,
+                    'policyGroupName': _policyGroupName,
+                    'routers': router_list,
+                    'status': _status
             }}
 
         else:
@@ -811,6 +896,13 @@ api.add_resource(subscriptionRouterLink, '/subscriptionRouterLink')
 api.add_resource(policyRouterLink, '/policyRouterLink')
 api.add_resource(singleSubscriptionRouterLink, '/subscriptionRouterLink/<linkId>')
 api.add_resource(singlePolicyRouterLink, '/policyRouterLink/<linkId>')
+api.add_resource(singleRouter, '/router/<routerName>')
+api.add_resource(singleSubscription, '/subscription/<subscriptionName>')
+api.add_resource(singleDestinationGroup, '/destinationGroup/<destinationGroupName>')
+api.add_resource(singleSensor, '/sensor/<sensorName>')
+api.add_resource(singlePolicyGroup, '/policyGroup/<policyGroupName>')
+api.add_resource(singleCollector, '/collector/<collectorName>')
+api.add_resource(singlePolicy, '/policy/<policyName>')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5002, debug=True, threaded=True)

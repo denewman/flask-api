@@ -486,6 +486,7 @@ class policy(Resource):
             # Parse the arguments
             parser = reqparse.RequestParser()
             parser.add_argument('policyName', type=str, help='')
+            parser.add_argument('policyVersion', type=float, help='')
             parser.add_argument('policyDescription', type=str, help='')
             parser.add_argument('policyComment', type=str, help='')
             parser.add_argument('policyIdentifier', type=str, help='')
@@ -494,6 +495,7 @@ class policy(Resource):
             args = parser.parse_args()
 
             _policyName = args['policyName']
+            _policyVersion = args['policyVersion']
             _policyDescription = args['policyDescription']
             _policyComment = args['policyComment']
             _policyIdentifier = args['policyIdentifier']
@@ -503,9 +505,8 @@ class policy(Resource):
             db = get_db()
             db.execute('PRAGMA foreign_keys=ON')
             cursor = db.execute(
-                'INSERT INTO policy (policyName, policyDescription, policyComment, policyIdentifier, policyPeriod) VALUES (?, ?, ?, ?, ?)',
-                [_policyName, _policyDescription, _policyComment, _policyIdentifier,
-                 _policyPeriod])
+                'INSERT INTO policy (policyName, policyVersion, policyDescription, policyComment, policyIdentifier, policyPeriod) VALUES (?, ?, ?, ?, ?, ?)',
+                [_policyName, _policyVersion, _policyDescription, _policyComment, _policyIdentifier, _policyPeriod])
             data = cursor.fetchall()
 
             for policyPath in _policyPaths:
@@ -520,6 +521,7 @@ class policy(Resource):
                 return {
                     'policy': {
                         'policyName': _policyName,
+                        'policyVersion': _policyVersion,
                         'policyDescription': _policyDescription,
                         'policyComment': _policyComment,
                         'policyIdentifier': _policyIdentifier,
@@ -536,7 +538,7 @@ class policy(Resource):
         try:
             db = get_db()
             cursor = db.execute(
-                'SELECT policyName, policyDescription, policyComment, policyIdentifier, policyPeriod FROM policy ORDER BY policyName DESC')
+                'SELECT policyName, policyVersion, policyDescription, policyComment, policyIdentifier, policyPeriod FROM policy ORDER BY policyName DESC')
             data = cursor.fetchall()
 
             policy_list = []
@@ -550,10 +552,11 @@ class policy(Resource):
 
                 i = {
                     'policyName': policy[0],
-                    'policyDescription': policy[1],
-                    'policyComment': policy[2],
-                    'policyIdentifier': policy[3],
-                    'policyPeriod': policy[4],
+                    'policyVersion': policy[1],
+                    'policyDescription': policy[2],
+                    'policyComment': policy[3],
+                    'policyIdentifier': policy[4],
+                    'policyPeriod': policy[5],
                     'policyPath': path_list
                 }
                 policy_list.append(i)

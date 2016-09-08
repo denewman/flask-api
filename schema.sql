@@ -61,6 +61,7 @@ create table policyGroup (
 
 create table policy (
     policyName text not null,
+    policyVersion integer not null,
     policyDescription text not null,
     policyComment text,
     policyIdentifier text not null,

@@ -598,16 +598,22 @@ class router(Resource):
             parser = reqparse.RequestParser()
             parser.add_argument('routerName', type=str, help='')
             parser.add_argument('routerAddress', type=str, help='')
+            parser.add_argument('routerUsername', type=str, help='')
+            parser.add_argument('routerPassword', type=str, help='')
+            parser.add_argument('routerPort', type=int, help='')
 
             args = parser.parse_args()
 
             _routerName = args['routerName']
             _routerAddress = args['routerAddress']
+            _routerUsername = args['routerUsername']
+            _routerPassword = args['routerPassword']
+            _routerPort = args['routerPort']
 
             db = get_db()
             cursor = db.execute(
-                'INSERT INTO router (routerName, routerAddress) VALUES (?, ?)',
-                [_routerName, _routerAddress])
+                'INSERT INTO router (routerName, routerAddress, routerUsername, routerPassword, routerPort) VALUES (?, ?, ?, ?, ?)',
+                [_routerName, _routerAddress, _routerUsername, _routerPassword, _routerPort])
             data = cursor.fetchall()
 
             if len(data) is 0:
@@ -615,7 +621,10 @@ class router(Resource):
                 return {
                     'router': {
                         'routerName': _routerName,
-                        'routerAddress': _routerAddress
+                        'routerAddress': _routerAddress,
+                        'routerUsername': _routerUsername,
+                        'routerPassword': _routerPassword,
+                        'routerPort': _routerPort
                     }}
             else:
                 return {'Status Code': '1000', 'Message': str(data[0])}
@@ -627,14 +636,17 @@ class router(Resource):
         try:
             db = get_db()
             cursor = db.execute(
-                'SELECT routerName, routerAddress FROM router ORDER BY routerName DESC')
+                'SELECT routerName, routerAddress, routerUsername, routerPassword, routerPort FROM router ORDER BY routerName DESC')
             data = cursor.fetchall()
 
             router_list = []
             for router in data:
                 i = {
                     'routerName': router[0],
-                    'routerAddress': router[1]
+                    'routerAddress': router[1],
+                    'routerUsername': router[2],
+                    'routerPassword': router[3],
+                    'routerPort': router[4]
                 }
                 router_list.append(i)
 

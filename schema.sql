@@ -94,6 +94,9 @@ create table collector (
 create table router (
     routerName text not null,
     routerAddress text not null,
+    routerUsername text not null,
+    routerPassword text not null,
+    routerPort integer not null,
     PRIMARY KEY(routerName)
 );
 

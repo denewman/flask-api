@@ -790,6 +790,11 @@ class singleSubscriptionRouterLink(Resource):
             db.execute('PRAGMA foreign_keys=ON')
             db.execute('DELETE FROM linkSubscriptionRouter WHERE linkId=?', (linkId,))
             db.commit()
+            conf = mdtconf.Mdtconf('64.104.255.10', 'rmitproject', 'r@mot@supp@rt', 5001,
+                                   'ssh', 'Dgroup1', 'ipv4', '172.30.8.4', 5432, 'SGroup1',
+                                   'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters',
+                                   'Sub1', 5, 3000)
+            print('return code: ', conf.del_conf())
             return {'Status Code': '200'}
 
         except Exception as e:

@@ -14,11 +14,12 @@ drop table if exists linkSubscriptionRouter;
 
 
 create table subscription (
-    subscriptionName text not null,
+    subscriptionId INTEGER not null,
+    subscriptionName text not null UNIQUE,
     subscriptionInterval double not null,
     destinationGroupName text not null,
     sensorName text not null,
-    PRIMARY KEY(subscriptionName)
+    PRIMARY KEY(subscriptionId)
     FOREIGN KEY(destinationGroupName) REFERENCES destinationGroup(destinationGroupName),
     FOREIGN KEY(sensorName) REFERENCES sensor(sensorName)
 );

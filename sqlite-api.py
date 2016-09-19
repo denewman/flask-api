@@ -71,12 +71,14 @@ class subscription(Resource):
         try:
             # Parse the arguments
             parser = reqparse.RequestParser()
+            parser.add_argument('subscriptionId', type=int, help='Subscription ID to create subscription')
             parser.add_argument('subscriptionName', type=str, help='Subscription name to create subscription')
             parser.add_argument('destinationGroupName', type=str, help='Destination group to create subscription')
             parser.add_argument('sensorName', type=str, help='Sensor Name to create subscription')
             parser.add_argument('subscriptionInterval', type=float, help='Interval for the new subscription')
             args = parser.parse_args()
 
+            _subscriptionId = args['subscriptionId']
             _subscriptionName = args['subscriptionName']
             _destinationGroupName = args['destinationGroupName']
             _sensorName = args['sensorName']
@@ -85,14 +87,16 @@ class subscription(Resource):
             db = get_db()
             db.execute('PRAGMA foreign_keys=ON')
             cursor = db.execute(
-                'INSERT INTO subscription (subscriptionName, destinationGroupName, sensorName, subscriptionInterval) VALUES (?, ?, ?, ?)',
-                [_subscriptionName, _destinationGroupName, _sensorName, _subscriptionInterval])
+                'INSERT INTO subscription (subscriptionId, subscriptionName, destinationGroupName, sensorName, subscriptionInterval) VALUES (?, ?, ?, ?, ?)',
+                [_subscriptionId, _subscriptionName, _destinationGroupName, _sensorName, _subscriptionInterval])
             data = cursor.fetchall()
 
             if len(data) is 0:
                 db.commit()
-                return {'subscription': {'subscriptionName': _subscriptionName,
-                                         'destinationGroupName': _destinationGroupName, 'sensorName': _sensorName,
+                return {'subscription': {'subscriptionId': _subscriptionId,
+                                         'subscriptionName': _subscriptionName,
+                                         'destinationGroupName': _destinationGroupName,
+                                         'sensorName': _sensorName,
                                          'subscriptionInterval': _subscriptionInterval}}
             else:
                 return {'Status Code': '1000', 'Message': str(data[0])}
@@ -104,16 +108,17 @@ class subscription(Resource):
         try:
             db = get_db()
             cursor = db.execute(
-                'SELECT subscriptionName, destinationGroupName, sensorName, subscriptionInterval FROM subscription ORDER BY subscriptionName DESC')
+                'SELECT subscriptionId, subscriptionName, destinationGroupName, sensorName, subscriptionInterval FROM subscription ORDER BY subscriptionName DESC')
             data = cursor.fetchall()
 
             subscription_list = []
             for subscription in data:
                 i = {
-                    'subscriptionName': subscription[0],
-                    'destinationGroupName': subscription[1],
-                    'sensorName': subscription[2],
-                    'subscriptionInterval': subscription[3]
+                    'subscriptionId': subscription[0],
+                    'subscriptionName': subscription[1],
+                    'destinationGroupName': subscription[2],
+                    'sensorName': subscription[3],
+                    'subscriptionInterval': subscription[4]
                 }
                 subscription_list.append(i)
 
@@ -701,6 +706,24 @@ class subscriptionRouterLink(Resource):
 
             _linkId = db.execute('SELECT ifnull(max(linkId), 0) + 1 from linkSubscriptionRouter').fetchone()[0]
 
+            _accessProtocol = 'ssh'
+            _destinationGroupName = db.execute(
+                'SELECT destinationGroupName FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]
+            _addressFamily = 'ipv4'
+            _destinationGroupAddress = db.execute(
+                'SELECT destinationGroupAddress FROM destinationGroup WHERE destinationGroupName=?', (_destinationGroupName,)).fetchone()[0]
+            _destinationGroupPort = db.execute(
+                'SELECT destinationGroupPort FROM destinationGroup WHERE destinationGroupName=?', (_destinationGroupName,)).fetchone()[0]
+            _sensorName = db.execute(
+                'SELECT sensorName FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]
+            _sensorPath = db.execute(
+                'SELECT sensorPathName FROM linkSensorPath WHERE sensorName=?', (_sensorName,)).fetchone()[0]
+            _subscriptionId = db.execute(
+                'SELECT subscriptionId FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]
+            _subscriptionInterval = db.execute(
+                'SELECT subscriptionInterval FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]
+
+
             router_list = []
 
             for router in _routers:
@@ -709,8 +732,28 @@ class subscriptionRouterLink(Resource):
                         [_linkId, _subscriptionName, router, _status])
                 data = cursor.fetchall()
 
-                if len(data) is 0:
-                    db.commit()
+                _routerAddress = db.execute(
+                    'SELECT routerAddress FROM router WHERE routerName=?', (router,)).fetchone()[0]
+                _routerUsername = db.execute(
+                    'SELECT routerUsername FROM router WHERE routerName=?', (router,)).fetchone()[0]
+                _routerPassword = db.execute(
+                    'SELECT routerPassword FROM router WHERE routerName=?', (router,)).fetchone()[0]
+                _routerPort = db.execute(
+                    'SELECT routerPort FROM router WHERE routerName=?', (router,)).fetchone()[0]
+
+                conf = mdtconf.Mdtconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
+                                       _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
+                                       _destinationGroupPort, _sensorName, _sensorPath, _subscriptionName, _subscriptionId,
+                                       _subscriptionInterval)
+
+                if (conf.push_conf() == 0):
+                    if len(data) is 0:
+                        db.commit()
+
+#                print (_routerAddress, _routerUsername,  _routerPassword, _routerPort,
+#                                       _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
+#                                       _destinationGroupPort, _sensorName, _sensorPath, _subscriptionName, _subscriptionId,
+#                                       _subscriptionInterval)
 
                     router_list.append(router)
 
@@ -718,11 +761,7 @@ class subscriptionRouterLink(Resource):
             return {'error': str(e)}
 
         if len(router_list) > 0:
-            conf = mdtconf.Mdtconf('64.104.255.10', 'rmitproject', 'r@mot@supp@rt', 5001,
-                           'ssh', 'Dgroup1', 'ipv4', '172.30.8.4', 5432, 'SGroup1',
-                           'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters',
-                            'Sub1', 5, 3000)
-            print('return code: ', conf.push_conf())
+
             return {
                 'subscriptionRouterLink': {
                     'linkId': _linkId,
@@ -788,13 +827,59 @@ class singleSubscriptionRouterLink(Resource):
         try:
             db = get_db()
             db.execute('PRAGMA foreign_keys=ON')
-            db.execute('DELETE FROM linkSubscriptionRouter WHERE linkId=?', (linkId,))
-            db.commit()
-            conf = mdtconf.Mdtconf('64.104.255.10', 'rmitproject', 'r@mot@supp@rt', 5001,
-                                   'ssh', 'Dgroup1', 'ipv4', '172.30.8.4', 5432, 'SGroup1',
-                                   'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters',
-                                   'Sub1', 5, 3000)
-            print('return code: ', conf.del_conf())
+
+            _subscriptionName = db.execute(
+                'SELECT subscriptionName FROM linkSubscriptionRouter WHERE linkId=?', (linkId,)).fetchone()[0]
+            _accessProtocol = 'ssh'
+            _destinationGroupName = db.execute(
+                'SELECT destinationGroupName FROM subscription WHERE subscriptionName=?',
+                (_subscriptionName,)).fetchone()[0]
+            _addressFamily = 'ipv4'
+            _destinationGroupAddress = db.execute(
+                'SELECT destinationGroupAddress FROM destinationGroup WHERE destinationGroupName=?',
+                (_destinationGroupName,)).fetchone()[0]
+            _destinationGroupPort = db.execute(
+                'SELECT destinationGroupPort FROM destinationGroup WHERE destinationGroupName=?',
+                (_destinationGroupName,)).fetchone()[0]
+            _sensorName = db.execute(
+                'SELECT sensorName FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]
+            _sensorPath = db.execute(
+                'SELECT sensorPathName FROM linkSensorPath WHERE sensorName=?', (_sensorName,)).fetchone()[0]
+            _subscriptionId = db.execute(
+                'SELECT subscriptionId FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]
+            _subscriptionInterval = db.execute(
+                'SELECT subscriptionInterval FROM subscription WHERE subscriptionName=?',
+                (_subscriptionName,)).fetchone()[0]
+
+            _routers = db.execute(
+                'SELECT routerName from linkSubscriptionRouter WHERE linkId=?', (linkId,)).fetchall()
+
+            print (_routers,
+                   _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
+                   _destinationGroupPort, _sensorName, _sensorPath, _subscriptionName, _subscriptionId,
+                   _subscriptionInterval)
+
+            for routerName in _routers:
+                _routerName = routerName[0]
+                router = db.execute(
+                    'SELECT routerAddress, routerUsername, routerPassword, routerPort FROM router WHERE routerName=?', (_routerName,)).fetchone()
+                _routerAddress = router[0]
+                _routerUsername = router[1]
+                _routerPassword = router[2]
+                _routerPort = router[3]
+#                print (_routerAddress, _routerUsername, _routerPassword, _routerPort,
+#                                       _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
+#                                       _destinationGroupPort, _sensorName, _sensorPath, _subscriptionName, _subscriptionId,
+#                                       _subscriptionInterval)
+
+            conf = mdtconf.Mdtconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
+                                   _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
+                                  _destinationGroupPort, _sensorName, _sensorPath, _subscriptionName, _subscriptionId,
+                                  _subscriptionInterval)
+            if (conf.del_conf() == 0):
+                db.execute('DELETE FROM linkSubscriptionRouter WHERE linkId=?', (linkId,))
+                db.commit()
+
             return {'Status Code': '200'}
 
         except Exception as e:

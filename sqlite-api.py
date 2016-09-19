@@ -746,9 +746,9 @@ class subscriptionRouterLink(Resource):
                                        _destinationGroupPort, _sensorName, _sensorPath, _subscriptionName, _subscriptionId,
                                        _subscriptionInterval)
 
-                if (conf.push_conf() == 0):
-                    if len(data) is 0:
-                        db.commit()
+                print (conf.push_conf() == 0)
+                if len(data) is 0:
+                    db.commit()
 
 #                print (_routerAddress, _routerUsername,  _routerPassword, _routerPort,
 #                                       _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
@@ -876,7 +876,7 @@ class singleSubscriptionRouterLink(Resource):
                                    _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
                                   _destinationGroupPort, _sensorName, _sensorPath, _subscriptionName, _subscriptionId,
                                   _subscriptionInterval)
-            if (conf.del_conf() == 0):
+            if conf.del_conf() == 0:
                 db.execute('DELETE FROM linkSubscriptionRouter WHERE linkId=?', (linkId,))
                 db.commit()
 

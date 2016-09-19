@@ -748,7 +748,7 @@ class subscriptionRouterLink(Resource):
 
 #                conf = mdtconf.Mdtconf('64.104.255.10', 'rmitproject', 'r@mot@supp@rt', 5001, 'ssh', 'Dgroup1', 'ipv4', '172.30.8.4', 5432, 'SGroup1', 'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters', 'Sub1', 5, 3000)
 
-                print (conf.push_conf() == 0)
+                print (conf.push_conf())
                 if len(data) is 0:
                     db.commit()
 

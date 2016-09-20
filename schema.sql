@@ -27,7 +27,7 @@ create table subscription (
 create table destinationGroup (
     destinationGroupName text not null,
     destinationGroupAddress text not null,
-    destinationGroupPort text not null,
+    destinationGroupPort integer not null,
     destinationGroupEncoding text not null,
     destinationGroupProtocol text not null,
     PRIMARY KEY(destinationGroupName)
@@ -86,7 +86,7 @@ create table linkPolicyPath (
 create table collector (
     collectorName text not null,
     collectorAddress text not null,
-    collectorPort text not null,
+    collectorPort integer not null,
     collectorEncoding text not null,
     collectorProtocol text not null,
     PRIMARY KEY(collectorName)

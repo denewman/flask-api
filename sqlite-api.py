@@ -158,7 +158,7 @@ class destinationGroup(Resource):
             parser = reqparse.RequestParser()
             parser.add_argument('destinationGroupName', type=str, help='')
             parser.add_argument('destinationGroupAddress', type=str, help='')
-            parser.add_argument('destinationGroupPort', type=str, help='')
+            parser.add_argument('destinationGroupPort', type=int, help='')
             parser.add_argument('destinationGroupEncoding', type=str, help='')
             parser.add_argument('destinationGroupProtocol', type=str, help='')
             args = parser.parse_args()
@@ -409,7 +409,7 @@ class collector(Resource):
             parser.add_argument('collectorName', type=str, help='')
             parser.add_argument('collectorAddress', type=str, help='')
             parser.add_argument('collectorEncoding', type=str, help='')
-            parser.add_argument('collectorPort', type=str, help='')
+            parser.add_argument('collectorPort', type=int, help='')
             parser.add_argument('collectorProtocol', type=str, help='')
             args = parser.parse_args()
 

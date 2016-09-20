@@ -707,17 +707,17 @@ class subscriptionRouterLink(Resource):
             _linkId = db.execute('SELECT ifnull(max(linkId), 0) + 1 from linkSubscriptionRouter').fetchone()[0]
 
             _accessProtocol = 'ssh'
-            _destinationGroupName = db.execute(
-                'SELECT destinationGroupName FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]
+            _destinationGroupName = str(db.execute(
+                'SELECT destinationGroupName FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0])
             _addressFamily = 'ipv4'
-            _destinationGroupAddress = db.execute(
-                'SELECT destinationGroupAddress FROM destinationGroup WHERE destinationGroupName=?', (_destinationGroupName,)).fetchone()[0]
+            _destinationGroupAddress = str(db.execute(
+                'SELECT destinationGroupAddress FROM destinationGroup WHERE destinationGroupName=?', (_destinationGroupName,)).fetchone()[0])
             _destinationGroupPort = db.execute(
                 'SELECT destinationGroupPort FROM destinationGroup WHERE destinationGroupName=?', (_destinationGroupName,)).fetchone()[0]
-            _sensorName = db.execute(
-                'SELECT sensorName FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]
-            _sensorPath = db.execute(
-                'SELECT sensorPathName FROM linkSensorPath WHERE sensorName=?', (_sensorName,)).fetchone()[0]
+            _sensorName = str(db.execute(
+                'SELECT sensorName FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0])
+            _sensorPath = str(db.execute(
+                'SELECT sensorPathName FROM linkSensorPath WHERE sensorName=?', (_sensorName,)).fetchone()[0])
             _subscriptionId = db.execute(
                 'SELECT subscriptionId FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]
             _subscriptionInterval = db.execute(
@@ -732,12 +732,12 @@ class subscriptionRouterLink(Resource):
                         [_linkId, _subscriptionName, router, _status])
                 data = cursor.fetchall()
 
-                _routerAddress = db.execute(
-                    'SELECT routerAddress FROM router WHERE routerName=?', (router,)).fetchone()[0]
-                _routerUsername = db.execute(
-                    'SELECT routerUsername FROM router WHERE routerName=?', (router,)).fetchone()[0]
-                _routerPassword = db.execute(
-                    'SELECT routerPassword FROM router WHERE routerName=?', (router,)).fetchone()[0]
+                _routerAddress = str(db.execute(
+                    'SELECT routerAddress FROM router WHERE routerName=?', (router,)).fetchone()[0])
+                _routerUsername = str(db.execute(
+                    'SELECT routerUsername FROM router WHERE routerName=?', (router,)).fetchone()[0])
+                _routerPassword = str(db.execute(
+                    'SELECT routerPassword FROM router WHERE routerName=?', (router,)).fetchone()[0])
                 _routerPort = db.execute(
                     'SELECT routerPort FROM router WHERE routerName=?', (router,)).fetchone()[0]
 

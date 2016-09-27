@@ -718,7 +718,12 @@ class subscriptionRouterLink(Resource):
             _sensorName = str(db.execute(
                 'SELECT sensorName FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0])
             _sensorPath = str(db.execute(
-                'SELECT sensorPathName FROM linkSensorPath WHERE sensorName=?', (_sensorName,)).fetchone()[0])
+                'SELECT sensorPathName FROM linkSensorPath WHERE sensorName=?', (_sensorName,)).fetchall())
+
+            pathString = ''
+            for sensorPath in _sensorPath:
+                pass
+
             _subscriptionId = db.execute(
                 'SELECT subscriptionId FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]
             _subscriptionInterval = db.execute(
@@ -943,9 +948,9 @@ class policyRouterLink(Resource):
                 'SELECT policyPathName from linkPolicyPath WHERE policyName=?',
                 (_policyName,)).fetchall())
 
-            paths = ''
+            pathString = ''
             for policyPath in _policyPaths:
-                pass
+                pathString += policyPath[0] + ','
 
             _addressFamily = 'ipv4'
             _destinationIp = str(db.execute(

@@ -5,7 +5,7 @@ import sqlite3
 import os
 import imp
 
-mdtconf = imp.load_source('mdtconf', '../teleconf/model/mdtconf.py')
+mdtconf = imp.load_source('mdtconf', '../teleconf/model/mdtconf_ydk.py')
 pdtconf = imp.load_source('pdtconf', '../teleconf/model/pdtconf.py')
 
 # from models import *

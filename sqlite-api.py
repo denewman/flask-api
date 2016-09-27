@@ -919,22 +919,22 @@ class policyRouterLink(Resource):
                 (_policyGroupName,)).fetchone()[0])
             _policyVersion = str(db.execute(
                 'SELECT policyVersion from policy WHERE policyName=?',
-                (_policyName,)).fetchone())
+                (_policyName,)).fetchone()[0])
             _policyDescription = str(db.execute(
                 'SELECT policyDescription from policy WHERE policyName=?',
-                (_policyName,)).fetchone())
+                (_policyName,)).fetchone()[0])
             _policyComment = str(db.execute(
                 'SELECT policyComment from policy WHERE policyName=?',
-                (_policyName,)).fetchone())
+                (_policyName,)).fetchone()[0])
             _policyIdentifier = str(db.execute(
                 'SELECT policyIdentifier from policy WHERE policyName=?',
-                (_policyName,)).fetchone())
+                (_policyName,)).fetchone()[0])
             _policyPeriod = db.execute(
                 'SELECT policyPeriod from policy WHERE policyName=?',
-                (_policyName,)).fetchone()
+                (_policyName,)).fetchone()[0]
             _policyPaths = str(db.execute(
                 'SELECT policyPathName from linkPolicyPath WHERE policyName=?',
-                (_policyName,)).fetchone())
+                (_policyName,)).fetchone()[0])
             _addressFamily = 'ipv4'
             _destinationIp = str(db.execute(
                 'SELECT collectorAddress FROM collector WHERE collectorName=?',

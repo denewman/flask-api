@@ -919,7 +919,7 @@ class policyRouterLink(Resource):
             print 'done'
             _collectorName = str(db.execute(
                 'SELECT collectorName from policyGroup WHERE policyGroupName=?',
-                (_policyGroupName,)).fetchone())
+                (_policyGroupName,)).fetchone()[0])
             print 'done'
             _policyVersion = str(db.execute(
                 'SELECT policyVersion from policy WHERE policyName=?',

@@ -909,47 +909,36 @@ class policyRouterLink(Resource):
 
             _linkId = db.execute('SELECT ifnull(max(linkId), 0) + 1 from linkPolicyRouter').fetchone()[0]
 
-            print 'done'
-
             _confType = 'push'
             _accessProtocol = 'ssh'
             _policyName = str(db.execute(
                 'SELECT policyName FROM policyGroup WHERE policyGroupName=?',
                 (_policyGroupName,)).fetchone()[0])
-            print 'done'
             _collectorName = str(db.execute(
                 'SELECT collectorName from policyGroup WHERE policyGroupName=?',
                 (_policyGroupName,)).fetchone()[0])
-            print 'done'
             _policyVersion = str(db.execute(
                 'SELECT policyVersion from policy WHERE policyName=?',
                 (_policyName,)).fetchone())
-            print 'done'
             _policyDescription = str(db.execute(
                 'SELECT policyDescription from policy WHERE policyName=?',
                 (_policyName,)).fetchone())
-            print 'done'
             _policyComment = str(db.execute(
                 'SELECT policyComment from policy WHERE policyName=?',
                 (_policyName,)).fetchone())
-            print 'done'
             _policyIdentifier = str(db.execute(
                 'SELECT policyIdentifier from policy WHERE policyName=?',
                 (_policyName,)).fetchone())
-            print 'done'
             _policyPeriod = db.execute(
                 'SELECT policyPeriod from policy WHERE policyName=?',
                 (_policyName,)).fetchone()
-            print 'done'
             _policyPaths = str(db.execute(
                 'SELECT policyPathName from linkPolicyPath WHERE policyName=?',
                 (_policyName,)).fetchone())
-            print 'done'
             _addressFamily = 'ipv4'
             _destinationIp = str(db.execute(
                 'SELECT collectorAddress FROM collector WHERE collectorName=?',
-                ('COL2',)).fetchone()[0])
-            print 'done'
+                (_collectorName,)).fetchone()[0])
             _rmtPort = db.execute(
                 'SELECT collectorPort FROM collector WHERE collectorName=?',
                 (_collectorName,)).fetchone()[0]
@@ -958,15 +947,15 @@ class policyRouterLink(Resource):
 
             router_list = []
 
-            for routerName in _routers:
-                _routerName = routerName[0]
-                router = db.execute(
-                    'SELECT routerAddress, routerUsername, routerPassword, routerPort FROM router WHERE routerName=?',
-                    (_routerName,)).fetchone()
-                _routerAddress = router[0]
-                _routerUsername = router[1]
-                _routerPassword = router[2]
-                _routerPort = router[3]
+            for router in _routers:
+                _routerAddress = str(db.execute(
+                    'SELECT routerAddress FROM router WHERE routerName=?', (router,)).fetchone()[0])
+                _routerUsername = str(db.execute(
+                    'SELECT routerUsername FROM router WHERE routerName=?', (router,)).fetchone()[0])
+                _routerPassword = str(db.execute(
+                    'SELECT routerPassword FROM router WHERE routerName=?', (router,)).fetchone()[0])
+                _routerPort = db.execute(
+                    'SELECT routerPort FROM router WHERE routerName=?', (router,)).fetchone()[0]
 
                 print 'done'
 

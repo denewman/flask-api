@@ -964,6 +964,11 @@ class policyRouterLink(Resource):
                                        _policyIdentifier, _policyPeriod, _policyPaths,
                                        _addressFamily, _destinationIp, _rmtPort, _policyGroupName)
 
+                print (_confType, _routerAddress, _routerUsername, _routerPassword, _routerPort,
+                                       _accessProtocol, _policyName, _policyVersion, _policyDescription, _policyComment,
+                                       _policyIdentifier, _policyPeriod, _policyPaths,
+                                       _addressFamily, _destinationIp, _rmtPort, _policyGroupName)
+
                 print conf.push_conf()
                 print 'done'
 

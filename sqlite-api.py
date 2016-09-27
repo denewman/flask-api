@@ -857,6 +857,8 @@ class singleSubscriptionRouterLink(Resource):
             _routers = db.execute(
                 'SELECT routerName from linkSubscriptionRouter WHERE linkId=?', (linkId,)).fetchall()
 
+            result = 1
+
             for routerName in _routers:
                 _routerName = routerName[0]
                 router = db.execute(
@@ -879,11 +881,16 @@ class singleSubscriptionRouterLink(Resource):
                                    _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
                                   _destinationGroupPort, _sensorName, _sensorPath, _subscriptionName, _subscriptionId,
                                   _subscriptionInterval)
-                print conf.del_conf()
-            db.execute('DELETE FROM linkSubscriptionRouter WHERE linkId=?', (linkId,))
-            db.commit()
+                result = conf.del_conf()
 
-            return {'Status Code': '200'}
+            if result == 0:
+                db.execute('DELETE FROM linkSubscriptionRouter WHERE linkId=?', (linkId,))
+                db.commit()
+
+                return {'Status Code': '200'}
+
+            else:
+                return {'Status Code': '400'}
 
         except Exception as e:
             return {'error': str(e)}
@@ -970,7 +977,9 @@ class policyRouterLink(Resource):
                                        _policyIdentifier, _policyPeriod, _policyPaths,
                                        _addressFamily, _destinationIp, _rmtPort, _policyGroupName)
 
-                if conf.push_conf() == 0:
+                result = conf.push_conf()
+
+                if result == 0:
                     cursor = db.execute(
                         'INSERT INTO linkPolicyRouter (linkId, policyGroupName, routerName, status) VALUES (?, ?, ?, ?)',
                          [_linkId, _policyGroupName, router, _status])
@@ -993,7 +1002,7 @@ class policyRouterLink(Resource):
             }}
 
         else:
-            return {'Status Code': '1000', 'Message': str(data[0])}
+            return {'Status Code': '400', 'Message': str(data[0])}
 
 
     def get(self):

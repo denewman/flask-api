@@ -6,6 +6,7 @@ import os
 import imp
 
 mdtconf = imp.load_source('mdtconf', '../teleconf/model/mdtconf.py')
+pdtconf = imp.load_source('pdtconf', '../teleconf/model/pdtconf.py')
 
 # from models import *
 
@@ -741,10 +742,10 @@ class subscriptionRouterLink(Resource):
                 _routerPort = db.execute(
                     'SELECT routerPort FROM router WHERE routerName=?', (router,)).fetchone()[0]
 
-                conf = mdtconf.Mdtconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
-                                       _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
-                                       _destinationGroupPort, _sensorName, _sensorPath, _subscriptionName, _subscriptionId,
-                                       _subscriptionInterval)
+#                conf = mdtconf.Mdtconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
+#                                       _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
+#                                       _destinationGroupPort, _sensorName, _sensorPath, _subscriptionName, _subscriptionId,
+#                                       _subscriptionInterval)
 
 #                conf = mdtconf.Mdtconf('64.104.255.10', 'rmitproject', 'r@mot@supp@rt', 5001, 'ssh', 'Dgroup1', 'ipv4', '172.30.8.4', 5432, 'SGroup1', 'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters', 'Sub1', 5, 3000)
 
@@ -856,11 +857,6 @@ class singleSubscriptionRouterLink(Resource):
             _routers = db.execute(
                 'SELECT routerName from linkSubscriptionRouter WHERE linkId=?', (linkId,)).fetchall()
 
-            print (_routers,
-                   _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
-                   _destinationGroupPort, _sensorName, _sensorPath, _subscriptionName, _subscriptionId,
-                   _subscriptionInterval)
-
             for routerName in _routers:
                 _routerName = routerName[0]
                 router = db.execute(
@@ -879,11 +875,11 @@ class singleSubscriptionRouterLink(Resource):
 #                                   'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters',
 #                                   'Sub1', 5, 3000)
 
-                conf = mdtconf.Mdtconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
-                                   _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
-                                  _destinationGroupPort, _sensorName, _sensorPath, _subscriptionName, _subscriptionId,
-                                  _subscriptionInterval)
-                print conf.del_conf()
+#                conf = mdtconf.Mdtconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
+#                                   _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
+#                                  _destinationGroupPort, _sensorName, _sensorPath, _subscriptionName, _subscriptionId,
+#                                  _subscriptionInterval)
+#                print conf.del_conf()
             db.execute('DELETE FROM linkSubscriptionRouter WHERE linkId=?', (linkId,))
             db.commit()
 
@@ -930,6 +926,13 @@ class policyRouterLink(Resource):
             return {'error': str(e)}
 
         if len(router_list) > 0:
+
+            #python call_pdtconf.py --n=64.104.255.10 --rp=5000 --u=rmitproject --p=r@mot@supp@rt --pn=Test200 --pp="aa,bb,cc" --dst=172.32.1.1 --pg=testgroup12
+
+            conf = pdtconf.Pdtconf('push', '64.104.255.10', 'rmitproject', 'r@mot@supp@rt', 5000,
+                                   'ssh', 'Test200', '1', 'description', 'commit', 'identifier', 5, 'aa, bb, cc', 'ipv4', '172.32.1.1', 'tcp', 'testgroup123')
+
+            print(conf.push_conf())
 
             return {
                 'policyRouterLink': {

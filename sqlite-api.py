@@ -941,7 +941,7 @@ class policyRouterLink(Resource):
                 (_policyName,)).fetchone()[0]
             _policyPaths = str(db.execute(
                 'SELECT policyPathName from linkPolicyPath WHERE policyName=?',
-                (_policyName,)).fetchall()[0])
+                (_policyName,)).fetchone()[0])
 
 
 

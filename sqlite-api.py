@@ -950,7 +950,7 @@ class policyRouterLink(Resource):
 
             path_list = []
             for policyPath in _policyPaths:
-                path_list.append(policyPath[0])
+                path_list.append(policyPath)
 
             _addressFamily = 'ipv4'
             _destinationIp = str(db.execute(

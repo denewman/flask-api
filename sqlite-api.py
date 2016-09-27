@@ -916,31 +916,40 @@ class policyRouterLink(Resource):
             _policyName = str(db.execute(
                 'SELECT policyName FROM policyGroup WHERE policyGroupName=?',
                 (_policyGroupName,)).fetchone()[0])
+            print 'done'
             _collectorName = str(db.execute(
                 'SELECT collectorName from policyGroup WHERE policyGroupName=?',
                 (_policyName,)).fetchone())
+            print 'done'
             _policyVersion = str(db.execute(
                 'SELECT policyVersion from policy WHERE policyName=?',
                 (_policyName,)).fetchone())
+            print 'done'
             _policyDescription = str(db.execute(
                 'SELECT policyDescription from policy WHERE policyName=?',
                 (_policyName,)).fetchone())
+            print 'done'
             _policyComment = str(db.execute(
                 'SELECT policyComment from policy WHERE policyName=?',
                 (_policyName,)).fetchone())
+            print 'done'
             _policyIdentifier = str(db.execute(
                 'SELECT policyIdentifier from policy WHERE policyName=?',
                 (_policyName,)).fetchone())
+            print 'done'
             _policyPeriod = db.execute(
                 'SELECT policyPeriod from policy WHERE policyName=?',
                 (_policyName,)).fetchone()
+            print 'done'
             _policyPaths = str(db.execute(
                 'SELECT policyPathName from linkPolicyPath WHERE policyName=?',
                 (_policyName,)).fetchone())
+            print 'done'
             _addressFamily = 'ipv4'
             _destinationIp = str(db.execute(
                 'SELECT collectorAddress FROM collector WHERE collectorName=?',
                 (_collectorName,)).fetchone()[0])
+            print 'done'
             _rmtPort = db.execute(
                 'SELECT collectorPort FROM collector WHERE collectorName=?',
                 (_collectorName,)).fetchone()[0]
@@ -968,7 +977,7 @@ class policyRouterLink(Resource):
 
                 #print conf.push_conf()
                 print 'done'
-                
+
                 cursor = db.execute(
                     'INSERT INTO linkPolicyRouter (linkId, policyGroupName, routerName, status) VALUES (?, ?, ?, ?)',
                         [_linkId, _policyGroupName, router, _status])

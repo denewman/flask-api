@@ -742,10 +742,10 @@ class subscriptionRouterLink(Resource):
                 _routerPort = db.execute(
                     'SELECT routerPort FROM router WHERE routerName=?', (router,)).fetchone()[0]
 
-#                conf = mdtconf.Mdtconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
-#                                       _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
-#                                       _destinationGroupPort, _sensorName, _sensorPath, _subscriptionName, _subscriptionId,
-#                                       _subscriptionInterval)
+                conf = mdtconf.Mdtconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
+                                       _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
+                                       _destinationGroupPort, _sensorName, _sensorPath, _subscriptionName, _subscriptionId,
+                                       _subscriptionInterval)
 
 #                conf = mdtconf.Mdtconf('64.104.255.10', 'rmitproject', 'r@mot@supp@rt', 5001, 'ssh', 'Dgroup1', 'ipv4', '172.30.8.4', 5432, 'SGroup1', 'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters', 'Sub1', 5, 3000)
 
@@ -875,11 +875,11 @@ class singleSubscriptionRouterLink(Resource):
 #                                   'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters',
 #                                   'Sub1', 5, 3000)
 
-#                conf = mdtconf.Mdtconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
-#                                   _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
-#                                  _destinationGroupPort, _sensorName, _sensorPath, _subscriptionName, _subscriptionId,
-#                                  _subscriptionInterval)
-#                print conf.del_conf()
+                conf = mdtconf.Mdtconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
+                                   _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
+                                  _destinationGroupPort, _sensorName, _sensorPath, _subscriptionName, _subscriptionId,
+                                  _subscriptionInterval)
+                print conf.del_conf()
             db.execute('DELETE FROM linkSubscriptionRouter WHERE linkId=?', (linkId,))
             db.commit()
 
@@ -909,9 +909,59 @@ class policyRouterLink(Resource):
 
             _linkId = db.execute('SELECT ifnull(max(linkId), 0) + 1 from linkPolicyRouter').fetchone()[0]
 
+            _confType = 'push'
+            _accessProtocol = 'ssh'
+            _policyName = str(db.execute(
+                'SELECT policyName FROM policyGroup WHERE policyGroupName=?',
+                (_policyGroupName,)).fetchone()[0])
+            _collectorName = str(db.execute(
+                'SELECT collectorName from policyGroup WHERE policyGroupName=?',
+                (_policyName,)).fetchone())
+            _policyVersion = str(db.execute(
+                'SELECT policyVersion from policy WHERE policyName=?',
+                (_policyName,)).fetchone())
+            _policyDescription = str(db.execute(
+                'SELECT policyDescription from policy WHERE policyName=?',
+                (_policyName,)).fetchone())
+            _policyComment = str(db.execute(
+                'SELECT policyComment from policy WHERE policyName=?',
+                (_policyName,)).fetchone())
+            _policyIdentifier = str(db.execute(
+                'SELECT policyIdentifier from policy WHERE policyName=?',
+                (_policyName,)).fetchone())
+            _policyPeriod = db.execute(
+                'SELECT policyPeriod from policy WHERE policyName=?',
+                (_policyName,)).fetchone()
+            _policyPaths = str(db.execute(
+                'SELECT policyPathName from linkPolicyPath WHERE policyName=?',
+                (_policyName,)).fetchone())
+            _addressFamily = 'ipv4'
+            _destinationIp = str(db.execute(
+                'SELECT collectorAddress FROM collector WHERE collectorName=?',
+                (_collectorName,)).fetchone()[0])
+            _rmtPort = db.execute(
+                'SELECT collectorPort FROM collector WHERE collectorName=?',
+                (_collectorName,)).fetchone()[0]
+
             router_list = []
 
-            for router in _routers:
+            for routerName in _routers:
+                _routerName = routerName[0]
+                router = db.execute(
+                    'SELECT routerAddress, routerUsername, routerPassword, routerPort FROM router WHERE routerName=?',
+                    (_routerName,)).fetchone()
+                _routerAddress = router[0]
+                _routerUsername = router[1]
+                _routerPassword = router[2]
+                _routerPort = router[3]
+
+                conf = pdtconf.Pdtconf(_confType, _routerAddress, _routerUsername, _routerPassword, _routerPort,
+                                       _accessProtocol, _policyName, _policyVersion, _policyDescription, _policyComment,
+                                       _policyIdentifier, _policyPeriod, _policyPaths,
+                                       _addressFamily, _destinationIp, _rmtPort, _policyGroupName)
+
+                print conf.push_conf()
+                
                 cursor = db.execute(
                     'INSERT INTO linkPolicyRouter (linkId, policyGroupName, routerName, status) VALUES (?, ?, ?, ?)',
                         [_linkId, _policyGroupName, router, _status])
@@ -929,10 +979,10 @@ class policyRouterLink(Resource):
 
             #python call_pdtconf.py --n=64.104.255.10 --rp=5000 --u=rmitproject --p=r@mot@supp@rt --pn=Test200 --pp="aa,bb,cc" --dst=172.32.1.1 --pg=testgroup12
 
-            conf = pdtconf.Pdtconf('push', '64.104.255.10', 'rmitproject', 'r@mot@supp@rt', 5000,
-                                   'ssh', 'Test200', '1', 'description', 'commit', 'identifier', 5, 'aa, bb, cc', 'ipv4', '172.32.1.1', 'tcp', 'testgroup123')
+            #conf = pdtconf.Pdtconf('push', '64.104.255.10', 'rmitproject', 'r@mot@supp@rt', 5000,
+             #                      'ssh', 'Test200', '1', 'description', 'commit', 'identifier', 5, 'aa, bb, cc', 'ipv4', '172.32.1.1', 'tcp', 'testgroup123')
 
-            print(conf.push_conf())
+            #print(conf.push_conf())
 
             return {
                 'policyRouterLink': {

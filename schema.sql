@@ -72,7 +72,7 @@ create table policy (
 
 create table policyPath (
     policyPathName text not null,
-    policyPah text not null,
+    policyPath text not null,
     PRIMARY KEY(policyPathName)
 );
 

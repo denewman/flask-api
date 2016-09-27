@@ -964,7 +964,7 @@ class policyRouterLink(Resource):
                                        _policyIdentifier, _policyPeriod, _policyPaths,
                                        _addressFamily, _destinationIp, _rmtPort, _policyGroupName)
 
-                #print conf.push_conf()
+                print conf.push_conf()
                 print 'done'
 
                 cursor = db.execute(

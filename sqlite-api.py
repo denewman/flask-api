@@ -970,7 +970,7 @@ class policyRouterLink(Resource):
                                        _policyIdentifier, _policyPeriod, _policyPaths,
                                        _addressFamily, _destinationIp, _rmtPort, _policyGroupName)
 
-                if conf.push_conf():
+                if conf.push_conf() == 0:
                     cursor = db.execute(
                         'INSERT INTO linkPolicyRouter (linkId, policyGroupName, routerName, status) VALUES (?, ?, ?, ?)',
                          [_linkId, _policyGroupName, router, _status])

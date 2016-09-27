@@ -909,6 +909,8 @@ class policyRouterLink(Resource):
 
             _linkId = db.execute('SELECT ifnull(max(linkId), 0) + 1 from linkPolicyRouter').fetchone()[0]
 
+            print 'done'
+
             _confType = 'push'
             _accessProtocol = 'ssh'
             _policyName = str(db.execute(
@@ -943,6 +945,8 @@ class policyRouterLink(Resource):
                 'SELECT collectorPort FROM collector WHERE collectorName=?',
                 (_collectorName,)).fetchone()[0]
 
+            print 'done'
+
             router_list = []
 
             for routerName in _routers:
@@ -955,12 +959,15 @@ class policyRouterLink(Resource):
                 _routerPassword = router[2]
                 _routerPort = router[3]
 
+                print 'done'
+
                 conf = pdtconf.Pdtconf(_confType, _routerAddress, _routerUsername, _routerPassword, _routerPort,
                                        _accessProtocol, _policyName, _policyVersion, _policyDescription, _policyComment,
                                        _policyIdentifier, _policyPeriod, _policyPaths,
                                        _addressFamily, _destinationIp, _rmtPort, _policyGroupName)
 
-                print conf.push_conf()
+                #print conf.push_conf()
+                print 'done'
                 
                 cursor = db.execute(
                     'INSERT INTO linkPolicyRouter (linkId, policyGroupName, routerName, status) VALUES (?, ?, ?, ?)',

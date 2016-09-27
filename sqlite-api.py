@@ -943,8 +943,6 @@ class policyRouterLink(Resource):
                 'SELECT collectorPort FROM collector WHERE collectorName=?',
                 (_collectorName,)).fetchone()[0]
 
-            print 'done'
-
             router_list = []
 
             for router in _routers:
@@ -957,7 +955,10 @@ class policyRouterLink(Resource):
                 _routerPort = db.execute(
                     'SELECT routerPort FROM router WHERE routerName=?', (router,)).fetchone()[0]
 
-                print 'done'
+                # python call_pdtconf.py --n=64.104.255.10 --rp=5000 --u=rmitproject --p=r@mot@supp@rt --pn=Test200 --pp="aa,bb,cc" --dst=172.32.1.1 --pg=testgroup12
+
+                # conf = pdtconf.Pdtconf('push', '64.104.255.10', 'rmitproject', 'r@mot@supp@rt', 5000,
+                #                      'ssh', 'Test200', '1', 'description', 'commit', 'identifier', 5, 'aa, bb, cc', 'ipv4', '172.32.1.1', 'tcp', 'testgroup123')s
 
                 conf = pdtconf.Pdtconf(_confType, _routerAddress, _routerUsername, _routerPassword, _routerPort,
                                        _accessProtocol, _policyName, _policyVersion, _policyDescription, _policyComment,
@@ -969,31 +970,20 @@ class policyRouterLink(Resource):
                                        _policyIdentifier, _policyPeriod, _policyPaths,
                                        _addressFamily, _destinationIp, _rmtPort, _policyGroupName)
 
-                print conf.push_conf()
-                print 'done'
+                if conf.push_conf():
+                    cursor = db.execute(
+                        'INSERT INTO linkPolicyRouter (linkId, policyGroupName, routerName, status) VALUES (?, ?, ?, ?)',
+                         [_linkId, _policyGroupName, router, _status])
+                    data = cursor.fetchall()
 
-                cursor = db.execute(
-                    'INSERT INTO linkPolicyRouter (linkId, policyGroupName, routerName, status) VALUES (?, ?, ?, ?)',
-                        [_linkId, _policyGroupName, router, _status])
-                data = cursor.fetchall()
-
-                if len(data) is 0:
-                    db.commit()
-
-                    router_list.append(router)
+                    if len(data) is 0:
+                        db.commit()
+                        router_list.append(router)
 
         except Exception as e:
             return {'error': str(e)}
 
         if len(router_list) > 0:
-
-            #python call_pdtconf.py --n=64.104.255.10 --rp=5000 --u=rmitproject --p=r@mot@supp@rt --pn=Test200 --pp="aa,bb,cc" --dst=172.32.1.1 --pg=testgroup12
-
-            #conf = pdtconf.Pdtconf('push', '64.104.255.10', 'rmitproject', 'r@mot@supp@rt', 5000,
-             #                      'ssh', 'Test200', '1', 'description', 'commit', 'identifier', 5, 'aa, bb, cc', 'ipv4', '172.32.1.1', 'tcp', 'testgroup123')
-
-            #print(conf.push_conf())
-
             return {
                 'policyRouterLink': {
                     'linkId': _linkId,

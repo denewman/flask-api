@@ -948,9 +948,9 @@ class policyRouterLink(Resource):
                 'SELECT policyPathName from linkPolicyPath WHERE policyName=?',
                 (_policyName,)).fetchall()
 
-            path_list = []
+            pathString = ''
             for policyPath in _policyPaths:
-                path_list.append(policyPath)
+                pass
 
             _addressFamily = 'ipv4'
             _destinationIp = str(db.execute(
@@ -984,7 +984,7 @@ class policyRouterLink(Resource):
 
                 print (_confType, _routerAddress, _routerUsername, _routerPassword, _routerPort,
                                        _accessProtocol, _policyName, _policyVersion, _policyDescription, _policyComment,
-                                       _policyIdentifier, _policyPeriod, path_list,
+                                       _policyIdentifier, _policyPeriod, pathString,
                                        _addressFamily, _destinationIp, _rmtPort, _policyGroupName)
 
                 result = conf.push_conf()

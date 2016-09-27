@@ -941,7 +941,12 @@ class policyRouterLink(Resource):
                 (_policyName,)).fetchone()[0]
             _policyPaths = str(db.execute(
                 'SELECT policyPathName from linkPolicyPath WHERE policyName=?',
-                (_policyName,)).fetchone()[0])
+                (_policyName,)).fetchall())
+
+            paths = ''
+            for policyPath in _policyPaths:
+                pass
+
             _addressFamily = 'ipv4'
             _destinationIp = str(db.execute(
                 'SELECT collectorAddress FROM collector WHERE collectorName=?',

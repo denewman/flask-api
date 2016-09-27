@@ -948,7 +948,7 @@ class policyRouterLink(Resource):
             _addressFamily = 'ipv4'
             _destinationIp = str(db.execute(
                 'SELECT collectorAddress FROM collector WHERE collectorName=?',
-                (_collectorName,)).fetchone()[0])
+                ('COL2',)).fetchone()[0])
             print 'done'
             _rmtPort = db.execute(
                 'SELECT collectorPort FROM collector WHERE collectorName=?',

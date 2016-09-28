@@ -943,7 +943,8 @@ class policyRouterLink(Resource):
                 'SELECT policyPathName from linkPolicyPath WHERE policyName=?',
                 (_policyName,)).fetchall()
 
-            print _policyPaths
+            for policyPath in _policyPaths:
+                print policyPath[1]
 
 
 

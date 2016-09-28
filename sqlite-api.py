@@ -759,14 +759,14 @@ class subscriptionRouterLink(Resource):
                        _subscriptionInterval)
 
                 result = 1
-                if (_configType == 'ydk'):
+                if (_configType == 'YDK'):
                     conf = mdtconf_ydk.Mdtconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
                                        'ydk', _destinationGroupName, _addressFamily, _destinationGroupAddress,
                                        _destinationGroupPort, _sensorName, pathString, _subscriptionName, _subscriptionId,
                                        _subscriptionInterval)
                     result = conf.push_conf()
 
-                elif (_configType == 'ssh'):
+                elif (_configType == 'SSH'):
                     #conf = mdtconf_ssh.MdtSSHconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
                     #                           'ssh', _destinationGroupName, _addressFamily,
                     #                           _destinationGroupAddress,

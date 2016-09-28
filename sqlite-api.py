@@ -717,8 +717,13 @@ class subscriptionRouterLink(Resource):
                 'SELECT destinationGroupPort FROM destinationGroup WHERE destinationGroupName=?', (_destinationGroupName,)).fetchone()[0]
             _sensorName = str(db.execute(
                 'SELECT sensorName FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0])
-            _sensorPath = str(db.execute(
-                'SELECT sensorPathName FROM linkSensorPath WHERE sensorName=?', (_sensorName,)).fetchone()[0])
+            _sensorPath = db.execute(
+                'SELECT sensorPathName FROM linkSensorPath WHERE sensorName=?', (_sensorName,)).fetchall()
+
+            pathString = ''
+            for sensorPath in _sensorPath:
+                pathString += sensorPath[0] + ','
+
             _subscriptionId = db.execute(
                 'SELECT subscriptionId FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]
             _subscriptionInterval = db.execute(
@@ -847,7 +852,12 @@ class singleSubscriptionRouterLink(Resource):
             _sensorName = db.execute(
                 'SELECT sensorName FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]
             _sensorPath = db.execute(
-                'SELECT sensorPathName FROM linkSensorPath WHERE sensorName=?', (_sensorName,)).fetchone()[0]
+                'SELECT sensorPathName FROM linkSensorPath WHERE sensorName=?', (_sensorName,)).fetchall()
+
+            pathString = ''
+            for sensorPath in _sensorPath:
+                pathString += sensorPath[0] + ','
+
             _subscriptionId = db.execute(
                 'SELECT subscriptionId FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]
             _subscriptionInterval = db.execute(
@@ -869,7 +879,7 @@ class singleSubscriptionRouterLink(Resource):
                 _routerPort = router[3]
                 print (_routerAddress, _routerUsername, _routerPassword, _routerPort,
                                        _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
-                                       _destinationGroupPort, _sensorName, _sensorPath, _subscriptionName, _subscriptionId,
+                                       _destinationGroupPort, _sensorName, pathString, _subscriptionName, _subscriptionId,
                                        _subscriptionInterval)
 
 #                conf = mdtconf.Mdtconf('64.104.255.10', 'rmitproject', 'r@mot@supp@rt', 5001, 'ssh', 'Dgroup1', 'ipv4',
@@ -879,7 +889,7 @@ class singleSubscriptionRouterLink(Resource):
 
                 conf = mdtconf.Mdtconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
                                    _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
-                                  _destinationGroupPort, _sensorName, _sensorPath, _subscriptionName, _subscriptionId,
+                                  _destinationGroupPort, _sensorName, pathString, _subscriptionName, _subscriptionId,
                                   _subscriptionInterval)
                 result = conf.del_conf()
 
@@ -946,8 +956,6 @@ class policyRouterLink(Resource):
             pathString = ''
             for policyPath in _policyPaths:
                 pathString += policyPath[0] + ','
-
-            print pathString
 
             _addressFamily = 'ipv4'
             _destinationIp = str(db.execute(

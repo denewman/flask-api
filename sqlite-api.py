@@ -720,11 +720,12 @@ class subscriptionRouterLink(Resource):
             _sensorPath = db.execute(
                 'SELECT sensorPathName FROM linkSensorPath WHERE sensorName=?', (_sensorName,)).fetchall()
 
-            pathString = ''
+            pathString = '"'
             for sensorPath in _sensorPath:
                 pathString += str(sensorPath[0]) + ','
 
             pathString = pathString[:-1]
+            pathString += '"'
 
             _subscriptionId = db.execute(
                 'SELECT subscriptionId FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]
@@ -856,11 +857,12 @@ class singleSubscriptionRouterLink(Resource):
             _sensorPath = db.execute(
                 'SELECT sensorPathName FROM linkSensorPath WHERE sensorName=?', (_sensorName,)).fetchall()
 
-            pathString = ''
+            pathString = '"'
             for sensorPath in _sensorPath:
                 pathString += sensorPath[0] + ','
 
             pathString = pathString[:-1]
+            pathString += '"'
 
             _subscriptionId = db.execute(
                 'SELECT subscriptionId FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]

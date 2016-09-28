@@ -893,9 +893,9 @@ class singleSubscriptionRouterLink(Resource):
                                    _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
                                   _destinationGroupPort, _sensorName, pathString, _subscriptionName, _subscriptionId,
                                   _subscriptionInterval)
-             #   result = conf.del_conf()
+                result = conf.del_conf()
 
-            if result == 1:
+            if result == 0:
                 db.execute('DELETE FROM linkSubscriptionRouter WHERE linkId=?', (linkId,))
                 db.commit()
 

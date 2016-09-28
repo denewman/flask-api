@@ -959,7 +959,7 @@ class policyRouterLink(Resource):
 
             pathString = ''
             for policyPath in _policyPaths:
-                pathString += policyPath[0] + ','
+                pathString += str(policyPath[0]) + ','
 
             pathString = pathString[:-1]
 

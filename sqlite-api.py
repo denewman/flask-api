@@ -995,7 +995,7 @@ class policyRouterLink(Resource):
 
                 print (_confType, _routerAddress, _routerUsername, _routerPassword, _routerPort,
                                        _accessProtocol, _policyName, _policyVersion, _policyDescription, _policyComment,
-                                       _policyIdentifier, _policyPeriod, _policyPaths,
+                                       _policyIdentifier, _policyPeriod, pathString,
                                        _addressFamily, _destinationIp, _rmtPort, _policyGroupName)
 
                 result = conf.push_conf()

@@ -734,8 +734,6 @@ class subscriptionRouterLink(Resource):
 
             router_list = []
 
-            result = 1
-
             for router in _routers:
                 cursor = db.execute(
                     'INSERT INTO linkSubscriptionRouter (linkId, subscriptionName, routerName, status) VALUES (?, ?, ?, ?)',
@@ -862,6 +860,8 @@ class singleSubscriptionRouterLink(Resource):
             for sensorPath in _sensorPath:
                 pathString += sensorPath[0] + ','
 
+            pathString = pathString[:-1]
+
             _subscriptionId = db.execute(
                 'SELECT subscriptionId FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]
             _subscriptionInterval = db.execute(
@@ -960,6 +960,8 @@ class policyRouterLink(Resource):
             pathString = ''
             for policyPath in _policyPaths:
                 pathString += policyPath[0] + ','
+
+            pathString = pathString[:-1]
 
             _addressFamily = 'ipv4'
             _destinationIp = str(db.execute(

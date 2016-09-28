@@ -720,9 +720,9 @@ class subscriptionRouterLink(Resource):
             _sensorPath = db.execute(
                 'SELECT sensorPathName FROM linkSensorPath WHERE sensorName=?', (_sensorName,)).fetchall()
 
-            pathString = []
+            pathString = 'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters'
             for sensorPath in _sensorPath:
-                pathString.append('Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters')
+                pass
 
             _subscriptionId = db.execute(
                 'SELECT subscriptionId FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]
@@ -781,7 +781,7 @@ class subscriptionRouterLink(Resource):
             }}
 
         else:
-            return {'Status Code': '400', 'Message': str(data[0])}
+            return {'Status Code': '400'}
 
 
     def get(self):

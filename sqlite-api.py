@@ -722,7 +722,9 @@ class subscriptionRouterLink(Resource):
 
             pathString = ''
             for sensorPath in _sensorPath:
-                pathString += str(sensorPath[0])
+                pathString += str(sensorPath[0]) + ','
+
+            pathString = pathString[:-1]
 
             _subscriptionId = db.execute(
                 'SELECT subscriptionId FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]

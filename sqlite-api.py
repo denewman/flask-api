@@ -943,10 +943,11 @@ class policyRouterLink(Resource):
                 'SELECT policyPathName from linkPolicyPath WHERE policyName=?',
                 (_policyName,)).fetchall()
 
+            pathString = ''
             for policyPath in _policyPaths:
-                print policyPath[0]
+                pathString += policyPath[0] + ','
 
-
+            print pathString
 
             _addressFamily = 'ipv4'
             _destinationIp = str(db.execute(
@@ -975,7 +976,7 @@ class policyRouterLink(Resource):
 
                 conf = pdtconf.Pdtconf(_confType, _routerAddress, _routerUsername, _routerPassword, _routerPort,
                                        _accessProtocol, _policyName, _policyVersion, _policyDescription, _policyComment,
-                                       _policyIdentifier, _policyPeriod, _policyPaths,
+                                       _policyIdentifier, _policyPeriod, pathString,
                                        _addressFamily, _destinationIp, _rmtPort, _policyGroupName)
 
                 print (_confType, _routerAddress, _routerUsername, _routerPassword, _routerPort,

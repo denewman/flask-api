@@ -944,7 +944,7 @@ class policyRouterLink(Resource):
                 (_policyName,)).fetchall()
 
             for policyPath in _policyPaths:
-                print policyPath[1]
+                print policyPath[0]
 
 
 

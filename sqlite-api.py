@@ -5,7 +5,8 @@ import sqlite3
 import os
 import imp
 
-mdtconf = imp.load_source('mdtconf', '../teleconf/model/mdtconf_ydk.py')
+mdtconf_ydk = imp.load_source('mdtconf_ydk', '../teleconf/model/mdtconf_ydk.py')
+mdtconf_ssh = imp.load_source('mdtconf_ssh', '../teleconf/model/mdtconf_ssh.py')
 pdtconf = imp.load_source('pdtconf', '../teleconf/model/pdtconf.py')
 
 # from models import *
@@ -695,12 +696,14 @@ class subscriptionRouterLink(Resource):
             parser.add_argument('subscriptionName', type=str, help='')
             parser.add_argument('routers', action='append')
             parser.add_argument('status', type=bool, help='')
+            parser.add_argument('configType', type=str, help='')
 
             args = parser.parse_args()
 
             _subscriptionName = args['subscriptionName']
             _routers = args['routers']
             _status = args['status']
+            _configType = args['configType']
 
             db = get_db()
             db.execute('PRAGMA foreign_keys=ON')
@@ -755,14 +758,26 @@ class subscriptionRouterLink(Resource):
                        _destinationGroupPort, _sensorName, pathString, _subscriptionName, _subscriptionId,
                        _subscriptionInterval)
 
-                conf = mdtconf.Mdtconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
+                result = 1
+                if (_configType == 'ydk'):
+                    conf = mdtconf_ydk.Mdtconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
                                        _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
                                        _destinationGroupPort, _sensorName, pathString, _subscriptionName, _subscriptionId,
                                        _subscriptionInterval)
+                    result = conf.push_conf()
+
+                elif (_configType == 'ssh'):
+                    conf = mdtconf_ssh.MdtSSHconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
+                                               _accessProtocol, _destinationGroupName, _addressFamily,
+                                               _destinationGroupAddress,
+                                               _destinationGroupPort, _sensorName, pathString, _subscriptionName,
+                                               _subscriptionId,
+                                               _subscriptionInterval)
+                    result = conf.configureAll()
 
 #                conf = mdtconf.Mdtconf('64.104.255.10', 'rmitproject', 'r@mot@supp@rt', 5001, 'ssh', 'Dgroup1', 'ipv4', '172.30.8.4', 5432, 'SGroup1', 'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters', 'Sub1', 5, 3000)
 
-                result = conf.push_conf()
+
 
                 if result == 0:
                     db.commit()
@@ -778,7 +793,8 @@ class subscriptionRouterLink(Resource):
                     'linkId': _linkId,
                     'subscriptionName': _subscriptionName,
                     'routers': router_list,
-                    'status': _status
+                    'status': _status,
+                    'configType': _configType
             }}
 
         else:
@@ -789,7 +805,7 @@ class subscriptionRouterLink(Resource):
         try:
             db = get_db()
             cursor = db.execute(
-                'SELECT linkId, subscriptionName, status from linkSubscriptionRouter ORDER BY linkId')
+                'SELECT linkId, subscriptionName, status, configType from linkSubscriptionRouter ORDER BY linkId')
             data = cursor.fetchall()
 
             subscription_router_list = []
@@ -812,7 +828,8 @@ class subscriptionRouterLink(Resource):
                         'linkId': subscription[0],
                         'subscriptionName': subscription[1],
                         'status': subscription[2],
-                        'routers': router_list
+                        'routers': router_list,
+                        'configType': subscription[3]
                     }
 
                     subscription_router_list.append(i)
@@ -893,10 +910,10 @@ class singleSubscriptionRouterLink(Resource):
 #                                   'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters',
 #                                   'Sub1', 5, 3000)
 
-                conf = mdtconf.Mdtconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
+                conf = mdtconf_ydk.Mdtconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
                                    _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
                                   _destinationGroupPort, _sensorName, pathString, _subscriptionName, _subscriptionId,
-                                  _subscriptionInterval)
+                                 _subscriptionInterval)
                 result = conf.del_conf()
 
             if result == 0:

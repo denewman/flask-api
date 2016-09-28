@@ -943,6 +943,8 @@ class policyRouterLink(Resource):
                 'SELECT policyPathName from linkPolicyPath WHERE policyName=?',
                 (_policyName,)).fetchall()
 
+            print _policyPaths
+
 
 
             _addressFamily = 'ipv4'

@@ -722,7 +722,7 @@ class subscriptionRouterLink(Resource):
 
             pathString = []
             for sensorPath in _sensorPath:
-                pathString.append(sensorPath)
+                pathString.append('Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters')
 
             _subscriptionId = db.execute(
                 'SELECT subscriptionId FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]

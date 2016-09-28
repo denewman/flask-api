@@ -722,7 +722,7 @@ class subscriptionRouterLink(Resource):
 
             pathString = ''
             for sensorPath in _sensorPath:
-                pathString += str(sensorPath[0]) + ','
+                pathString += sensorPath[0] + ','
 
             _subscriptionId = db.execute(
                 'SELECT subscriptionId FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]
@@ -731,6 +731,8 @@ class subscriptionRouterLink(Resource):
 
 
             router_list = []
+
+            result = 1
 
             for router in _routers:
                 cursor = db.execute(
@@ -747,6 +749,11 @@ class subscriptionRouterLink(Resource):
                 _routerPort = db.execute(
                     'SELECT routerPort FROM router WHERE routerName=?', (router,)).fetchone()[0]
 
+                print (_routerAddress, _routerUsername, _routerPassword, _routerPort,
+                       _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
+                       _destinationGroupPort, _sensorName, _sensorPath, _subscriptionName, _subscriptionId,
+                       _subscriptionInterval)
+
                 conf = mdtconf.Mdtconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
                                        _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
                                        _destinationGroupPort, _sensorName, _sensorPath, _subscriptionName, _subscriptionId,
@@ -754,16 +761,11 @@ class subscriptionRouterLink(Resource):
 
 #                conf = mdtconf.Mdtconf('64.104.255.10', 'rmitproject', 'r@mot@supp@rt', 5001, 'ssh', 'Dgroup1', 'ipv4', '172.30.8.4', 5432, 'SGroup1', 'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters', 'Sub1', 5, 3000)
 
-                print (conf.push_conf())
-                if len(data) is 0:
+                result = conf.push_conf()
+
+                if result == 0:
                     db.commit()
-
-                print (_routerAddress, _routerUsername,  _routerPassword, _routerPort,
-                                       _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
-                                       _destinationGroupPort, _sensorName, _sensorPath, _subscriptionName, _subscriptionId,
-                                       _subscriptionInterval)
-
-                router_list.append(router)
+                    router_list.append(router)
 
         except Exception as e:
             return {'error': str(e)}
@@ -893,7 +895,7 @@ class singleSubscriptionRouterLink(Resource):
                                   _subscriptionInterval)
                 result = conf.del_conf()
 
-            if result == 0:
+            if result == 1:
                 db.execute('DELETE FROM linkSubscriptionRouter WHERE linkId=?', (linkId,))
                 db.commit()
 

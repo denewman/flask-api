@@ -720,9 +720,9 @@ class subscriptionRouterLink(Resource):
             _sensorPath = db.execute(
                 'SELECT sensorPathName FROM linkSensorPath WHERE sensorName=?', (_sensorName,)).fetchall()
 
-            pathString = ''
+            pathString = []
             for sensorPath in _sensorPath:
-                pathString += sensorPath[0] + ','
+                pathString.append(sensorPath)
 
             _subscriptionId = db.execute(
                 'SELECT subscriptionId FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]
@@ -781,7 +781,7 @@ class subscriptionRouterLink(Resource):
             }}
 
         else:
-            return {'Status Code': '1000', 'Message': str(data[0])}
+            return {'Status Code': '400', 'Message': str(data[0])}
 
 
     def get(self):

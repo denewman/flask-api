@@ -740,8 +740,8 @@ class subscriptionRouterLink(Resource):
 
             for router in _routers:
                 cursor = db.execute(
-                    'INSERT INTO linkSubscriptionRouter (linkId, subscriptionName, routerName, status) VALUES (?, ?, ?, ?)',
-                        [_linkId, _subscriptionName, router, _status])
+                    'INSERT INTO linkSubscriptionRouter (linkId, subscriptionName, routerName, status, configType) VALUES (?, ?, ?, ?, ?)',
+                        [_linkId, _subscriptionName, router, _status, _configType])
                 data = cursor.fetchall()
 
                 _routerAddress = str(db.execute(

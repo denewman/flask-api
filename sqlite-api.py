@@ -957,11 +957,12 @@ class policyRouterLink(Resource):
                 'SELECT policyPathName from linkPolicyPath WHERE policyName=?',
                 (_policyName,)).fetchall()
 
-            pathString = ''
+            pathString = '"'
             for policyPath in _policyPaths:
                 pathString += str(policyPath[0]) + ','
 
             pathString = pathString[:-1]
+            pathString += '"'
 
             _addressFamily = 'ipv4'
             _destinationIp = str(db.execute(

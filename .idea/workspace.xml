@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a9e0e7a-01a7-4246-b05a-2fc5ceca6dda" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sqlite-api.py" afterPath="$PROJECT_DIR$/sqlite-api.py" />
     </list>
     <ignored path="flask-api.iws" />
@@ -30,129 +29,129 @@
       <file leaf-file-name="sqlite-api.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sqlite-api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="399" column="22" selection-start-line="399" selection-start-column="22" selection-end-line="399" selection-end-column="22" />
+            <state relative-caret-position="197">
+              <caret line="149" column="31" selection-start-line="149" selection-start-column="31" selection-end-line="149" selection-end-column="31" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <marker date="1475424974000" expanded="true" signature="2879:2901" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="2954:3092" ph="INSERT INTO subscription... " />
-                <marker date="1475424974000" expanded="true" signature="3974:4118" ph="SELECT subsc... subscription" />
-                <marker date="1475424974000" expanded="true" signature="4833:4855" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="4882:4906" ph="DELETE FROM " />
-                <marker date="1475424974000" expanded="true" signature="5184:5206" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="5233:5282" ph="DELETE FROM " />
-                <marker date="1475424974000" expanded="true" signature="6440:6613" ph="INSERT INTO destinationGroup... " />
-                <marker date="1475424974000" expanded="true" signature="7608:7791" ph="SELECT subsc... subscription" />
-                <marker date="1475424974000" expanded="true" signature="8577:8599" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="8626:8638" ph="DELETE FROM " />
-                <marker date="1475424974000" expanded="true" signature="8626:8654" ph="DELETE FROM " />
-                <marker date="1475424974000" expanded="true" signature="8940:8962" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="8989:9046" ph="DELETE FROM " />
-                <marker date="1475424974000" expanded="true" signature="9695:9737" ph="INSERT INTO sensor... " />
-                <marker date="1475424974000" expanded="true" signature="9907:9976" ph="INSERT INTO sensorPath... " />
-                <marker date="1475424974000" expanded="true" signature="10548:10570" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="10606:10655" ph="SELECT senso... sensor" />
-                <marker date="1475424974000" expanded="true" signature="10795:10855" ph="SELECT senso... linkSensorPath" />
-                <marker date="1475424974000" expanded="true" signature="11417:11439" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="11466:11492" ph="DELETE FROM " />
-                <marker date="1475424974000" expanded="true" signature="11519:11531" ph="DELETE FROM " />
-                <marker date="1475424974000" expanded="true" signature="11519:11537" ph="DELETE FROM " />
-                <marker date="1475424974000" expanded="true" signature="11803:11825" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="11852:11897" ph="DELETE FROM " />
-                <marker date="1475424974000" expanded="true" signature="11939:11976" ph="DELETE FROM " />
-                <marker date="1475424974000" expanded="true" signature="12811:12833" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="12886:12971" ph="INSERT INTO subscription... " />
-                <marker date="1475424974000" expanded="true" signature="13622:13718" ph="SELECT subsc... subscription" />
-                <marker date="1475424974000" expanded="true" signature="14301:14323" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="14350:14373" ph="DELETE FROM " />
-                <marker date="1475424974000" expanded="true" signature="14649:14671" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="14698:14745" ph="DELETE FROM " />
-                <marker date="1475424974000" expanded="true" signature="15789:15920" ph="INSERT INTO destinationGroup... " />
-                <marker date="1475424974000" expanded="true" signature="16803:16937" ph="SELECT desti... destinationGroup" />
-                <marker date="1475424974000" expanded="true" signature="17618:17640" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="17667:17688" ph="DELETE FROM " />
-                <marker date="1475424974000" expanded="true" signature="17960:17982" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="18009:18052" ph="DELETE FROM " />
-                <marker date="1475424974000" expanded="true" signature="19275:19297" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="19350:19488" ph="INSERT INTO policy... " />
-                <marker date="1475424974000" expanded="true" signature="19728:19797" ph="INSERT INTO linkSensorPath... " />
-                <marker date="1475424974000" expanded="true" signature="20783:20918" ph="SELECT polic... policy" />
-                <marker date="1475424974000" expanded="true" signature="21058:21118" ph="SELECT polic... linkPolicyPath" />
-                <marker date="1475424974000" expanded="true" signature="21926:21948" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="21975:22001" ph="DELETE FROM " />
-                <marker date="1475424974000" expanded="true" signature="22028:22046" ph="DELETE FROM " />
-                <marker date="1475424974000" expanded="true" signature="22312:22334" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="22361:22406" ph="DELETE FROM " />
-                <marker date="1475424974000" expanded="true" signature="22448:22485" ph="DELETE FROM " />
-                <marker date="1475424974000" expanded="true" signature="23451:23473" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="23526:23639" ph="INSERT INTO router... " />
-                <marker date="1475424974000" expanded="true" signature="24457:24570" ph="SELECT route... router" />
-                <marker date="1475424974000" expanded="true" signature="25206:25228" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="25255:25273" ph="DELETE FROM " />
-                <marker date="1475424974000" expanded="true" signature="25539:25561" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="25588:25625" ph="DELETE FROM " />
-                <marker date="1475424974000" expanded="true" signature="26460:26482" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="26520:26553" ph="SELECT ifnul... " />
-                <marker date="1475424974000" expanded="true" signature="26520:26581" ph="SELECT ifnul... linkSubscriptionRouter" />
-                <marker date="1475424974000" expanded="true" signature="26704:26774" ph="SELECT desti... subscription" />
-                <marker date="1475424974000" expanded="true" signature="26922:27003" ph="SELECT desti... destinationGroup" />
-                <marker date="1475424974000" expanded="true" signature="27112:27157" ph="SELECT desti... destinationG" />
-                <marker date="1475424974000" expanded="true" signature="27112:27190" ph="SELECT desti... destinationGroup" />
-                <marker date="1475424974000" expanded="true" signature="27292:27352" ph="SELECT senso... subscription" />
-                <marker date="1475424974000" expanded="true" signature="27447:27469" ph="SELECT senso... " />
-                <marker date="1475424974000" expanded="true" signature="27447:27507" ph="SELECT senso... linkSensorPath" />
-                <marker date="1475424974000" expanded="true" signature="27797:27861" ph="SELECT subsc... subscription" />
-                <marker date="1475424974000" expanded="true" signature="27965:27979" ph="SELECT subsc... " />
-                <marker date="1475424974000" expanded="true" signature="27965:28035" ph="SELECT subsc... subscription" />
-                <marker date="1475424974000" expanded="true" signature="28200:28316" ph="INSERT INTO router... " />
-                <marker date="1475424974000" expanded="true" signature="28515:28566" ph="SELECT route... router" />
-                <marker date="1475424974000" expanded="true" signature="28666:28718" ph="SELECT route... router" />
-                <marker date="1475424974000" expanded="true" signature="28818:28870" ph="SELECT route... router" />
-                <marker date="1475424974000" expanded="true" signature="28962:29010" ph="SELECT route... router" />
-                <marker date="1475424974000" expanded="true" signature="31529:31536" ph="SELECT route... linkSubscriptionRouter" />
-                <marker date="1475424974000" expanded="true" signature="31529:31618" ph="SELECT subsc... linkSubscriptionRouter" />
-                <marker date="1475424974000" expanded="true" signature="31529:31624" ph="SELECT linkI... linkSubscriptionRouter" />
-                <marker date="1475424974000" expanded="true" signature="31931:31991" ph="SELECT route... linkSubscriptionRouter" />
-                <marker date="1475424974000" expanded="true" signature="32835:32857" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="32884:32918" ph="DELETE FROM " />
-                <marker date="1475424974000" expanded="true" signature="33196:33218" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="33283:33349" ph="SELECT subsc... linkSubscriptionRouter" />
-                <marker date="1475424974000" expanded="true" signature="33478:33548" ph="SELECT desti... subscription" />
-                <marker date="1475424974000" expanded="true" signature="33707:33788" ph="SELECT desti... destinationGroup" />
-                <marker date="1475424974000" expanded="true" signature="33912:33990" ph="SELECT desti... destinationGroup" />
-                <marker date="1475424974000" expanded="true" signature="34104:34164" ph="SELECT senso... subscription" />
-                <marker date="1475424974000" expanded="true" signature="34258:34318" ph="SELECT senso... linkSensorPath" />
-                <marker date="1475424974000" expanded="true" signature="34603:34667" ph="SELECT subsc... subscription" />
-                <marker date="1475424974000" expanded="true" signature="34771:34841" ph="SELECT subsc... subscription" />
-                <marker date="1475424974000" expanded="true" signature="34949:35009" ph="SELECT route... linkSubscriptionRouter" />
-                <marker date="1475424974000" expanded="true" signature="35201:35254" ph="SELECT route... " />
-                <marker date="1475424974000" expanded="true" signature="35201:35265" ph="SELECT route... " />
-                <marker date="1475424974000" expanded="true" signature="35201:35296" ph="SELECT route... router" />
-                <marker date="1475424974000" expanded="true" signature="36759:36808" ph="DELETE FROM " />
-                <marker date="1475424974000" expanded="true" signature="37595:37617" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="37655:37710" ph="SELECT ifnul... linkSubscriptionRouter" />
-                <marker date="1475424974000" expanded="true" signature="37854:37912" ph="SELECT desti... subscription" />
-                <marker date="1475424974000" expanded="true" signature="38029:38090" ph="SELECT polic... policy" />
-                <marker date="1475424974000" expanded="true" signature="38207:38228" ph="SELECT polic... " />
-                <marker date="1475424974000" expanded="true" signature="38207:38258" ph="SELECT polic... policy" />
-                <marker date="1475424974000" expanded="true" signature="38374:38429" ph="SELECT polic... policy" />
-                <marker date="1475424974000" expanded="true" signature="38541:38592" ph="SELECT polic... policy" />
-                <marker date="1475424974000" expanded="true" signature="38707:38761" ph="SELECT polic... policy" />
-                <marker date="1475424974000" expanded="true" signature="38868:38918" ph="SELECT polic... policy" />
-                <marker date="1475424974000" expanded="true" signature="39023:39083" ph="SELECT polic... policy" />
-                <marker date="1475424974000" expanded="true" signature="39429:39489" ph="SELECT desti... destinationGroup" />
-                <marker date="1475424974000" expanded="true" signature="39594:39651" ph="SELECT desti... destinationGroup" />
-                <marker date="1475424974000" expanded="true" signature="39840:39891" ph="SELECT route... router" />
-                <marker date="1475424974000" expanded="true" signature="39991:40043" ph="SELECT route... router" />
-                <marker date="1475424974000" expanded="true" signature="40143:40195" ph="SELECT route... router" />
-                <marker date="1475424974000" expanded="true" signature="40287:40335" ph="SELECT route... router" />
-                <marker date="1475424974000" expanded="true" signature="41763:41857" ph="INSERT INTO linkSubscriptionRouter... " />
-                <marker date="1475424974000" expanded="true" signature="42650:42726" ph="SELECT linkI... linkSubscriptionRouter" />
-                <marker date="1475424974000" expanded="true" signature="43009:43063" ph="SELECT route... linkSubscriptionRouter" />
-                <marker date="1475424974000" expanded="true" signature="43809:43831" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="43858:43886" ph="DELETE FROM " />
-                <marker date="1475424974000" expanded="true" signature="44158:44180" ph="PRAGMA forei... " />
-                <marker date="1475424974000" expanded="true" signature="44207:44250" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="2879:2901" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="2954:3092" ph="INSERT INTO subscription... " />
+                <marker date="1475437147000" expanded="true" signature="3974:4118" ph="SELECT subsc... subscription" />
+                <marker date="1475437147000" expanded="true" signature="4833:4855" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="4882:4906" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="5184:5206" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="5233:5282" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="6439:6612" ph="INSERT INTO destinationGroup... " />
+                <marker date="1475437147000" expanded="true" signature="7607:7790" ph="SELECT subsc... subscription" />
+                <marker date="1475437147000" expanded="true" signature="8576:8598" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="8625:8637" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="8625:8653" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="8939:8961" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="8988:9045" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="9694:9736" ph="INSERT INTO sensor... " />
+                <marker date="1475437147000" expanded="true" signature="9906:9975" ph="INSERT INTO sensorPath... " />
+                <marker date="1475437147000" expanded="true" signature="10547:10569" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="10605:10654" ph="SELECT senso... sensor" />
+                <marker date="1475437147000" expanded="true" signature="10794:10854" ph="SELECT senso... linkSensorPath" />
+                <marker date="1475437147000" expanded="true" signature="11416:11438" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="11465:11491" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="11518:11530" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="11518:11536" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="11802:11824" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="11851:11896" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="11938:11975" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="12810:12832" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="12885:12970" ph="INSERT INTO subscription... " />
+                <marker date="1475437147000" expanded="true" signature="13621:13717" ph="SELECT subsc... subscription" />
+                <marker date="1475437147000" expanded="true" signature="14300:14322" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="14349:14372" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="14648:14670" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="14697:14744" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="15788:15919" ph="INSERT INTO destinationGroup... " />
+                <marker date="1475437147000" expanded="true" signature="16802:16936" ph="SELECT desti... destinationGroup" />
+                <marker date="1475437147000" expanded="true" signature="17617:17639" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="17666:17687" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="17959:17981" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="18008:18051" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="19274:19296" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="19349:19487" ph="INSERT INTO policy... " />
+                <marker date="1475437147000" expanded="true" signature="19727:19796" ph="INSERT INTO linkSensorPath... " />
+                <marker date="1475437147000" expanded="true" signature="20782:20917" ph="SELECT polic... policy" />
+                <marker date="1475437147000" expanded="true" signature="21057:21117" ph="SELECT polic... linkPolicyPath" />
+                <marker date="1475437147000" expanded="true" signature="21925:21947" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="21974:22000" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="22027:22045" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="22311:22333" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="22360:22405" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="22447:22484" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="23450:23472" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="23525:23638" ph="INSERT INTO router... " />
+                <marker date="1475437147000" expanded="true" signature="24456:24569" ph="SELECT route... router" />
+                <marker date="1475437147000" expanded="true" signature="25205:25227" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="25254:25272" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="25538:25560" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="25587:25624" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="26459:26481" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="26519:26552" ph="SELECT ifnul... " />
+                <marker date="1475437147000" expanded="true" signature="26519:26580" ph="SELECT ifnul... linkSubscriptionRouter" />
+                <marker date="1475437147000" expanded="true" signature="26703:26773" ph="SELECT desti... subscription" />
+                <marker date="1475437147000" expanded="true" signature="26921:27002" ph="SELECT desti... destinationGroup" />
+                <marker date="1475437147000" expanded="true" signature="27111:27156" ph="SELECT desti... destinationG" />
+                <marker date="1475437147000" expanded="true" signature="27111:27189" ph="SELECT desti... destinationGroup" />
+                <marker date="1475437147000" expanded="true" signature="27291:27351" ph="SELECT senso... subscription" />
+                <marker date="1475437147000" expanded="true" signature="27446:27468" ph="SELECT senso... " />
+                <marker date="1475437147000" expanded="true" signature="27446:27506" ph="SELECT senso... linkSensorPath" />
+                <marker date="1475437147000" expanded="true" signature="27796:27860" ph="SELECT subsc... subscription" />
+                <marker date="1475437147000" expanded="true" signature="27964:27978" ph="SELECT subsc... " />
+                <marker date="1475437147000" expanded="true" signature="27964:28034" ph="SELECT subsc... subscription" />
+                <marker date="1475437147000" expanded="true" signature="28199:28315" ph="INSERT INTO router... " />
+                <marker date="1475437147000" expanded="true" signature="28514:28565" ph="SELECT route... router" />
+                <marker date="1475437147000" expanded="true" signature="28665:28717" ph="SELECT route... router" />
+                <marker date="1475437147000" expanded="true" signature="28817:28869" ph="SELECT route... router" />
+                <marker date="1475437147000" expanded="true" signature="28961:29009" ph="SELECT route... router" />
+                <marker date="1475437147000" expanded="true" signature="31528:31535" ph="SELECT route... linkSubscriptionRouter" />
+                <marker date="1475437147000" expanded="true" signature="31528:31617" ph="SELECT subsc... linkSubscriptionRouter" />
+                <marker date="1475437147000" expanded="true" signature="31528:31623" ph="SELECT linkI... linkSubscriptionRouter" />
+                <marker date="1475437147000" expanded="true" signature="31930:31990" ph="SELECT route... linkSubscriptionRouter" />
+                <marker date="1475437147000" expanded="true" signature="32834:32856" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="32883:32917" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="33195:33217" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="33282:33348" ph="SELECT subsc... linkSubscriptionRouter" />
+                <marker date="1475437147000" expanded="true" signature="33477:33547" ph="SELECT desti... subscription" />
+                <marker date="1475437147000" expanded="true" signature="33706:33787" ph="SELECT desti... destinationGroup" />
+                <marker date="1475437147000" expanded="true" signature="33911:33989" ph="SELECT desti... destinationGroup" />
+                <marker date="1475437147000" expanded="true" signature="34103:34163" ph="SELECT senso... subscription" />
+                <marker date="1475437147000" expanded="true" signature="34257:34317" ph="SELECT senso... linkSensorPath" />
+                <marker date="1475437147000" expanded="true" signature="34602:34666" ph="SELECT subsc... subscription" />
+                <marker date="1475437147000" expanded="true" signature="34770:34840" ph="SELECT subsc... subscription" />
+                <marker date="1475437147000" expanded="true" signature="34948:35008" ph="SELECT route... linkSubscriptionRouter" />
+                <marker date="1475437147000" expanded="true" signature="35200:35253" ph="SELECT route... " />
+                <marker date="1475437147000" expanded="true" signature="35200:35264" ph="SELECT route... " />
+                <marker date="1475437147000" expanded="true" signature="35200:35295" ph="SELECT route... router" />
+                <marker date="1475437147000" expanded="true" signature="36758:36807" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="37594:37616" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="37654:37709" ph="SELECT ifnul... linkSubscriptionRouter" />
+                <marker date="1475437147000" expanded="true" signature="37853:37911" ph="SELECT desti... subscription" />
+                <marker date="1475437147000" expanded="true" signature="38028:38089" ph="SELECT polic... policy" />
+                <marker date="1475437147000" expanded="true" signature="38206:38227" ph="SELECT polic... " />
+                <marker date="1475437147000" expanded="true" signature="38206:38257" ph="SELECT polic... policy" />
+                <marker date="1475437147000" expanded="true" signature="38373:38428" ph="SELECT polic... policy" />
+                <marker date="1475437147000" expanded="true" signature="38540:38591" ph="SELECT polic... policy" />
+                <marker date="1475437147000" expanded="true" signature="38706:38760" ph="SELECT polic... policy" />
+                <marker date="1475437147000" expanded="true" signature="38867:38917" ph="SELECT polic... policy" />
+                <marker date="1475437147000" expanded="true" signature="39022:39082" ph="SELECT polic... policy" />
+                <marker date="1475437147000" expanded="true" signature="39428:39488" ph="SELECT desti... destinationGroup" />
+                <marker date="1475437147000" expanded="true" signature="39593:39650" ph="SELECT desti... destinationGroup" />
+                <marker date="1475437147000" expanded="true" signature="39839:39890" ph="SELECT route... router" />
+                <marker date="1475437147000" expanded="true" signature="39990:40042" ph="SELECT route... router" />
+                <marker date="1475437147000" expanded="true" signature="40142:40194" ph="SELECT route... router" />
+                <marker date="1475437147000" expanded="true" signature="40286:40334" ph="SELECT route... router" />
+                <marker date="1475437147000" expanded="true" signature="41762:41856" ph="INSERT INTO linkSubscriptionRouter... " />
+                <marker date="1475437147000" expanded="true" signature="42649:42725" ph="SELECT linkI... linkSubscriptionRouter" />
+                <marker date="1475437147000" expanded="true" signature="43008:43062" ph="SELECT route... linkSubscriptionRouter" />
+                <marker date="1475437147000" expanded="true" signature="43808:43830" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="43857:43885" ph="DELETE FROM " />
+                <marker date="1475437147000" expanded="true" signature="44157:44179" ph="PRAGMA forei... " />
+                <marker date="1475437147000" expanded="true" signature="44206:44249" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
@@ -560,125 +559,125 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <marker date="1475424974000" expanded="true" signature="2879:2901" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="2954:3092" ph="INSERT INTO subscription... " />
-            <marker date="1475424974000" expanded="true" signature="3974:4118" ph="SELECT subsc... subscription" />
-            <marker date="1475424974000" expanded="true" signature="4833:4855" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="4882:4906" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="5184:5206" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="5233:5282" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="6440:6613" ph="INSERT INTO destinationGroup... " />
-            <marker date="1475424974000" expanded="true" signature="7608:7791" ph="SELECT subsc... subscription" />
-            <marker date="1475424974000" expanded="true" signature="8577:8599" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="8626:8638" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="8626:8654" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="8940:8962" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="8989:9046" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="9695:9737" ph="INSERT INTO sensor... " />
-            <marker date="1475424974000" expanded="true" signature="9907:9976" ph="INSERT INTO sensorPath... " />
-            <marker date="1475424974000" expanded="true" signature="10548:10570" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="10606:10655" ph="SELECT senso... sensor" />
-            <marker date="1475424974000" expanded="true" signature="10795:10855" ph="SELECT senso... linkSensorPath" />
-            <marker date="1475424974000" expanded="true" signature="11417:11439" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="11466:11492" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="11519:11531" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="11519:11537" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="11803:11825" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="11852:11897" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="11939:11976" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="12811:12833" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="12886:12971" ph="INSERT INTO subscription... " />
-            <marker date="1475424974000" expanded="true" signature="13622:13718" ph="SELECT subsc... subscription" />
-            <marker date="1475424974000" expanded="true" signature="14301:14323" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="14350:14373" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="14649:14671" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="14698:14745" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="15789:15920" ph="INSERT INTO destinationGroup... " />
-            <marker date="1475424974000" expanded="true" signature="16803:16937" ph="SELECT desti... destinationGroup" />
-            <marker date="1475424974000" expanded="true" signature="17618:17640" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="17667:17688" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="17960:17982" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="18009:18052" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="19275:19297" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="19350:19488" ph="INSERT INTO policy... " />
-            <marker date="1475424974000" expanded="true" signature="19728:19797" ph="INSERT INTO linkSensorPath... " />
-            <marker date="1475424974000" expanded="true" signature="20783:20918" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="21058:21118" ph="SELECT polic... linkPolicyPath" />
-            <marker date="1475424974000" expanded="true" signature="21926:21948" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="21975:22001" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="22028:22046" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="22312:22334" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="22361:22406" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="22448:22485" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="23451:23473" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="23526:23639" ph="INSERT INTO router... " />
-            <marker date="1475424974000" expanded="true" signature="24457:24570" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="25206:25228" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="25255:25273" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="25539:25561" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="25588:25625" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="26460:26482" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="26520:26553" ph="SELECT ifnul... " />
-            <marker date="1475424974000" expanded="true" signature="26520:26581" ph="SELECT ifnul... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="26704:26774" ph="SELECT desti... subscription" />
-            <marker date="1475424974000" expanded="true" signature="26922:27003" ph="SELECT desti... destinationGroup" />
-            <marker date="1475424974000" expanded="true" signature="27112:27157" ph="SELECT desti... destinationG" />
-            <marker date="1475424974000" expanded="true" signature="27112:27190" ph="SELECT desti... destinationGroup" />
-            <marker date="1475424974000" expanded="true" signature="27292:27352" ph="SELECT senso... subscription" />
-            <marker date="1475424974000" expanded="true" signature="27447:27469" ph="SELECT senso... " />
-            <marker date="1475424974000" expanded="true" signature="27447:27507" ph="SELECT senso... linkSensorPath" />
-            <marker date="1475424974000" expanded="true" signature="27797:27861" ph="SELECT subsc... subscription" />
-            <marker date="1475424974000" expanded="true" signature="27965:27979" ph="SELECT subsc... " />
-            <marker date="1475424974000" expanded="true" signature="27965:28035" ph="SELECT subsc... subscription" />
-            <marker date="1475424974000" expanded="true" signature="28200:28316" ph="INSERT INTO router... " />
-            <marker date="1475424974000" expanded="true" signature="28515:28566" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="28666:28718" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="28818:28870" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="28962:29010" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="31529:31536" ph="SELECT route... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="31529:31618" ph="SELECT subsc... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="31529:31624" ph="SELECT linkI... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="31931:31991" ph="SELECT route... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="32835:32857" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="32884:32918" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="33196:33218" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="33283:33349" ph="SELECT subsc... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="33478:33548" ph="SELECT desti... subscription" />
-            <marker date="1475424974000" expanded="true" signature="33707:33788" ph="SELECT desti... destinationGroup" />
-            <marker date="1475424974000" expanded="true" signature="33912:33990" ph="SELECT desti... destinationGroup" />
-            <marker date="1475424974000" expanded="true" signature="34104:34164" ph="SELECT senso... subscription" />
-            <marker date="1475424974000" expanded="true" signature="34258:34318" ph="SELECT senso... linkSensorPath" />
-            <marker date="1475424974000" expanded="true" signature="34603:34667" ph="SELECT subsc... subscription" />
-            <marker date="1475424974000" expanded="true" signature="34771:34841" ph="SELECT subsc... subscription" />
-            <marker date="1475424974000" expanded="true" signature="34949:35009" ph="SELECT route... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="35201:35254" ph="SELECT route... " />
-            <marker date="1475424974000" expanded="true" signature="35201:35265" ph="SELECT route... " />
-            <marker date="1475424974000" expanded="true" signature="35201:35296" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="36759:36808" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="37595:37617" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="37655:37710" ph="SELECT ifnul... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="37854:37912" ph="SELECT desti... subscription" />
-            <marker date="1475424974000" expanded="true" signature="38029:38090" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="38207:38228" ph="SELECT polic... " />
-            <marker date="1475424974000" expanded="true" signature="38207:38258" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="38374:38429" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="38541:38592" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="38707:38761" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="38868:38918" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="39023:39083" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="39429:39489" ph="SELECT desti... destinationGroup" />
-            <marker date="1475424974000" expanded="true" signature="39594:39651" ph="SELECT desti... destinationGroup" />
-            <marker date="1475424974000" expanded="true" signature="39840:39891" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="39991:40043" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="40143:40195" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="40287:40335" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="41763:41857" ph="INSERT INTO linkSubscriptionRouter... " />
-            <marker date="1475424974000" expanded="true" signature="42650:42726" ph="SELECT linkI... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="43009:43063" ph="SELECT route... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="43809:43831" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="43858:43886" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="44158:44180" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="44207:44250" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="2879:2901" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="2954:3092" ph="INSERT INTO subscription... " />
+            <marker date="1475437147000" expanded="true" signature="3974:4118" ph="SELECT subsc... subscription" />
+            <marker date="1475437147000" expanded="true" signature="4833:4855" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="4882:4906" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="5184:5206" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="5233:5282" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="6439:6612" ph="INSERT INTO destinationGroup... " />
+            <marker date="1475437147000" expanded="true" signature="7607:7790" ph="SELECT subsc... subscription" />
+            <marker date="1475437147000" expanded="true" signature="8576:8598" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="8625:8637" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="8625:8653" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="8939:8961" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="8988:9045" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="9694:9736" ph="INSERT INTO sensor... " />
+            <marker date="1475437147000" expanded="true" signature="9906:9975" ph="INSERT INTO sensorPath... " />
+            <marker date="1475437147000" expanded="true" signature="10547:10569" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="10605:10654" ph="SELECT senso... sensor" />
+            <marker date="1475437147000" expanded="true" signature="10794:10854" ph="SELECT senso... linkSensorPath" />
+            <marker date="1475437147000" expanded="true" signature="11416:11438" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="11465:11491" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="11518:11530" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="11518:11536" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="11802:11824" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="11851:11896" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="11938:11975" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="12810:12832" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="12885:12970" ph="INSERT INTO subscription... " />
+            <marker date="1475437147000" expanded="true" signature="13621:13717" ph="SELECT subsc... subscription" />
+            <marker date="1475437147000" expanded="true" signature="14300:14322" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="14349:14372" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="14648:14670" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="14697:14744" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="15788:15919" ph="INSERT INTO destinationGroup... " />
+            <marker date="1475437147000" expanded="true" signature="16802:16936" ph="SELECT desti... destinationGroup" />
+            <marker date="1475437147000" expanded="true" signature="17617:17639" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="17666:17687" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="17959:17981" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="18008:18051" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="19274:19296" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="19349:19487" ph="INSERT INTO policy... " />
+            <marker date="1475437147000" expanded="true" signature="19727:19796" ph="INSERT INTO linkSensorPath... " />
+            <marker date="1475437147000" expanded="true" signature="20782:20917" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="21057:21117" ph="SELECT polic... linkPolicyPath" />
+            <marker date="1475437147000" expanded="true" signature="21925:21947" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="21974:22000" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="22027:22045" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="22311:22333" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="22360:22405" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="22447:22484" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="23450:23472" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="23525:23638" ph="INSERT INTO router... " />
+            <marker date="1475437147000" expanded="true" signature="24456:24569" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="25205:25227" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="25254:25272" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="25538:25560" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="25587:25624" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="26459:26481" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="26519:26552" ph="SELECT ifnul... " />
+            <marker date="1475437147000" expanded="true" signature="26519:26580" ph="SELECT ifnul... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="26703:26773" ph="SELECT desti... subscription" />
+            <marker date="1475437147000" expanded="true" signature="26921:27002" ph="SELECT desti... destinationGroup" />
+            <marker date="1475437147000" expanded="true" signature="27111:27156" ph="SELECT desti... destinationG" />
+            <marker date="1475437147000" expanded="true" signature="27111:27189" ph="SELECT desti... destinationGroup" />
+            <marker date="1475437147000" expanded="true" signature="27291:27351" ph="SELECT senso... subscription" />
+            <marker date="1475437147000" expanded="true" signature="27446:27468" ph="SELECT senso... " />
+            <marker date="1475437147000" expanded="true" signature="27446:27506" ph="SELECT senso... linkSensorPath" />
+            <marker date="1475437147000" expanded="true" signature="27796:27860" ph="SELECT subsc... subscription" />
+            <marker date="1475437147000" expanded="true" signature="27964:27978" ph="SELECT subsc... " />
+            <marker date="1475437147000" expanded="true" signature="27964:28034" ph="SELECT subsc... subscription" />
+            <marker date="1475437147000" expanded="true" signature="28199:28315" ph="INSERT INTO router... " />
+            <marker date="1475437147000" expanded="true" signature="28514:28565" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="28665:28717" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="28817:28869" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="28961:29009" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="31528:31535" ph="SELECT route... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="31528:31617" ph="SELECT subsc... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="31528:31623" ph="SELECT linkI... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="31930:31990" ph="SELECT route... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="32834:32856" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="32883:32917" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="33195:33217" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="33282:33348" ph="SELECT subsc... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="33477:33547" ph="SELECT desti... subscription" />
+            <marker date="1475437147000" expanded="true" signature="33706:33787" ph="SELECT desti... destinationGroup" />
+            <marker date="1475437147000" expanded="true" signature="33911:33989" ph="SELECT desti... destinationGroup" />
+            <marker date="1475437147000" expanded="true" signature="34103:34163" ph="SELECT senso... subscription" />
+            <marker date="1475437147000" expanded="true" signature="34257:34317" ph="SELECT senso... linkSensorPath" />
+            <marker date="1475437147000" expanded="true" signature="34602:34666" ph="SELECT subsc... subscription" />
+            <marker date="1475437147000" expanded="true" signature="34770:34840" ph="SELECT subsc... subscription" />
+            <marker date="1475437147000" expanded="true" signature="34948:35008" ph="SELECT route... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="35200:35253" ph="SELECT route... " />
+            <marker date="1475437147000" expanded="true" signature="35200:35264" ph="SELECT route... " />
+            <marker date="1475437147000" expanded="true" signature="35200:35295" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="36758:36807" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="37594:37616" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="37654:37709" ph="SELECT ifnul... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="37853:37911" ph="SELECT desti... subscription" />
+            <marker date="1475437147000" expanded="true" signature="38028:38089" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="38206:38227" ph="SELECT polic... " />
+            <marker date="1475437147000" expanded="true" signature="38206:38257" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="38373:38428" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="38540:38591" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="38706:38760" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="38867:38917" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="39022:39082" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="39428:39488" ph="SELECT desti... destinationGroup" />
+            <marker date="1475437147000" expanded="true" signature="39593:39650" ph="SELECT desti... destinationGroup" />
+            <marker date="1475437147000" expanded="true" signature="39839:39890" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="39990:40042" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="40142:40194" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="40286:40334" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="41762:41856" ph="INSERT INTO linkSubscriptionRouter... " />
+            <marker date="1475437147000" expanded="true" signature="42649:42725" ph="SELECT linkI... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="43008:43062" ph="SELECT route... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="43808:43830" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="43857:43885" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="44157:44179" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="44206:44249" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -697,125 +696,125 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <marker date="1475424974000" expanded="true" signature="2879:2901" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="2954:3092" ph="INSERT INTO subscription... " />
-            <marker date="1475424974000" expanded="true" signature="3974:4118" ph="SELECT subsc... subscription" />
-            <marker date="1475424974000" expanded="true" signature="4833:4855" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="4882:4906" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="5184:5206" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="5233:5282" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="6440:6613" ph="INSERT INTO destinationGroup... " />
-            <marker date="1475424974000" expanded="true" signature="7608:7791" ph="SELECT subsc... subscription" />
-            <marker date="1475424974000" expanded="true" signature="8577:8599" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="8626:8638" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="8626:8654" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="8940:8962" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="8989:9046" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="9695:9737" ph="INSERT INTO sensor... " />
-            <marker date="1475424974000" expanded="true" signature="9907:9976" ph="INSERT INTO sensorPath... " />
-            <marker date="1475424974000" expanded="true" signature="10548:10570" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="10606:10655" ph="SELECT senso... sensor" />
-            <marker date="1475424974000" expanded="true" signature="10795:10855" ph="SELECT senso... linkSensorPath" />
-            <marker date="1475424974000" expanded="true" signature="11417:11439" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="11466:11492" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="11519:11531" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="11519:11537" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="11803:11825" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="11852:11897" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="11939:11976" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="12811:12833" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="12886:12971" ph="INSERT INTO subscription... " />
-            <marker date="1475424974000" expanded="true" signature="13622:13718" ph="SELECT subsc... subscription" />
-            <marker date="1475424974000" expanded="true" signature="14301:14323" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="14350:14373" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="14649:14671" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="14698:14745" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="15789:15920" ph="INSERT INTO destinationGroup... " />
-            <marker date="1475424974000" expanded="true" signature="16803:16937" ph="SELECT desti... destinationGroup" />
-            <marker date="1475424974000" expanded="true" signature="17618:17640" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="17667:17688" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="17960:17982" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="18009:18052" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="19275:19297" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="19350:19488" ph="INSERT INTO policy... " />
-            <marker date="1475424974000" expanded="true" signature="19728:19797" ph="INSERT INTO linkSensorPath... " />
-            <marker date="1475424974000" expanded="true" signature="20783:20918" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="21058:21118" ph="SELECT polic... linkPolicyPath" />
-            <marker date="1475424974000" expanded="true" signature="21926:21948" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="21975:22001" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="22028:22046" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="22312:22334" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="22361:22406" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="22448:22485" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="23451:23473" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="23526:23639" ph="INSERT INTO router... " />
-            <marker date="1475424974000" expanded="true" signature="24457:24570" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="25206:25228" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="25255:25273" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="25539:25561" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="25588:25625" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="26460:26482" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="26520:26553" ph="SELECT ifnul... " />
-            <marker date="1475424974000" expanded="true" signature="26520:26581" ph="SELECT ifnul... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="26704:26774" ph="SELECT desti... subscription" />
-            <marker date="1475424974000" expanded="true" signature="26922:27003" ph="SELECT desti... destinationGroup" />
-            <marker date="1475424974000" expanded="true" signature="27112:27157" ph="SELECT desti... destinationG" />
-            <marker date="1475424974000" expanded="true" signature="27112:27190" ph="SELECT desti... destinationGroup" />
-            <marker date="1475424974000" expanded="true" signature="27292:27352" ph="SELECT senso... subscription" />
-            <marker date="1475424974000" expanded="true" signature="27447:27469" ph="SELECT senso... " />
-            <marker date="1475424974000" expanded="true" signature="27447:27507" ph="SELECT senso... linkSensorPath" />
-            <marker date="1475424974000" expanded="true" signature="27797:27861" ph="SELECT subsc... subscription" />
-            <marker date="1475424974000" expanded="true" signature="27965:27979" ph="SELECT subsc... " />
-            <marker date="1475424974000" expanded="true" signature="27965:28035" ph="SELECT subsc... subscription" />
-            <marker date="1475424974000" expanded="true" signature="28200:28316" ph="INSERT INTO router... " />
-            <marker date="1475424974000" expanded="true" signature="28515:28566" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="28666:28718" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="28818:28870" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="28962:29010" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="31529:31536" ph="SELECT route... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="31529:31618" ph="SELECT subsc... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="31529:31624" ph="SELECT linkI... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="31931:31991" ph="SELECT route... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="32835:32857" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="32884:32918" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="33196:33218" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="33283:33349" ph="SELECT subsc... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="33478:33548" ph="SELECT desti... subscription" />
-            <marker date="1475424974000" expanded="true" signature="33707:33788" ph="SELECT desti... destinationGroup" />
-            <marker date="1475424974000" expanded="true" signature="33912:33990" ph="SELECT desti... destinationGroup" />
-            <marker date="1475424974000" expanded="true" signature="34104:34164" ph="SELECT senso... subscription" />
-            <marker date="1475424974000" expanded="true" signature="34258:34318" ph="SELECT senso... linkSensorPath" />
-            <marker date="1475424974000" expanded="true" signature="34603:34667" ph="SELECT subsc... subscription" />
-            <marker date="1475424974000" expanded="true" signature="34771:34841" ph="SELECT subsc... subscription" />
-            <marker date="1475424974000" expanded="true" signature="34949:35009" ph="SELECT route... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="35201:35254" ph="SELECT route... " />
-            <marker date="1475424974000" expanded="true" signature="35201:35265" ph="SELECT route... " />
-            <marker date="1475424974000" expanded="true" signature="35201:35296" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="36759:36808" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="37595:37617" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="37655:37710" ph="SELECT ifnul... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="37854:37912" ph="SELECT desti... subscription" />
-            <marker date="1475424974000" expanded="true" signature="38029:38090" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="38207:38228" ph="SELECT polic... " />
-            <marker date="1475424974000" expanded="true" signature="38207:38258" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="38374:38429" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="38541:38592" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="38707:38761" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="38868:38918" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="39023:39083" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="39429:39489" ph="SELECT desti... destinationGroup" />
-            <marker date="1475424974000" expanded="true" signature="39594:39651" ph="SELECT desti... destinationGroup" />
-            <marker date="1475424974000" expanded="true" signature="39840:39891" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="39991:40043" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="40143:40195" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="40287:40335" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="41763:41857" ph="INSERT INTO linkSubscriptionRouter... " />
-            <marker date="1475424974000" expanded="true" signature="42650:42726" ph="SELECT linkI... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="43009:43063" ph="SELECT route... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="43809:43831" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="43858:43886" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="44158:44180" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="44207:44250" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="2879:2901" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="2954:3092" ph="INSERT INTO subscription... " />
+            <marker date="1475437147000" expanded="true" signature="3974:4118" ph="SELECT subsc... subscription" />
+            <marker date="1475437147000" expanded="true" signature="4833:4855" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="4882:4906" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="5184:5206" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="5233:5282" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="6439:6612" ph="INSERT INTO destinationGroup... " />
+            <marker date="1475437147000" expanded="true" signature="7607:7790" ph="SELECT subsc... subscription" />
+            <marker date="1475437147000" expanded="true" signature="8576:8598" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="8625:8637" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="8625:8653" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="8939:8961" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="8988:9045" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="9694:9736" ph="INSERT INTO sensor... " />
+            <marker date="1475437147000" expanded="true" signature="9906:9975" ph="INSERT INTO sensorPath... " />
+            <marker date="1475437147000" expanded="true" signature="10547:10569" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="10605:10654" ph="SELECT senso... sensor" />
+            <marker date="1475437147000" expanded="true" signature="10794:10854" ph="SELECT senso... linkSensorPath" />
+            <marker date="1475437147000" expanded="true" signature="11416:11438" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="11465:11491" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="11518:11530" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="11518:11536" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="11802:11824" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="11851:11896" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="11938:11975" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="12810:12832" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="12885:12970" ph="INSERT INTO subscription... " />
+            <marker date="1475437147000" expanded="true" signature="13621:13717" ph="SELECT subsc... subscription" />
+            <marker date="1475437147000" expanded="true" signature="14300:14322" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="14349:14372" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="14648:14670" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="14697:14744" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="15788:15919" ph="INSERT INTO destinationGroup... " />
+            <marker date="1475437147000" expanded="true" signature="16802:16936" ph="SELECT desti... destinationGroup" />
+            <marker date="1475437147000" expanded="true" signature="17617:17639" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="17666:17687" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="17959:17981" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="18008:18051" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="19274:19296" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="19349:19487" ph="INSERT INTO policy... " />
+            <marker date="1475437147000" expanded="true" signature="19727:19796" ph="INSERT INTO linkSensorPath... " />
+            <marker date="1475437147000" expanded="true" signature="20782:20917" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="21057:21117" ph="SELECT polic... linkPolicyPath" />
+            <marker date="1475437147000" expanded="true" signature="21925:21947" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="21974:22000" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="22027:22045" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="22311:22333" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="22360:22405" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="22447:22484" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="23450:23472" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="23525:23638" ph="INSERT INTO router... " />
+            <marker date="1475437147000" expanded="true" signature="24456:24569" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="25205:25227" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="25254:25272" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="25538:25560" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="25587:25624" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="26459:26481" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="26519:26552" ph="SELECT ifnul... " />
+            <marker date="1475437147000" expanded="true" signature="26519:26580" ph="SELECT ifnul... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="26703:26773" ph="SELECT desti... subscription" />
+            <marker date="1475437147000" expanded="true" signature="26921:27002" ph="SELECT desti... destinationGroup" />
+            <marker date="1475437147000" expanded="true" signature="27111:27156" ph="SELECT desti... destinationG" />
+            <marker date="1475437147000" expanded="true" signature="27111:27189" ph="SELECT desti... destinationGroup" />
+            <marker date="1475437147000" expanded="true" signature="27291:27351" ph="SELECT senso... subscription" />
+            <marker date="1475437147000" expanded="true" signature="27446:27468" ph="SELECT senso... " />
+            <marker date="1475437147000" expanded="true" signature="27446:27506" ph="SELECT senso... linkSensorPath" />
+            <marker date="1475437147000" expanded="true" signature="27796:27860" ph="SELECT subsc... subscription" />
+            <marker date="1475437147000" expanded="true" signature="27964:27978" ph="SELECT subsc... " />
+            <marker date="1475437147000" expanded="true" signature="27964:28034" ph="SELECT subsc... subscription" />
+            <marker date="1475437147000" expanded="true" signature="28199:28315" ph="INSERT INTO router... " />
+            <marker date="1475437147000" expanded="true" signature="28514:28565" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="28665:28717" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="28817:28869" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="28961:29009" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="31528:31535" ph="SELECT route... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="31528:31617" ph="SELECT subsc... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="31528:31623" ph="SELECT linkI... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="31930:31990" ph="SELECT route... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="32834:32856" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="32883:32917" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="33195:33217" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="33282:33348" ph="SELECT subsc... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="33477:33547" ph="SELECT desti... subscription" />
+            <marker date="1475437147000" expanded="true" signature="33706:33787" ph="SELECT desti... destinationGroup" />
+            <marker date="1475437147000" expanded="true" signature="33911:33989" ph="SELECT desti... destinationGroup" />
+            <marker date="1475437147000" expanded="true" signature="34103:34163" ph="SELECT senso... subscription" />
+            <marker date="1475437147000" expanded="true" signature="34257:34317" ph="SELECT senso... linkSensorPath" />
+            <marker date="1475437147000" expanded="true" signature="34602:34666" ph="SELECT subsc... subscription" />
+            <marker date="1475437147000" expanded="true" signature="34770:34840" ph="SELECT subsc... subscription" />
+            <marker date="1475437147000" expanded="true" signature="34948:35008" ph="SELECT route... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="35200:35253" ph="SELECT route... " />
+            <marker date="1475437147000" expanded="true" signature="35200:35264" ph="SELECT route... " />
+            <marker date="1475437147000" expanded="true" signature="35200:35295" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="36758:36807" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="37594:37616" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="37654:37709" ph="SELECT ifnul... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="37853:37911" ph="SELECT desti... subscription" />
+            <marker date="1475437147000" expanded="true" signature="38028:38089" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="38206:38227" ph="SELECT polic... " />
+            <marker date="1475437147000" expanded="true" signature="38206:38257" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="38373:38428" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="38540:38591" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="38706:38760" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="38867:38917" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="39022:39082" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="39428:39488" ph="SELECT desti... destinationGroup" />
+            <marker date="1475437147000" expanded="true" signature="39593:39650" ph="SELECT desti... destinationGroup" />
+            <marker date="1475437147000" expanded="true" signature="39839:39890" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="39990:40042" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="40142:40194" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="40286:40334" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="41762:41856" ph="INSERT INTO linkSubscriptionRouter... " />
+            <marker date="1475437147000" expanded="true" signature="42649:42725" ph="SELECT linkI... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="43008:43062" ph="SELECT route... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="43808:43830" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="43857:43885" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="44157:44179" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="44206:44249" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -887,129 +886,129 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sqlite-api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="399" column="22" selection-start-line="399" selection-start-column="22" selection-end-line="399" selection-end-column="22" />
+        <state relative-caret-position="197">
+          <caret line="149" column="31" selection-start-line="149" selection-start-column="31" selection-end-line="149" selection-end-column="31" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <marker date="1475424974000" expanded="true" signature="2879:2901" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="2954:3092" ph="INSERT INTO subscription... " />
-            <marker date="1475424974000" expanded="true" signature="3974:4118" ph="SELECT subsc... subscription" />
-            <marker date="1475424974000" expanded="true" signature="4833:4855" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="4882:4906" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="5184:5206" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="5233:5282" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="6440:6613" ph="INSERT INTO destinationGroup... " />
-            <marker date="1475424974000" expanded="true" signature="7608:7791" ph="SELECT subsc... subscription" />
-            <marker date="1475424974000" expanded="true" signature="8577:8599" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="8626:8638" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="8626:8654" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="8940:8962" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="8989:9046" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="9695:9737" ph="INSERT INTO sensor... " />
-            <marker date="1475424974000" expanded="true" signature="9907:9976" ph="INSERT INTO sensorPath... " />
-            <marker date="1475424974000" expanded="true" signature="10548:10570" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="10606:10655" ph="SELECT senso... sensor" />
-            <marker date="1475424974000" expanded="true" signature="10795:10855" ph="SELECT senso... linkSensorPath" />
-            <marker date="1475424974000" expanded="true" signature="11417:11439" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="11466:11492" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="11519:11531" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="11519:11537" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="11803:11825" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="11852:11897" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="11939:11976" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="12811:12833" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="12886:12971" ph="INSERT INTO subscription... " />
-            <marker date="1475424974000" expanded="true" signature="13622:13718" ph="SELECT subsc... subscription" />
-            <marker date="1475424974000" expanded="true" signature="14301:14323" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="14350:14373" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="14649:14671" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="14698:14745" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="15789:15920" ph="INSERT INTO destinationGroup... " />
-            <marker date="1475424974000" expanded="true" signature="16803:16937" ph="SELECT desti... destinationGroup" />
-            <marker date="1475424974000" expanded="true" signature="17618:17640" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="17667:17688" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="17960:17982" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="18009:18052" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="19275:19297" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="19350:19488" ph="INSERT INTO policy... " />
-            <marker date="1475424974000" expanded="true" signature="19728:19797" ph="INSERT INTO linkSensorPath... " />
-            <marker date="1475424974000" expanded="true" signature="20783:20918" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="21058:21118" ph="SELECT polic... linkPolicyPath" />
-            <marker date="1475424974000" expanded="true" signature="21926:21948" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="21975:22001" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="22028:22046" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="22312:22334" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="22361:22406" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="22448:22485" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="23451:23473" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="23526:23639" ph="INSERT INTO router... " />
-            <marker date="1475424974000" expanded="true" signature="24457:24570" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="25206:25228" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="25255:25273" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="25539:25561" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="25588:25625" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="26460:26482" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="26520:26553" ph="SELECT ifnul... " />
-            <marker date="1475424974000" expanded="true" signature="26520:26581" ph="SELECT ifnul... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="26704:26774" ph="SELECT desti... subscription" />
-            <marker date="1475424974000" expanded="true" signature="26922:27003" ph="SELECT desti... destinationGroup" />
-            <marker date="1475424974000" expanded="true" signature="27112:27157" ph="SELECT desti... destinationG" />
-            <marker date="1475424974000" expanded="true" signature="27112:27190" ph="SELECT desti... destinationGroup" />
-            <marker date="1475424974000" expanded="true" signature="27292:27352" ph="SELECT senso... subscription" />
-            <marker date="1475424974000" expanded="true" signature="27447:27469" ph="SELECT senso... " />
-            <marker date="1475424974000" expanded="true" signature="27447:27507" ph="SELECT senso... linkSensorPath" />
-            <marker date="1475424974000" expanded="true" signature="27797:27861" ph="SELECT subsc... subscription" />
-            <marker date="1475424974000" expanded="true" signature="27965:27979" ph="SELECT subsc... " />
-            <marker date="1475424974000" expanded="true" signature="27965:28035" ph="SELECT subsc... subscription" />
-            <marker date="1475424974000" expanded="true" signature="28200:28316" ph="INSERT INTO router... " />
-            <marker date="1475424974000" expanded="true" signature="28515:28566" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="28666:28718" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="28818:28870" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="28962:29010" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="31529:31536" ph="SELECT route... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="31529:31618" ph="SELECT subsc... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="31529:31624" ph="SELECT linkI... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="31931:31991" ph="SELECT route... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="32835:32857" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="32884:32918" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="33196:33218" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="33283:33349" ph="SELECT subsc... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="33478:33548" ph="SELECT desti... subscription" />
-            <marker date="1475424974000" expanded="true" signature="33707:33788" ph="SELECT desti... destinationGroup" />
-            <marker date="1475424974000" expanded="true" signature="33912:33990" ph="SELECT desti... destinationGroup" />
-            <marker date="1475424974000" expanded="true" signature="34104:34164" ph="SELECT senso... subscription" />
-            <marker date="1475424974000" expanded="true" signature="34258:34318" ph="SELECT senso... linkSensorPath" />
-            <marker date="1475424974000" expanded="true" signature="34603:34667" ph="SELECT subsc... subscription" />
-            <marker date="1475424974000" expanded="true" signature="34771:34841" ph="SELECT subsc... subscription" />
-            <marker date="1475424974000" expanded="true" signature="34949:35009" ph="SELECT route... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="35201:35254" ph="SELECT route... " />
-            <marker date="1475424974000" expanded="true" signature="35201:35265" ph="SELECT route... " />
-            <marker date="1475424974000" expanded="true" signature="35201:35296" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="36759:36808" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="37595:37617" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="37655:37710" ph="SELECT ifnul... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="37854:37912" ph="SELECT desti... subscription" />
-            <marker date="1475424974000" expanded="true" signature="38029:38090" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="38207:38228" ph="SELECT polic... " />
-            <marker date="1475424974000" expanded="true" signature="38207:38258" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="38374:38429" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="38541:38592" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="38707:38761" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="38868:38918" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="39023:39083" ph="SELECT polic... policy" />
-            <marker date="1475424974000" expanded="true" signature="39429:39489" ph="SELECT desti... destinationGroup" />
-            <marker date="1475424974000" expanded="true" signature="39594:39651" ph="SELECT desti... destinationGroup" />
-            <marker date="1475424974000" expanded="true" signature="39840:39891" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="39991:40043" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="40143:40195" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="40287:40335" ph="SELECT route... router" />
-            <marker date="1475424974000" expanded="true" signature="41763:41857" ph="INSERT INTO linkSubscriptionRouter... " />
-            <marker date="1475424974000" expanded="true" signature="42650:42726" ph="SELECT linkI... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="43009:43063" ph="SELECT route... linkSubscriptionRouter" />
-            <marker date="1475424974000" expanded="true" signature="43809:43831" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="43858:43886" ph="DELETE FROM " />
-            <marker date="1475424974000" expanded="true" signature="44158:44180" ph="PRAGMA forei... " />
-            <marker date="1475424974000" expanded="true" signature="44207:44250" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="2879:2901" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="2954:3092" ph="INSERT INTO subscription... " />
+            <marker date="1475437147000" expanded="true" signature="3974:4118" ph="SELECT subsc... subscription" />
+            <marker date="1475437147000" expanded="true" signature="4833:4855" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="4882:4906" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="5184:5206" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="5233:5282" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="6439:6612" ph="INSERT INTO destinationGroup... " />
+            <marker date="1475437147000" expanded="true" signature="7607:7790" ph="SELECT subsc... subscription" />
+            <marker date="1475437147000" expanded="true" signature="8576:8598" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="8625:8637" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="8625:8653" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="8939:8961" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="8988:9045" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="9694:9736" ph="INSERT INTO sensor... " />
+            <marker date="1475437147000" expanded="true" signature="9906:9975" ph="INSERT INTO sensorPath... " />
+            <marker date="1475437147000" expanded="true" signature="10547:10569" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="10605:10654" ph="SELECT senso... sensor" />
+            <marker date="1475437147000" expanded="true" signature="10794:10854" ph="SELECT senso... linkSensorPath" />
+            <marker date="1475437147000" expanded="true" signature="11416:11438" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="11465:11491" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="11518:11530" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="11518:11536" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="11802:11824" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="11851:11896" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="11938:11975" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="12810:12832" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="12885:12970" ph="INSERT INTO subscription... " />
+            <marker date="1475437147000" expanded="true" signature="13621:13717" ph="SELECT subsc... subscription" />
+            <marker date="1475437147000" expanded="true" signature="14300:14322" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="14349:14372" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="14648:14670" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="14697:14744" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="15788:15919" ph="INSERT INTO destinationGroup... " />
+            <marker date="1475437147000" expanded="true" signature="16802:16936" ph="SELECT desti... destinationGroup" />
+            <marker date="1475437147000" expanded="true" signature="17617:17639" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="17666:17687" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="17959:17981" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="18008:18051" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="19274:19296" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="19349:19487" ph="INSERT INTO policy... " />
+            <marker date="1475437147000" expanded="true" signature="19727:19796" ph="INSERT INTO linkSensorPath... " />
+            <marker date="1475437147000" expanded="true" signature="20782:20917" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="21057:21117" ph="SELECT polic... linkPolicyPath" />
+            <marker date="1475437147000" expanded="true" signature="21925:21947" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="21974:22000" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="22027:22045" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="22311:22333" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="22360:22405" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="22447:22484" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="23450:23472" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="23525:23638" ph="INSERT INTO router... " />
+            <marker date="1475437147000" expanded="true" signature="24456:24569" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="25205:25227" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="25254:25272" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="25538:25560" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="25587:25624" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="26459:26481" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="26519:26552" ph="SELECT ifnul... " />
+            <marker date="1475437147000" expanded="true" signature="26519:26580" ph="SELECT ifnul... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="26703:26773" ph="SELECT desti... subscription" />
+            <marker date="1475437147000" expanded="true" signature="26921:27002" ph="SELECT desti... destinationGroup" />
+            <marker date="1475437147000" expanded="true" signature="27111:27156" ph="SELECT desti... destinationG" />
+            <marker date="1475437147000" expanded="true" signature="27111:27189" ph="SELECT desti... destinationGroup" />
+            <marker date="1475437147000" expanded="true" signature="27291:27351" ph="SELECT senso... subscription" />
+            <marker date="1475437147000" expanded="true" signature="27446:27468" ph="SELECT senso... " />
+            <marker date="1475437147000" expanded="true" signature="27446:27506" ph="SELECT senso... linkSensorPath" />
+            <marker date="1475437147000" expanded="true" signature="27796:27860" ph="SELECT subsc... subscription" />
+            <marker date="1475437147000" expanded="true" signature="27964:27978" ph="SELECT subsc... " />
+            <marker date="1475437147000" expanded="true" signature="27964:28034" ph="SELECT subsc... subscription" />
+            <marker date="1475437147000" expanded="true" signature="28199:28315" ph="INSERT INTO router... " />
+            <marker date="1475437147000" expanded="true" signature="28514:28565" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="28665:28717" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="28817:28869" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="28961:29009" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="31528:31535" ph="SELECT route... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="31528:31617" ph="SELECT subsc... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="31528:31623" ph="SELECT linkI... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="31930:31990" ph="SELECT route... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="32834:32856" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="32883:32917" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="33195:33217" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="33282:33348" ph="SELECT subsc... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="33477:33547" ph="SELECT desti... subscription" />
+            <marker date="1475437147000" expanded="true" signature="33706:33787" ph="SELECT desti... destinationGroup" />
+            <marker date="1475437147000" expanded="true" signature="33911:33989" ph="SELECT desti... destinationGroup" />
+            <marker date="1475437147000" expanded="true" signature="34103:34163" ph="SELECT senso... subscription" />
+            <marker date="1475437147000" expanded="true" signature="34257:34317" ph="SELECT senso... linkSensorPath" />
+            <marker date="1475437147000" expanded="true" signature="34602:34666" ph="SELECT subsc... subscription" />
+            <marker date="1475437147000" expanded="true" signature="34770:34840" ph="SELECT subsc... subscription" />
+            <marker date="1475437147000" expanded="true" signature="34948:35008" ph="SELECT route... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="35200:35253" ph="SELECT route... " />
+            <marker date="1475437147000" expanded="true" signature="35200:35264" ph="SELECT route... " />
+            <marker date="1475437147000" expanded="true" signature="35200:35295" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="36758:36807" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="37594:37616" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="37654:37709" ph="SELECT ifnul... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="37853:37911" ph="SELECT desti... subscription" />
+            <marker date="1475437147000" expanded="true" signature="38028:38089" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="38206:38227" ph="SELECT polic... " />
+            <marker date="1475437147000" expanded="true" signature="38206:38257" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="38373:38428" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="38540:38591" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="38706:38760" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="38867:38917" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="39022:39082" ph="SELECT polic... policy" />
+            <marker date="1475437147000" expanded="true" signature="39428:39488" ph="SELECT desti... destinationGroup" />
+            <marker date="1475437147000" expanded="true" signature="39593:39650" ph="SELECT desti... destinationGroup" />
+            <marker date="1475437147000" expanded="true" signature="39839:39890" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="39990:40042" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="40142:40194" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="40286:40334" ph="SELECT route... router" />
+            <marker date="1475437147000" expanded="true" signature="41762:41856" ph="INSERT INTO linkSubscriptionRouter... " />
+            <marker date="1475437147000" expanded="true" signature="42649:42725" ph="SELECT linkI... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="43008:43062" ph="SELECT route... linkSubscriptionRouter" />
+            <marker date="1475437147000" expanded="true" signature="43808:43830" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="43857:43885" ph="DELETE FROM " />
+            <marker date="1475437147000" expanded="true" signature="44157:44179" ph="PRAGMA forei... " />
+            <marker date="1475437147000" expanded="true" signature="44206:44249" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>

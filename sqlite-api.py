@@ -147,7 +147,7 @@ class singleSubscription(Resource):
             db.execute('PRAGMA foreign_keys=ON')
             db.execute('DELETE FROM subscription WHERE subscriptionName=?', (subscriptionName,))
             db.commit()
-            return {'Status Code': '200'}
+            return {'statusCode': '200'}
 
         except Exception as e:
             return {'error': str(e)}

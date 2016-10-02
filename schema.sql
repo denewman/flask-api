@@ -14,7 +14,7 @@ drop table if exists linkSubscriptionRouter;
 
 
 create table subscription (
-    subscriptionId INTEGER not null,
+    subscriptionId INTEGER not null UNIQUE,
     subscriptionName text not null UNIQUE,
     subscriptionInterval double not null,
     destinationGroupName text not null,

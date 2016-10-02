@@ -621,6 +621,7 @@ class router(Resource):
             _routerPort = args['routerPort']
 
             db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
             cursor = db.execute(
                 'INSERT INTO router (routerName, routerAddress, routerUsername, routerPassword, routerPort) VALUES (?, ?, ?, ?, ?)',
                 [_routerName, _routerAddress, _routerUsername, _routerPassword, _routerPort])

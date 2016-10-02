@@ -397,7 +397,7 @@ class singlePolicyGroup(Resource):
             db.execute('PRAGMA foreign_keys=ON')
             db.execute('DELETE FROM policyGroup WHERE policyGroupName=?', (policyGroupName,))
             db.commit()
-            return {'Status Code': '200'}
+            return {'statusCode': '200'}
 
         except Exception as e:
             return {'error': str(e)}

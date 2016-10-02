@@ -922,10 +922,10 @@ class singleSubscriptionRouterLink(Resource):
                 db.execute('DELETE FROM linkSubscriptionRouter WHERE linkId=?', (linkId,))
                 db.commit()
 
-                return {'Status Code': '200'}
+                return {'statusCode': '200'}
 
             else:
-                return {'Status Code': '400'}
+                return {'statusCode': '400'}
 
         except Exception as e:
             return {'error': str(e)}
@@ -1103,7 +1103,7 @@ class singlePolicyRouterLink(Resource):
             db.execute('PRAGMA foreign_keys=ON')
             db.execute('DELETE FROM linkPolicyRouter WHERE linkId=?', (linkId,))
             db.commit()
-            return {'Status Code': '200'}
+            return {'statusCode': '200'}
 
         except Exception as e:
             return {'error': str(e)}

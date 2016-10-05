@@ -994,6 +994,7 @@ class policyRouterLink(Resource):
                 (_collectorName,)).fetchone()[0]
 
             router_list = []
+            data = ''
 
             for router in _routers:
                 _routerAddress = str(db.execute(

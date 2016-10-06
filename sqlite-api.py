@@ -611,6 +611,7 @@ class router(Resource):
             parser.add_argument('routerUsername', type=str, help='')
             parser.add_argument('routerPassword', type=str, help='')
             parser.add_argument('routerPort', type=int, help='')
+            parser.add_argument('configType', type=str, help='')
 
             args = parser.parse_args()
 
@@ -619,12 +620,13 @@ class router(Resource):
             _routerUsername = args['routerUsername']
             _routerPassword = args['routerPassword']
             _routerPort = args['routerPort']
+            _configType = args['configType']
 
             db = get_db()
             db.execute('PRAGMA foreign_keys=ON')
             cursor = db.execute(
-                'INSERT INTO router (routerName, routerAddress, routerUsername, routerPassword, routerPort) VALUES (?, ?, ?, ?, ?)',
-                [_routerName, _routerAddress, _routerUsername, _routerPassword, _routerPort])
+                'INSERT INTO router (routerName, routerAddress, routerUsername, routerPassword, routerPort, configType) VALUES (?, ?, ?, ?, ?, ?)',
+                [_routerName, _routerAddress, _routerUsername, _routerPassword, _routerPort, configType])
             data = cursor.fetchall()
 
             if len(data) is 0:
@@ -635,10 +637,11 @@ class router(Resource):
                         'routerAddress': _routerAddress,
                         'routerUsername': _routerUsername,
                         'routerPassword': _routerPassword,
-                        'routerPort': _routerPort
+                        'routerPort': _routerPort,
+                        'configType': _configType
                     }}
             else:
-                return {'Status Code': '1000', 'Message': str(data[0])}
+                return {'Status Code': '400', 'Message': str(data[0])}
 
         except Exception as e:
             return {'error': str(e)}
@@ -647,7 +650,7 @@ class router(Resource):
         try:
             db = get_db()
             cursor = db.execute(
-                'SELECT routerName, routerAddress, routerUsername, routerPassword, routerPort FROM router ORDER BY routerName DESC')
+                'SELECT routerName, routerAddress, routerUsername, routerPassword, routerPort, configType FROM router ORDER BY routerName DESC')
             data = cursor.fetchall()
 
             router_list = []
@@ -657,7 +660,8 @@ class router(Resource):
                     'routerAddress': router[1],
                     'routerUsername': router[2],
                     'routerPassword': router[3],
-                    'routerPort': router[4]
+                    'routerPort': router[4],
+                    'configType': router[5]
                 }
                 router_list.append(i)
 
@@ -697,14 +701,12 @@ class subscriptionRouterLink(Resource):
             parser.add_argument('subscriptionName', type=str, help='')
             parser.add_argument('routers', action='append')
             parser.add_argument('status', type=bool, help='')
-            parser.add_argument('configType', type=str, help='')
 
             args = parser.parse_args()
 
             _subscriptionName = args['subscriptionName']
             _routers = args['routers']
             _status = args['status']
-            _configType = args['configType']
 
             db = get_db()
             db.execute('PRAGMA foreign_keys=ON')
@@ -741,8 +743,8 @@ class subscriptionRouterLink(Resource):
 
             for router in _routers:
                 cursor = db.execute(
-                    'INSERT INTO linkSubscriptionRouter (linkId, subscriptionName, routerName, status, configType) VALUES (?, ?, ?, ?, ?)',
-                        [_linkId, _subscriptionName, router, _status, _configType])
+                    'INSERT INTO linkSubscriptionRouter (linkId, subscriptionName, routerName, status) VALUES (?, ?, ?, ?)',
+                        [_linkId, _subscriptionName, router, _status])
                 data = cursor.fetchall()
 
                 _routerAddress = str(db.execute(
@@ -753,6 +755,8 @@ class subscriptionRouterLink(Resource):
                     'SELECT routerPassword FROM router WHERE routerName=?', (router,)).fetchone()[0])
                 _routerPort = db.execute(
                     'SELECT routerPort FROM router WHERE routerName=?', (router,)).fetchone()[0]
+                _configType = str(db.execute(
+                    'SELECT configType FROM router WHERE routerName=?', (router,)).fetchone()[0])
 
                 print (_routerAddress, _routerUsername, _routerPassword, _routerPort,
                        _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
@@ -795,9 +799,8 @@ class subscriptionRouterLink(Resource):
                     'linkId': _linkId,
                     'subscriptionName': _subscriptionName,
                     'routers': router_list,
-                    'status': _status,
-                    'configType': _configType
-            }}
+                    'status': _status
+                }}
 
         else:
             return {'Status Code': '400'}
@@ -807,7 +810,7 @@ class subscriptionRouterLink(Resource):
         try:
             db = get_db()
             cursor = db.execute(
-                'SELECT linkId, subscriptionName, status, configType from linkSubscriptionRouter ORDER BY linkId')
+                'SELECT linkId, subscriptionName, status from linkSubscriptionRouter ORDER BY linkId')
             data = cursor.fetchall()
 
             subscription_router_list = []
@@ -830,9 +833,7 @@ class subscriptionRouterLink(Resource):
                         'linkId': subscription[0],
                         'subscriptionName': subscription[1],
                         'status': subscription[2],
-                        'routers': router_list,
-                        'configType': subscription[3]
-                    }
+                        'routers': router_list                    }
 
                     subscription_router_list.append(i)
 
@@ -897,11 +898,13 @@ class singleSubscriptionRouterLink(Resource):
             for routerName in _routers:
                 _routerName = str(routerName[0])
                 router = db.execute(
-                    'SELECT routerAddress, routerUsername, routerPassword, routerPort FROM router WHERE routerName=?', (_routerName,)).fetchone()
+                    'SELECT routerAddress, routerUsername, routerPassword, routerPort, configType ''FROM router WHERE routerName=?',
+                    (_routerName,)).fetchone()
                 _routerAddress = str(router[0])
                 _routerUsername = str(router[1])
                 _routerPassword = str(router[2])
                 _routerPort = router[3]
+                _configType = router[4]
                 print (_routerAddress, _routerUsername, _routerPassword, _routerPort,
                                        _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
                                        _destinationGroupPort, _sensorName, pathString, _subscriptionName, _subscriptionId,

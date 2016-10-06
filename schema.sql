@@ -98,6 +98,7 @@ create table router (
     routerUsername text not null,
     routerPassword text not null,
     routerPort integer not null,
+    configType text not null,
     PRIMARY KEY(routerName)
 );
 
@@ -116,7 +117,6 @@ create table linkSubscriptionRouter (
     subscriptionName text not null,
     routerName text not null,
     status boolean not null,
-    configType text not null,
     CONSTRAINT subscriptionName_routerName PRIMARY KEY(subscriptionName, routerName),
     FOREIGN KEY(subscriptionName) REFERENCES subscription(subscriptionName),
     FOREIGN KEY(routerName) REFERENCES router(routerName)

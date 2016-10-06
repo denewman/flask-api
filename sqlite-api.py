@@ -858,27 +858,27 @@ class singleSubscriptionRouterLink(Resource):
             db = get_db()
             db.execute('PRAGMA foreign_keys=ON')
 
-            _subscriptionName = db.execute(
-                'SELECT subscriptionName FROM linkSubscriptionRouter WHERE linkId=?', (linkId,)).fetchone()[0]
+            _subscriptionName = str(db.execute(
+                'SELECT subscriptionName FROM linkSubscriptionRouter WHERE linkId=?', (linkId,)).fetchone()[0])
             _accessProtocol = 'ssh'
-            _destinationGroupName = db.execute(
+            _destinationGroupName = str(db.execute(
                 'SELECT destinationGroupName FROM subscription WHERE subscriptionName=?',
-                (_subscriptionName,)).fetchone()[0]
+                (_subscriptionName,)).fetchone()[0])
             _addressFamily = 'ipv4'
-            _destinationGroupAddress = db.execute(
+            _destinationGroupAddress = str(db.execute(
                 'SELECT destinationGroupAddress FROM destinationGroup WHERE destinationGroupName=?',
-                (_destinationGroupName,)).fetchone()[0]
+                (_destinationGroupName,)).fetchone()[0])
             _destinationGroupPort = db.execute(
                 'SELECT destinationGroupPort FROM destinationGroup WHERE destinationGroupName=?',
                 (_destinationGroupName,)).fetchone()[0]
-            _sensorName = db.execute(
-                'SELECT sensorName FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]
+            _sensorName = str(db.execute(
+                'SELECT sensorName FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0])
             _sensorPath = db.execute(
                 'SELECT sensorPathName FROM linkSensorPath WHERE sensorName=?', (_sensorName,)).fetchall()
 
             pathString = '"'
             for sensorPath in _sensorPath:
-                pathString += sensorPath[0] + ','
+                pathString += str(sensorPath[0]) + ','
 
             pathString = pathString[:-1]
             pathString += '"'
@@ -895,12 +895,12 @@ class singleSubscriptionRouterLink(Resource):
             result = 1
 
             for routerName in _routers:
-                _routerName = routerName[0]
+                _routerName = str(routerName[0])
                 router = db.execute(
                     'SELECT routerAddress, routerUsername, routerPassword, routerPort FROM router WHERE routerName=?', (_routerName,)).fetchone()
-                _routerAddress = router[0]
-                _routerUsername = router[1]
-                _routerPassword = router[2]
+                _routerAddress = str(router[0])
+                _routerUsername = str(router[1])
+                _routerPassword = str(router[2])
                 _routerPort = router[3]
                 print (_routerAddress, _routerUsername, _routerPassword, _routerPort,
                                        _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,

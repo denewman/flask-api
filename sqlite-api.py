@@ -626,7 +626,7 @@ class router(Resource):
             db.execute('PRAGMA foreign_keys=ON')
             cursor = db.execute(
                 'INSERT INTO router (routerName, routerAddress, routerUsername, routerPassword, routerPort, configType) VALUES (?, ?, ?, ?, ?, ?)',
-                [_routerName, _routerAddress, _routerUsername, _routerPassword, _routerPort, configType])
+                [_routerName, _routerAddress, _routerUsername, _routerPassword, _routerPort, _configType])
             data = cursor.fetchall()
 
             if len(data) is 0:

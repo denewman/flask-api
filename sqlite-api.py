@@ -797,7 +797,7 @@ class subscriptionRouterLink(Resource):
                 elif (_configType == 'SSH'):
                     conf = mdtconf_ssh.MdtSSHconf('64.104.255.10', 'rmitproject', 'r@mot@supp@rt',
                                       '5000', 'ssh', 'Dgroup1', 'ipv4', '172.30.8.4', '5432', 'SGroup1',
-                                      "'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters'",
+                                      '"Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters"',
                                       'Sub1', '5', '3000')
                 #    conf = mdtconf_ssh.MdtSSHconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
                 #                               'ssh', _destinationGroupName, _addressFamily,

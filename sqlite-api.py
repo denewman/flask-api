@@ -229,6 +229,29 @@ class destinationGroup(Resource):
             return {'error': str(e)}
 
 class singleDestinationGroup(Resource):
+    
+    def get(self, destinationGroupName):
+        try:
+            db = get_db()
+            query = db.execute('SELECT destinationGroupName, destinationGroupAddress, destinationGroupPort, destinationGroupEncoding, destinationGroupProtocol FROM destinationGroup WHERE destinationGroupName =?', (destinationGroupName,))
+            
+            destinationGroup = query.fetchone()
+            
+            qryData = {
+                'destinationGroupName': destinationGroup[0],
+                'destinationGroupAddress': destinationGroup[1],
+                'destinationGroupPort': destinationGroup[2],
+                'destinationGroupEncoding': destinationGroup[3],
+                'destinationGroupProtocol': destinationGroup[4]
+            }
+            result = {'Status Code': '200', 'data': qryData}
+
+            return result
+            
+
+        except Exception as e:
+            return {'error': str(e)}
+    
     def delete(self, destinationGroupName):
         try:
             db = get_db()

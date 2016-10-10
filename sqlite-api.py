@@ -805,11 +805,9 @@ class subscriptionRouterLink(Resource):
                        str(_subscriptionInterval))
 
                     conf = mdtconf_ssh.MdtSSHconf(_routerAddress, _routerUsername, _routerPassword, str(_routerPort),
-                                               'ssh', _destinationGroupName, _addressFamily,
-                                               _destinationGroupAddress,
+                                               'ssh', _destinationGroupName, _addressFamily, _destinationGroupAddress,
                                                str(_destinationGroupPort), _sensorName, pathString, _subscriptionName,
-                                               str(_subscriptionId),
-                                               str(_subscriptionInterval))
+                                               str(_subscriptionId), str(_subscriptionInterval))
                     result = conf.configureAll()
                     print 'configType=ssh'
 
@@ -865,7 +863,8 @@ class subscriptionRouterLink(Resource):
                         'linkId': subscription[0],
                         'subscriptionName': subscription[1],
                         'status': subscription[2],
-                        'routers': router_list                    }
+                        'routers': router_list
+                        }
 
                     subscription_router_list.append(i)
 
@@ -937,21 +936,30 @@ class singleSubscriptionRouterLink(Resource):
                 _routerPassword = str(router[2])
                 _routerPort = router[3]
                 _configType = router[4]
-                print (_routerAddress, _routerUsername, _routerPassword, _routerPort,
-                                       _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
-                                       _destinationGroupPort, _sensorName, pathString, _subscriptionName, _subscriptionId,
-                                       _subscriptionInterval)
 
-#                conf = mdtconf.Mdtconf('64.104.255.10', 'rmitproject', 'r@mot@supp@rt', 5001, 'ssh', 'Dgroup1', 'ipv4',
-#                                   '172.30.8.4', 5432, 'SGroup1',
-#                                   'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters',
-#                                   'Sub1', 5, 3000)
+                if (_configType == 'YDK'):
+                    print (_routerAddress, _routerUsername, _routerPassword, _routerPort,
+                           _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
+                           _destinationGroupPort, _sensorName, pathString, _subscriptionName, _subscriptionId,
+                           _subscriptionInterval)
 
-                conf = mdtconf_ydk.Mdtconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
+                    conf = mdtconf_ydk.Mdtconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
                                    _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
                                   _destinationGroupPort, _sensorName, pathString, _subscriptionName, _subscriptionId,
                                  _subscriptionInterval)
-                result = conf.del_conf()
+                    result = conf.deleteSub()
+
+                elif (_configType == 'SSH'):
+                    print (_routerAddress, _routerUsername, _routerPassword, str(_routerPort),
+                           _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
+                           str(_destinationGroupPort), _sensorName, pathString, _subscriptionName, str(_subscriptionId),
+                           str(_subscriptionInterval))
+
+                    conf = mdtconf_ssh.MdtSSHconf(_routerAddress, _routerUsername, _routerPassword, str(_routerPort),
+                                   _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
+                                  str(_destinationGroupPort), _sensorName, pathString, _subscriptionName, str(_subscriptionId),
+                                 str(_subscriptionInterval))
+                    result = conf.deleteSub()
 
             if result == 0:
                 db.execute('DELETE FROM linkSubscriptionRouter WHERE linkId=?', (linkId,))

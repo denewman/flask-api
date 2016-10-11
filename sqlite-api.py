@@ -5,9 +5,9 @@ import sqlite3
 import os
 import imp
 
-#mdtconf_ydk = imp.load_source('mdtconf_ydk', '../teleconf/model/mdtconf_ydk.py')
-#mdtconf_ssh = imp.load_source('mdtconf_ssh', '../teleconf/model/mdtconf_ssh.py')
-#pdtconf = imp.load_source('pdtconf', '../teleconf/model/pdtconf.py')
+mdtconf_ydk = imp.load_source('mdtconf_ydk', '../teleconf/model/mdtconf_ydk.py')
+mdtconf_ssh = imp.load_source('mdtconf_ssh', '../teleconf/model/mdtconf_ssh.py')
+pdtconf = imp.load_source('pdtconf', '../teleconf/model/pdtconf.py')
 
 # from models import *
 

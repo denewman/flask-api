@@ -749,12 +749,12 @@ class subscriptionRouterLink(Resource):
             _sensorPath = db.execute(
                 'SELECT sensorPathName FROM linkSensorPath WHERE sensorName=?', (_sensorName,)).fetchall()
 
-            pathString = '"'
+            pathString = ''
             for sensorPath in _sensorPath:
                 pathString += str(sensorPath[0]) + ','
 
             pathString = pathString[:-1]
-            pathString += '"'
+            #pathString += '"'
 
             _subscriptionId = db.execute(
                 'SELECT subscriptionId FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]
@@ -908,12 +908,12 @@ class singleSubscriptionRouterLink(Resource):
             _sensorPath = db.execute(
                 'SELECT sensorPathName FROM linkSensorPath WHERE sensorName=?', (_sensorName,)).fetchall()
 
-            pathString = '"'
+            pathString = ''
             for sensorPath in _sensorPath:
                 pathString += str(sensorPath[0]) + ','
 
             pathString = pathString[:-1]
-            pathString += '"'
+            #pathString += '"'
 
             _subscriptionId = db.execute(
                 'SELECT subscriptionId FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]
@@ -1021,12 +1021,12 @@ class policyRouterLink(Resource):
                 'SELECT policyPathName from linkPolicyPath WHERE policyName=?',
                 (_policyName,)).fetchall()
 
-            pathString = '"'
+            pathString = ''
             for policyPath in _policyPaths:
                 pathString += str(policyPath[0]) + ','
 
             pathString = pathString[:-1]
-            pathString += '"'
+            #pathString += '"'
 
             _addressFamily = 'ipv4'
             _destinationIp = str(db.execute(

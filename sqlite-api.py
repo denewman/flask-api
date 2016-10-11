@@ -858,12 +858,12 @@ class subscriptionRouterLink(Resource):
             _sensorPath = db.execute(
                 'SELECT sensorPathName FROM linkSensorPath WHERE sensorName=?', (_sensorName,)).fetchall()
 
-            pathString = '"'
+            pathString = ''
             for sensorPath in _sensorPath:
                 pathString += str(sensorPath[0]) + ','
 
             pathString = pathString[:-1]
-            pathString += '"'
+            #pathString += '"'
 
             _subscriptionId = db.execute(
                 'SELECT subscriptionId FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]
@@ -890,13 +890,13 @@ class subscriptionRouterLink(Resource):
                 _configType = str(db.execute(
                     'SELECT configType FROM router WHERE routerName=?', (router,)).fetchone()[0])
 
-                print (_routerAddress, _routerUsername, _routerPassword, _routerPort,
-                       _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
-                       _destinationGroupPort, _sensorName, pathString, _subscriptionName, _subscriptionId,
-                       _subscriptionInterval)
-
                 result = 1
                 if (_configType == 'YDK'):
+                    print (_routerAddress, _routerUsername, _routerPassword, _routerPort,
+                           _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
+                           _destinationGroupPort, _sensorName, pathString, _subscriptionName, _subscriptionId,
+                           _subscriptionInterval)
+
                     conf = mdtconf_ydk.Mdtconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
                                        'ydk', _destinationGroupName, _addressFamily, _destinationGroupAddress,
                                        _destinationGroupPort, _sensorName, pathString, _subscriptionName, _subscriptionId,
@@ -904,13 +904,19 @@ class subscriptionRouterLink(Resource):
                     result = conf.push_conf()
 
                 elif (_configType == 'SSH'):
-                    conf = mdtconf_ssh.MdtSSHconf('64.104.255.10', 'rmitproject', 'r@mot@supp@rt', 5000, 'ssh', 'Dgroup1', 'ipv4', '172.30.8.4', 5432, 'SGroup1', 'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters', 'Sub1', 5, 3000)
-                #    conf = mdtconf_ssh.MdtSSHconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
-                #                               'ssh', _destinationGroupName, _addressFamily,
-                #                               _destinationGroupAddress,
-                #                               _destinationGroupPort, _sensorName, pathString, _subscriptionName,
-                #                               _subscriptionId,
-                #                               _subscriptionInterval)
+                #    conf = mdtconf_ssh.MdtSSHconf('64.104.255.10', 'rmitproject', 'r@mot@supp@rt',
+                #                      '5000', 'ssh', 'Dgroup1', 'ipv4', '172.30.8.4', '5432', 'SGroup1',
+                #                      '"Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters"',
+                #                      'Sub1', '5', '3000')
+                    print (_routerAddress, _routerUsername, _routerPassword, str(_routerPort),
+                       _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
+                       str(_destinationGroupPort), _sensorName, pathString, _subscriptionName, str(_subscriptionId),
+                       str(_subscriptionInterval))
+
+                    conf = mdtconf_ssh.MdtSSHconf(_routerAddress, _routerUsername, _routerPassword, str(_routerPort),
+                                               'ssh', _destinationGroupName, _addressFamily, _destinationGroupAddress,
+                                               str(_destinationGroupPort), _sensorName, pathString, _subscriptionName,
+                                               str(_subscriptionId), str(_subscriptionInterval))
                     result = conf.configureAll()
                     print 'configType=ssh'
 
@@ -966,7 +972,8 @@ class subscriptionRouterLink(Resource):
                         'linkId': subscription[0],
                         'subscriptionName': subscription[1],
                         'status': subscription[2],
-                        'routers': router_list                    }
+                        'routers': router_list
+                        }
 
                     subscription_router_list.append(i)
 
@@ -1010,12 +1017,12 @@ class singleSubscriptionRouterLink(Resource):
             _sensorPath = db.execute(
                 'SELECT sensorPathName FROM linkSensorPath WHERE sensorName=?', (_sensorName,)).fetchall()
 
-            pathString = '"'
+            pathString = ''
             for sensorPath in _sensorPath:
                 pathString += str(sensorPath[0]) + ','
 
             pathString = pathString[:-1]
-            pathString += '"'
+            #pathString += '"'
 
             _subscriptionId = db.execute(
                 'SELECT subscriptionId FROM subscription WHERE subscriptionName=?', (_subscriptionName,)).fetchone()[0]
@@ -1038,21 +1045,30 @@ class singleSubscriptionRouterLink(Resource):
                 _routerPassword = str(router[2])
                 _routerPort = router[3]
                 _configType = router[4]
-                print (_routerAddress, _routerUsername, _routerPassword, _routerPort,
-                                       _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
-                                       _destinationGroupPort, _sensorName, pathString, _subscriptionName, _subscriptionId,
-                                       _subscriptionInterval)
 
-#                conf = mdtconf.Mdtconf('64.104.255.10', 'rmitproject', 'r@mot@supp@rt', 5001, 'ssh', 'Dgroup1', 'ipv4',
-#                                   '172.30.8.4', 5432, 'SGroup1',
-#                                   'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters',
-#                                   'Sub1', 5, 3000)
+                if (_configType == 'YDK'):
+                    print (_routerAddress, _routerUsername, _routerPassword, _routerPort,
+                           _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
+                           _destinationGroupPort, _sensorName, pathString, _subscriptionName, _subscriptionId,
+                           _subscriptionInterval)
 
-                conf = mdtconf_ydk.Mdtconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
+                    conf = mdtconf_ydk.Mdtconf(_routerAddress, _routerUsername, _routerPassword, _routerPort,
                                    _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
                                   _destinationGroupPort, _sensorName, pathString, _subscriptionName, _subscriptionId,
                                  _subscriptionInterval)
-                result = conf.del_conf()
+                    result = conf.deleteSub()
+
+                elif (_configType == 'SSH'):
+                    print (_routerAddress, _routerUsername, _routerPassword, str(_routerPort),
+                           _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
+                           str(_destinationGroupPort), _sensorName, pathString, _subscriptionName, str(_subscriptionId),
+                           str(_subscriptionInterval))
+
+                    conf = mdtconf_ssh.MdtSSHconf(_routerAddress, _routerUsername, _routerPassword, str(_routerPort),
+                                   _accessProtocol, _destinationGroupName, _addressFamily, _destinationGroupAddress,
+                                  str(_destinationGroupPort), _sensorName, pathString, _subscriptionName, str(_subscriptionId),
+                                 str(_subscriptionInterval))
+                    result = conf.deleteSub()
 
             if result == 0:
                 db.execute('DELETE FROM linkSubscriptionRouter WHERE linkId=?', (linkId,))
@@ -1114,12 +1130,12 @@ class policyRouterLink(Resource):
                 'SELECT policyPathName from linkPolicyPath WHERE policyName=?',
                 (_policyName,)).fetchall()
 
-            pathString = '"'
+            pathString = ''
             for policyPath in _policyPaths:
                 pathString += str(policyPath[0]) + ','
 
             pathString = pathString[:-1]
-            pathString += '"'
+            #pathString += '"'
 
             _addressFamily = 'ipv4'
             _destinationIp = str(db.execute(
@@ -1238,9 +1254,88 @@ class singlePolicyRouterLink(Resource):
         try:
             db = get_db()
             db.execute('PRAGMA foreign_keys=ON')
-            db.execute('DELETE FROM linkPolicyRouter WHERE linkId=?', (linkId,))
-            db.commit()
-            return {'statusCode': '200'}
+
+            _confType = 'delete'
+            _accessProtocol = 'ssh'
+            _policyGroupName = str(db.execute(
+                'SELECT policyGroupName FROM linkPolicyRouter WHERE linkId=?',
+                (linkId,)).fetchone()[0])
+            _policyName = str(db.execute(
+                'SELECT policyName FROM policyGroup WHERE policyGroupName=?',
+                (_policyGroupName,)).fetchone()[0])
+            _collectorName = str(db.execute(
+                'SELECT collectorName from policyGroup WHERE policyGroupName=?',
+                (_policyGroupName,)).fetchone()[0])
+            _policyVersion = str(db.execute(
+                'SELECT policyVersion from policy WHERE policyName=?',
+                (_policyName,)).fetchone()[0])
+            _policyDescription = str(db.execute(
+                'SELECT policyDescription from policy WHERE policyName=?',
+                (_policyName,)).fetchone()[0])
+            _policyComment = str(db.execute(
+                'SELECT policyComment from policy WHERE policyName=?',
+                (_policyName,)).fetchone()[0])
+            _policyIdentifier = str(db.execute(
+                'SELECT policyIdentifier from policy WHERE policyName=?',
+                (_policyName,)).fetchone()[0])
+            _policyPeriod = db.execute(
+                'SELECT policyPeriod from policy WHERE policyName=?',
+                (_policyName,)).fetchone()[0]
+            _policyPaths = db.execute(
+                'SELECT policyPathName from linkPolicyPath WHERE policyName=?',
+                (_policyName,)).fetchall()
+
+            pathString = ''
+            for policyPath in _policyPaths:
+                pathString += str(policyPath[0]) + ','
+
+            pathString = pathString[:-1]
+            # pathString += '"'
+
+            _addressFamily = 'ipv4'
+            _destinationIp = str(db.execute(
+                'SELECT collectorAddress FROM collector WHERE collectorName=?',
+                (_collectorName,)).fetchone()[0])
+            _rmtPort = db.execute(
+                'SELECT collectorPort FROM collector WHERE collectorName=?',
+                (_collectorName,)).fetchone()[0]
+
+            _routers = db.execute(
+                'SELECT routerName from linkPolicyRouter WHERE linkId=?', (linkId,)).fetchall()
+
+            result = 1
+
+            for routerName in _routers:
+                _routerName = str(routerName[0])
+                router = db.execute(
+                    'SELECT routerAddress, routerUsername, routerPassword, routerPort, configType ''FROM router WHERE routerName=?',
+                    (_routerName,)).fetchone()
+                _routerAddress = str(router[0])
+                _routerUsername = str(router[1])
+                _routerPassword = str(router[2])
+                _routerPort = router[3]
+                _configType = router[4]
+
+                conf = pdtconf.Pdtconf(_confType, _routerAddress, _routerUsername, _routerPassword, _routerPort,
+                                   _accessProtocol, _policyName, _policyVersion, _policyDescription, _policyComment,
+                                   _policyIdentifier, _policyPeriod, pathString,
+                                   _addressFamily, _destinationIp, _rmtPort, _policyGroupName)
+
+                print (_confType, _routerAddress, _routerUsername, _routerPassword, _routerPort,
+                   _accessProtocol, _policyName, _policyVersion, _policyDescription, _policyComment,
+                   _policyIdentifier, _policyPeriod, pathString,
+                   _addressFamily, _destinationIp, _rmtPort, _policyGroupName)
+
+                result = conf.deletePolicyGroup()
+
+            if result == 0:
+                db.execute('DELETE FROM linkPolicyRouter WHERE linkId=?', (linkId,))
+                db.commit()
+
+                return {'statusCode': '200'}
+
+            else:
+                return {'statusCode': '400'}
 
         except Exception as e:
             return {'error': str(e)}

@@ -1192,7 +1192,7 @@ class singlePolicyRouterLink(Resource):
                 (_collectorName,)).fetchone()[0]
 
             _routers = db.execute(
-                'SELECT routerName from linkSubscriptionRouter WHERE linkId=?', (linkId,)).fetchall()
+                'SELECT routerName from linkPolicyRouter WHERE linkId=?', (linkId,)).fetchall()
 
             result = 1
 

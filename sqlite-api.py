@@ -1145,9 +1145,88 @@ class singlePolicyRouterLink(Resource):
         try:
             db = get_db()
             db.execute('PRAGMA foreign_keys=ON')
-            db.execute('DELETE FROM linkPolicyRouter WHERE linkId=?', (linkId,))
-            db.commit()
-            return {'statusCode': '200'}
+
+            _confType = 'delete'
+            _accessProtocol = 'ssh'
+            _policyGroupName = str(db.execute(
+                'SELECT policyGroupName FROM linkPolicyRouter WHERE linkId=?',
+                (linkId,)).fetchone()[0])
+            _policyName = str(db.execute(
+                'SELECT policyName FROM policyGroup WHERE policyGroupName=?',
+                (_policyGroupName,)).fetchone()[0])
+            _collectorName = str(db.execute(
+                'SELECT collectorName from policyGroup WHERE policyGroupName=?',
+                (_policyGroupName,)).fetchone()[0])
+            _policyVersion = str(db.execute(
+                'SELECT policyVersion from policy WHERE policyName=?',
+                (_policyName,)).fetchone()[0])
+            _policyDescription = str(db.execute(
+                'SELECT policyDescription from policy WHERE policyName=?',
+                (_policyName,)).fetchone()[0])
+            _policyComment = str(db.execute(
+                'SELECT policyComment from policy WHERE policyName=?',
+                (_policyName,)).fetchone()[0])
+            _policyIdentifier = str(db.execute(
+                'SELECT policyIdentifier from policy WHERE policyName=?',
+                (_policyName,)).fetchone()[0])
+            _policyPeriod = db.execute(
+                'SELECT policyPeriod from policy WHERE policyName=?',
+                (_policyName,)).fetchone()[0]
+            _policyPaths = db.execute(
+                'SELECT policyPathName from linkPolicyPath WHERE policyName=?',
+                (_policyName,)).fetchall()
+
+            pathString = ''
+            for policyPath in _policyPaths:
+                pathString += str(policyPath[0]) + ','
+
+            pathString = pathString[:-1]
+            # pathString += '"'
+
+            _addressFamily = 'ipv4'
+            _destinationIp = str(db.execute(
+                'SELECT collectorAddress FROM collector WHERE collectorName=?',
+                (_collectorName,)).fetchone()[0])
+            _rmtPort = db.execute(
+                'SELECT collectorPort FROM collector WHERE collectorName=?',
+                (_collectorName,)).fetchone()[0]
+
+            _routers = db.execute(
+                'SELECT routerName from linkSubscriptionRouter WHERE linkId=?', (linkId,)).fetchall()
+
+            result = 1
+
+            for routerName in _routers:
+                _routerName = str(routerName[0])
+                router = db.execute(
+                    'SELECT routerAddress, routerUsername, routerPassword, routerPort, configType ''FROM router WHERE routerName=?',
+                    (_routerName,)).fetchone()
+                _routerAddress = str(router[0])
+                _routerUsername = str(router[1])
+                _routerPassword = str(router[2])
+                _routerPort = router[3]
+                _configType = router[4]
+
+                conf = pdtconf.Pdtconf(_confType, _routerAddress, _routerUsername, _routerPassword, _routerPort,
+                                   _accessProtocol, _policyName, _policyVersion, _policyDescription, _policyComment,
+                                   _policyIdentifier, _policyPeriod, pathString,
+                                   _addressFamily, _destinationIp, _rmtPort, _policyGroupName)
+
+                print (_confType, _routerAddress, _routerUsername, _routerPassword, _routerPort,
+                   _accessProtocol, _policyName, _policyVersion, _policyDescription, _policyComment,
+                   _policyIdentifier, _policyPeriod, pathString,
+                   _addressFamily, _destinationIp, _rmtPort, _policyGroupName)
+
+                result = conf.deletePolicyGroup()
+
+            if result == 0:
+                db.execute('DELETE FROM linkSubscriptionRouter WHERE linkId=?', (linkId,))
+                db.commit()
+
+                return {'statusCode': '200'}
+
+            else:
+                return {'statusCode': '400'}
 
         except Exception as e:
             return {'error': str(e)}

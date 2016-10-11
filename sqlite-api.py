@@ -1220,7 +1220,7 @@ class singlePolicyRouterLink(Resource):
                 result = conf.deletePolicyGroup()
 
             if result == 0:
-                db.execute('DELETE FROM linkSubscriptionRouter WHERE linkId=?', (linkId,))
+                db.execute('DELETE FROM linkPolicyRouter WHERE linkId=?', (linkId,))
                 db.commit()
 
                 return {'statusCode': '200'}

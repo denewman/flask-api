@@ -5,9 +5,9 @@ import sqlite3
 import os
 import imp
 
-mdtconf_ydk = imp.load_source('mdtconf_ydk', '../teleconf/model/mdtconf_ydk.py')
-mdtconf_ssh = imp.load_source('mdtconf_ssh', '../teleconf/model/mdtconf_ssh.py')
-pdtconf = imp.load_source('pdtconf', '../teleconf/model/pdtconf.py')
+#mdtconf_ydk = imp.load_source('mdtconf_ydk', '../teleconf/model/mdtconf_ydk.py')
+#mdtconf_ssh = imp.load_source('mdtconf_ssh', '../teleconf/model/mdtconf_ssh.py')
+#pdtconf = imp.load_source('pdtconf', '../teleconf/model/pdtconf.py')
 
 # from models import *
 
@@ -336,6 +336,47 @@ class sensor(Resource):
             return {'error': str(e)}
 
 class singleSensor(Resource):
+    
+    def get(self, sensorName):
+        try:
+            db = get_db()
+            db.execute('PRAGMA foreign_keys=ON')
+            query = db.execute('SELECT sensorName FROM sensor WHERE sensorName =?', (sensorName,))
+            
+            sensor = query.fetchone()
+        
+            query = db.execute('SELECT sensorPathName FROM linkSensorPath WHERE sensorName = ?', (sensor[0],))
+            paths = query.fetchall()
+
+            path_list = []
+            for path in paths:
+                path_list.append(path[0])
+
+            data = {
+                'sensorName': sensor[0],
+                'sensorPath': path_list
+            }
+
+            return {'Status Code': '200', 'data': data}
+
+        except Exception as e:
+            return {'error': str(e)}
+            
+            qryData = {
+                'destinationGroupName': destinationGroup[0],
+                'destinationGroupAddress': destinationGroup[1],
+                'destinationGroupPort': destinationGroup[2],
+                'destinationGroupEncoding': destinationGroup[3],
+                'destinationGroupProtocol': destinationGroup[4]
+            }
+            result = {'Status Code': '200', 'data': qryData}
+
+            return result
+            
+
+        except Exception as e:
+            return {'error': str(e)}
+    
     def delete(self, sensorName):
         try:
             db = get_db()
@@ -502,6 +543,25 @@ class collector(Resource):
             return {'error': str(e)}
 
 class singleCollector(Resource):
+    def get(self, collectorName):
+        try:
+            db = get_db()
+            query = db.execute('SELECT collectorName, collectorAddress, collectorEncoding, collectorPort, collectorProtocol FROM collector WHERE collectorName =?', (collectorName,))
+            collector= query.fetchone()
+
+            data = {
+                'collectorName': collector[0],
+                'collectorAddress': collector[1],
+                'collectorEncoding': collector[2],
+                'collectorPort': collector[3],
+                'collectorProtocol': collector[4]
+            }
+
+            return {'Status Code': '200', 'data': data}
+
+        except Exception as e:
+            return {'error': str(e)}
+            
     def delete(self, collectorName):
         try:
             db = get_db()
@@ -612,6 +672,35 @@ class policy(Resource):
             return {'error': str(e)}
 
 class singlePolicy(Resource):
+    def get(self, policyName):
+        try:
+            db = get_db()
+            query = db.execute(
+                'SELECT policyName, policyVersion, policyDescription, policyComment, policyIdentifier, policyPeriod FROM policy WHERE policyName=?',(policyName,))
+            policy = query.fetchone()
+
+
+            query = db.execute('SELECT policyPathName FROM linkPolicyPath WHERE policyName=?', (policy[0],))
+            paths = query.fetchall()
+
+            path_list = []
+            for path in paths:
+                path_list.append(path[0])
+
+            data = {
+                'policyName': policy[0],
+                'policyVersion': policy[1],
+                'policyDescription': policy[2],
+                'policyComment': policy[3],
+                'policyIdentifier': policy[4],
+                'policyPeriod': policy[5],
+                'policyPath': path_list
+            }
+
+            return {'Status Code': '200', 'data': data}
+
+        except Exception as e:
+            return {'error': str(e)}
     def delete(self, policyName):
         try:
             db = get_db()
@@ -705,6 +794,26 @@ class router(Resource):
             return {'error': str(e)}
 
 class singleRouter(Resource):
+    def get(self, routerName):
+        try:
+            db = get_db()
+            query = db.execute('SELECT routerName, routerAddress, routerUsername, routerPassword, routerPort, configType FROM router WHERE routerName =?',(routerName,))
+            router = query.fetchone()
+
+            data = {
+                'routerName': router[0],
+                'routerAddress': router[1],
+                'routerUsername': router[2],
+                'routerPassword': router[3],
+                'routerPort': router[4],
+                'configType': router[5]
+            }
+
+            return {'Status Code': '200', 'data': data}
+
+        except Exception as e:
+            return {'error': str(e)}
+            
     def delete(self, routerName):
         try:
             db = get_db()

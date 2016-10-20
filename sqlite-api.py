@@ -9,8 +9,6 @@ mdtconf_ydk = imp.load_source('mdtconf_ydk', '../teleconf/model/mdtconf_ydk.py')
 mdtconf_ssh = imp.load_source('mdtconf_ssh', '../teleconf/model/mdtconf_ssh.py')
 pdtconf = imp.load_source('pdtconf', '../teleconf/model/pdtconf.py')
 
-# from models import *
-
 app = Flask(__name__)
 api = Api(app)
 
@@ -141,6 +139,25 @@ class subscription(Resource):
             return {'error': str(e)}
 
 class singleSubscription(Resource):
+    def get(self, subscriptionName):
+        try:
+            db = get_db()
+            query = db.execute(
+                'SELECT subscriptionId, subscriptionName, destinationGroupName, sensorName, subscriptionInterval FROM subscription WHERE subscriptionName =?',(subscriptionName,))
+            subscription = query.fetchone()
+            data = {
+                'subscriptionId': subscription[0],
+                'subscriptionName': subscription[1],
+                'destinationGroupName': subscription[2],
+                'sensorName': subscription[3],
+                'subscriptionInterval': subscription[4]
+            }
+
+            return {'Status Code': '200', 'data': data}
+
+        except Exception as e:
+            return {'error': str(e)}
+    
     def delete(self, subscriptionName):
         try:
             db = get_db()
@@ -455,6 +472,26 @@ class policyGroup(Resource):
             return {'error': str(e)}
 
 class singlePolicyGroup(Resource):
+
+    def get(self, policyGroupName):
+        try:
+            db = get_db()
+            query = db.execute(
+                'SELECT policyGroupName, collectorName, policyName FROM policyGroup WHERE policyGroupName=?', (policyGroupName,))
+            policyGroup = query.fetchone()
+
+            data = {
+                'policyGroupName': policyGroup[0],
+                'collectorName': policyGroup[1],
+                'policyName': policyGroup[2]
+            }
+
+
+            return {'Status Code': '200', 'data': data}
+
+        except Exception as e:
+            return {'error': str(e)}
+
     def delete(self, policyGroupName):
         try:
             db = get_db()

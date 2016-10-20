@@ -93,7 +93,7 @@ class visualization(Resource):
             data = r.json()
             df = json_normalize(data['data']['result'])
             table = FF.create_table(df)
-            py.plot(table, filename='pandas_table',,auto_open=False)
+            py.plot(table, filename='pandas_table',auto_open=False)
 
             #Get data for graph
             time, value = [],[]

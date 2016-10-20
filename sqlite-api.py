@@ -4,6 +4,19 @@ from flask_restful.utils import cors
 import sqlite3
 import os
 import imp
+#For data visualization
+import pandas as pd
+from pandas.io.json import json_normalize
+import requests
+import json
+import flask
+import plotly.plotly as py
+from plotly.tools import FigureFactory as FF
+import plotly.graph_objs as go
+import plotly.tools as tls
+import numpy as np
+
+tls.set_credentials_file(username='rmit-s3471293-Zhongyang-Wang', api_key='gw5mcyvrf8')
 
 mdtconf_ydk = imp.load_source('mdtconf_ydk', '../teleconf/model/mdtconf_ydk.py')
 mdtconf_ssh = imp.load_source('mdtconf_ssh', '../teleconf/model/mdtconf_ssh.py')
@@ -64,6 +77,54 @@ def after_request(response):
     response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
     response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
     return response
+
+
+#Data Visualization Part
+class visualization(Resource):
+    def post(self):
+        try:
+            #Parse the arguments
+            parser = reqparse.RequestParser()
+            parser.add_argument('queryName', type=str)
+            args = parser.parse_args()
+            query = args['queryName']
+            full_query = 'http://localhost:9090/api/v1/query?query='+query
+            r = requests.get(full_query)
+            data = r.json()
+            df = json_normalize(data['data']['result'])
+            table = FF.create_table(df)
+            py.plot(table, filename='pandas_table',,auto_open=False)
+
+            #Get data for graph
+            time, value = [],[]
+            for item in data['data']['result']:
+                time.append(float(item['value'][0]))
+                value.append(float(item['value'][1]))
+            #configure plotly
+            traces = []
+            trace = go.Bar(
+                x=np.array(time),
+                y=np.array(value),
+                name='data'
+            )
+            traces+=[trace]
+            layout=go.Layout(
+                title='Data Visualization from Prometheus',
+                xaxis=dict(
+                    title='System Time'
+                ),
+                yaxis=dict(
+                    title='Number of Requests'
+                )
+            )
+            fig = go.Figure(data=traces, layout=layout)
+            py.plot(fig, filename='styling-names',auto_open=False)
+            #printer = tls.get_embed(plot_url)
+        
+            return flask.jsonify(result=data['data']['result'])
+        except Exception as e:
+            return {'error': str(e)}
+#Data visualization End
 
 
 class subscription(Resource):
@@ -1396,6 +1457,7 @@ api.add_resource(singleSensor, '/sensor/<sensorName>')
 api.add_resource(singlePolicyGroup, '/policyGroup/<policyGroupName>')
 api.add_resource(singleCollector, '/collector/<collectorName>')
 api.add_resource(singlePolicy, '/policy/<policyName>')
+api.add_resource(visualization, '/visualization', endpoint='visualization')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001, debug=True, threaded=True)

@@ -5,18 +5,18 @@ import sqlite3
 import os
 import imp
 #For data visualization
-#import pandas as pd
-#from pandas.io.json import json_normalize
+import pandas as pd
+from pandas.io.json import json_normalize
 import requests
 import json
 import flask
-#import plotly.plotly as py
-#from plotly.tools import FigureFactory as FF
-#import plotly.graph_objs as go
-#import plotly.tools as tls
-#import numpy as np
+import plotly.plotly as py
+from plotly.tools import FigureFactory as FF
+import plotly.graph_objs as go
+import plotly.tools as tls
+import numpy as np
 
-#tls.set_credentials_file(username='rmit-s3471293-Zhongyang-Wang', api_key='gw5mcyvrf8')
+tls.set_credentials_file(username='rmit-s3471293-Zhongyang-Wang', api_key='gw5mcyvrf8')
 
 mdtconf_ydk = imp.load_source('mdtconf_ydk', '../teleconf/model/mdtconf_ydk.py')
 mdtconf_ssh = imp.load_source('mdtconf_ssh', '../teleconf/model/mdtconf_ssh.py')

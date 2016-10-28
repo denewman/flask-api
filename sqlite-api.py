@@ -1438,6 +1438,12 @@ class singlePolicyRouterLink(Resource):
         except Exception as e:
             return {'error': str(e)}
 
+class resetDB(Resource):
+    def get(self):
+        try:
+            init_db()
+        except Exception as e:
+            return {'error': str(e)}
 
 api.add_resource(subscription, '/subscription')
 api.add_resource(destinationGroup, '/destinationGroup')
@@ -1458,6 +1464,7 @@ api.add_resource(singlePolicyGroup, '/policyGroup/<policyGroupName>')
 api.add_resource(singleCollector, '/collector/<collectorName>')
 api.add_resource(singlePolicy, '/policy/<policyName>')
 api.add_resource(visualization, '/visualization', endpoint='visualization')
+api.add_resource(resetDB, '/resetDB')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001, debug=True, threaded=True)

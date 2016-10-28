@@ -98,7 +98,9 @@ class visualization(Resource):
             #Get data for graph
             time, value = [],[]
             for item in data['data']['result']:
-                time.append(float(item['value'][0]))
+                spliter = '/'
+                xName = str(item['metric']['instance'])+spliter+str(item['value'][0])
+                time.append(xName)
                 value.append(float(item['value'][1]))
             #configure plotly
             traces = []

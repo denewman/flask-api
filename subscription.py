@@ -1,7 +1,7 @@
 from flask_restful import reqparse
 
 
-def post(resource, db):
+def post(db):
     try:
         # Parse the arguments
         parser = reqparse.RequestParser()
@@ -37,7 +37,7 @@ def post(resource, db):
     except Exception as e:
         return {'error': str(e)}
 
-def get(resource, db):
+def get(db):
     try:
         cursor = db.execute(
             'SELECT subscriptionId, subscriptionName, destinationGroupName, sensorName, subscriptionInterval FROM subscription ORDER BY subscriptionName DESC')

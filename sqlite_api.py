@@ -15,7 +15,7 @@ from plotly.tools import FigureFactory as FF
 import plotly.graph_objs as go
 import plotly.tools as tls
 import numpy as np
-from subscription import subscription, singleSubscription
+
 
 tls.set_credentials_file(username='rmit-s3471293-Zhongyang-Wang', api_key='gw5mcyvrf8')
 
@@ -1344,6 +1344,8 @@ class resetDB(Resource):
             init_db()
         except Exception as e:
             return {'error': str(e)}
+
+from subscription import subscription, singleSubscription
 
 api.add_resource(subscription, '/subscription')
 api.add_resource(destinationGroup, '/destinationGroup')

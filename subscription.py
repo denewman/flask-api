@@ -1,5 +1,6 @@
 from flask_restful import Resource, reqparse
-import sqlite_api
+from sqlite_api import get_db
+
 
 class subscription(Resource):
     def post(self):
@@ -19,7 +20,7 @@ class subscription(Resource):
             _sensorName = args['sensorName']
             _subscriptionInterval = args['subscriptionInterval']
 
-            db = sqlite_api.get_db()
+            db = get_db()
             db.execute('PRAGMA foreign_keys=ON')
             cursor = db.execute(
                 'INSERT INTO subscription (subscriptionId, subscriptionName, destinationGroupName, sensorName, subscriptionInterval) VALUES (?, ?, ?, ?, ?)',
@@ -41,7 +42,7 @@ class subscription(Resource):
 
     def get(self):
         try:
-            db = sqlite_api.get_db()
+            db = get_db()
             cursor = db.execute(
                 'SELECT subscriptionId, subscriptionName, destinationGroupName, sensorName, subscriptionInterval FROM subscription ORDER BY subscriptionName DESC')
             data = cursor.fetchall()
@@ -64,7 +65,7 @@ class subscription(Resource):
 
     def delete(self):
         try:
-            db = sqlite_api.get_db()
+            db = get_db()
             db.execute('PRAGMA foreign_keys=ON')
             db.execute('DELETE FROM subscription')
             db.commit()
@@ -77,7 +78,7 @@ class subscription(Resource):
 class singleSubscription(Resource):
     def get(self, subscriptionName):
         try:
-            db = sqlite_api.get_db()
+            db = get_db()
             query = db.execute(
                 'SELECT subscriptionId, subscriptionName, destinationGroupName, sensorName, subscriptionInterval FROM subscription WHERE subscriptionName =?',
                 (subscriptionName,))
@@ -97,7 +98,7 @@ class singleSubscription(Resource):
 
     def delete(self, subscriptionName):
         try:
-            db = sqlite_api.get_db()
+            db = get_db()
             db.execute('PRAGMA foreign_keys=ON')
             db.execute('DELETE FROM subscription WHERE subscriptionName=?', (subscriptionName,))
             db.commit()

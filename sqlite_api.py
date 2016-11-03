@@ -133,12 +133,12 @@ class visualization(Resource):
 class subscription(Resource):
     def post(self):
         db = get_db()
-        return subscription.post(db)
+        return subscription.post(Resource, db)
 
 
     def get(self):
         db = get_db()
-        return subscription.get(db)
+        return subscription.get(Resource, db)
 
 
     def delete(self):
